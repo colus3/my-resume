@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import Title from './title';
+import Content from './content';
 
 export default class App extends React.Component {
   
@@ -10,7 +11,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Title/>
-        <h3>Example heading <span className="label label-default">New</span></h3>
+        <Content/>
       </div>
     );
   }
