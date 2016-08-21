@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf build public/bundle.js",
-    "build": "babel server --out-dir build --presets=es2015 && webpack",
-    "start": "cross-env NODE_ENV=production node ./build/server.js"
+    "build": "webpack",
+    "start": "cross-env NODE_ENV=production babel-node ./server/server.js --presets=es2015"
   },
   "author": "Donghwan Lee",
   "license": "ISC",
@@ -25,14 +25,15 @@
     "express": "^4.14.0",
     "node-sass": "^3.8.0",
     "path": "^0.12.7",
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0",
+    "react": "^15.3.1",
+    "react-dom": "^15.3.1",
     "sass-loader": "^4.0.0",
     "style-loader": "^0.13.1",
     "underscore": "^1.8.3",
     "webpack": "^1.13.2"
   },
   "devDependencies": {
-    "babel-cli": "^6.11.4"
+    "babel-cli": "^6.11.4",
+    "react-addons-test-utils": "^15.3.1"
   }
 }

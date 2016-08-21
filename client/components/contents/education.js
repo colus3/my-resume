@@ -7,7 +7,7 @@ export default class Education extends React.Component {
   
   static propTypes() {
     return {
-      className: React.PropTypes.string
+      'className': React.PropTypes.string
     };
   }
   
