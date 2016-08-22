@@ -3,8 +3,8 @@
  */
 import React from 'react';
 import Profile from './contents/profile';
-import WorkExperience from './contents/workExperience';
-import ProjectExperience from './contents/projectExperience';
+import WorkExp from './contents/workExp';
+import ProjectExp from './contents/projectExp';
 
 export default class LeftContent extends React.Component {
   
@@ -18,8 +18,8 @@ export default class LeftContent extends React.Component {
     return (
       <div className={this.props.className}>
         <Profile className="page-header"/>
-        <WorkExperience className="page-header"/>
-        <ProjectExperience className="page-header"/>
+        <WorkExp className="page-header"/>
+        <ProjectExp className="page-header"/>
       </div>
     );
   }
