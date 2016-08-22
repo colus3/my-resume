@@ -26,6 +26,18 @@ module.exports = [
     module: {
       preLoaders: preLoaders,
       loaders: loaders
+    },
+    plugins: [
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        }
+      })
+    ],
+    devServer: {
+      inline: true,
+      port: 7777,
+      contentBase: path.join(__dirname, '/public/')
     }
   }
 ];

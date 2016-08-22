@@ -2,12 +2,13 @@
   "name": "my-resume",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "./server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf build public/bundle.js",
     "build": "webpack",
-    "start": "cross-env NODE_ENV=production babel-node ./server/server.js --presets=es2015"
+    "start": "webpack && cross-env NODE_ENV=production babel-node ./server/server.js --presets=es2015",
+    "devel": "webpack-dev-server --hot"
   },
   "author": "Donghwan Lee",
   "license": "ISC",
@@ -34,6 +35,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
-    "react-addons-test-utils": "^15.3.1"
+    "react-addons-test-utils": "^15.3.1",
+    "webpack-dev-server": "^1.14.1"
   }
 }
