@@ -9,7 +9,7 @@ export default class Interest extends React.Component {
     super(props);
     
     this.interestDatas = [
-      'Scala', 'Functional Programming', 'iOS', 'Swift', 'ECMA Script 6', 'React', 'Docker', 'Javascript', 'Java 8', 'Modern C++', 'AKKA', 'Node.js', 'Apache Spark', 'NoSQL', 'IoT'
+      'Scala', 'Functional Programming', 'iOS', 'Swift', 'ECMA Script 6', 'React', 'Docker', 'Javascript', 'Java 8', 'Modern C++', 'Akka', 'Node.js', 'Apache Spark', 'NoSQL', 'IoT'
     ];
   }
   

@@ -14,7 +14,7 @@ export default class WorkExperience extends React.Component {
     this.companys = [
       new Company('1', 'WideTNS', '2008.09', '2013.01', 'C/C++, Java를 이용한 서버 프로세스 개발'),
       new Company('2', 'Freelancer', '2013.02', '2013.11', 'C, Java, Python, SNMP를 이용한 서버 프로세스 개발'),
-      new Company('3', 'CodeBean', '2013.12', '2016.07', 'Java, Spring을 이용한 웹 및 API 서버 개발')
+      new Company('3', 'CODEbean', '2013.12', '2016.07', 'Java, Spring을 이용한 웹 및 API 서버 개발')
     ];
   }
   
