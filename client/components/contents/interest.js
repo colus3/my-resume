@@ -9,7 +9,7 @@ export default class Interest extends React.Component {
     super(props);
     
     this.interestDatas = [
-      'Scala', 'Javascript', 'React', 'Functional Programming', 'iOS', 'Swift', 'Docker', 'Java 8', 'Modern C++', 'AKKA', 'Node.js', 'Apache Spark', 'NoSQL', 'IoT'
+      'Scala', 'Functional Programming', 'iOS', 'Swift', 'ECMA Script 6', 'React', 'Docker', 'Javascript', 'Java 8', 'Modern C++', 'AKKA', 'Node.js', 'Apache Spark', 'NoSQL', 'IoT'
     ];
   }
   
@@ -37,7 +37,7 @@ export default class Interest extends React.Component {
     
     return (
       <div>
-        <h1 className={this.props.className}>Interest</h1>
+        <h1 className={this.props.className}>INTEREST</h1>
         <h3>{interests}</h3>
       </div>
     );

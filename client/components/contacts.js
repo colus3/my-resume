@@ -5,8 +5,8 @@ import React from 'react';
 
 export default class Contacts extends React.Component {
   
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       birthDate: '1982.01.26',
       phone: '010-2041-9909',

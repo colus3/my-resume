@@ -8,8 +8,8 @@ import TimeLineData from '../../models/timelineData';
 
 export default class WorkExperience extends React.Component {
   
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     
     this.companys = [
       new Company('1', 'WideTNS', '2008.09', '2013.01', 'C/C++, Java를 이용한 서버 프로세스 개발'),

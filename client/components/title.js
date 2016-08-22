@@ -6,8 +6,9 @@ import Contacts from './contacts';
 
 export default class Title extends React.Component {
   
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    
     this.state = {
       name: 'Donghwan Lee',
       description: '믿음이 가는 프로그래머',
@@ -43,11 +44,5 @@ export default class Title extends React.Component {
     );
   }
   
-  compomentWillMount() {
-    console.log('componentDidMount');
-  }
-  
-  compomentDidMount() {
-    console.log('Test');
-  }
+
 }

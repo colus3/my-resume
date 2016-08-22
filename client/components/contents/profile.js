@@ -5,6 +5,10 @@ import React from 'react';
 
 export default class Profile extends React.Component {
   
+  constructor(props) {
+    super(props);
+  }
+  
   static propTypes() {
     return {
       'className': React.PropTypes.string

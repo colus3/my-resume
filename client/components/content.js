@@ -7,8 +7,8 @@ import RightContent from './right';
 
 export default class Content extends React.Component {
   
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {};
   }
   

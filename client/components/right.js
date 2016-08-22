@@ -8,6 +8,10 @@ import Interest from './contents/interest';
 
 export default class RightContent extends React.Component {
   
+  constructor(props) {
+    super(props);
+  }
+  
   static propTypes() {
     return {
       className: React.PropTypes.string

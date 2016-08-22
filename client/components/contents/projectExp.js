@@ -8,8 +8,8 @@ import TimeLineData from '../../models/timelineData';
 
 export default class ProjectExperience extends React.Component {
   
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     
     this.projects = [
       new Project('1', '온라인 과금 게이트웨이(OCG) 구축','WideTNS', '2008.09', '2009.05', ['C++', 'Java', 'Unix/Linux'], 'Linux에서 동작하는 C++, Java 프로세스 개발'),

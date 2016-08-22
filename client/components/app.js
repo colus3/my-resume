@@ -7,6 +7,10 @@ import Content from './content';
 
 export default class App extends React.Component {
   
+  constructor(props) {
+    super(props);
+  }
+  
   render() {
     return (
       <div>

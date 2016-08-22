@@ -8,6 +8,10 @@ import ProjectExp from './contents/projectExp';
 
 export default class LeftContent extends React.Component {
   
+  constructor(props) {
+    super(props);
+  }
+  
   static propTypes() {
     return {
       className: React.PropTypes.string
