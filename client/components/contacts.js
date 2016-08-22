@@ -32,7 +32,7 @@ export default class Contacts extends React.Component {
             <abbr title="phone">{this.state.phone}</abbr> <span className="glyphicon glyphicon-earphone" aria-hidden="true"/>
           </h4>
           <h4 className="text-right">
-            <a href="mailto:#">{this.state.email}</a> <span className="glyphicon glyphicon-envelope" aria-hidden="true"/>
+            <a href={`mailto:${this.state.email}`}>{this.state.email}</a> <span className="glyphicon glyphicon-envelope" aria-hidden="true"/>
           </h4>
           <h4 className="text-right">
             {this.state.address} <span className="glyphicon glyphicon-home" aria-hidden="true"/>
