@@ -11,48 +11,39 @@ export default class Skill extends React.Component {
     this.skillDatas = [
       {
         'skillName': 'Java',
-        'level': { 'width': '80%' },
-        'color': 'progress-bar progress-bar-success'
+        'level': { 'width': '80%' }
       },
       {
         'skillName': 'C/C++',
-        'level': { 'width': '80%' },
-        'color': 'progress-bar progress-bar-info'
+        'level': { 'width': '80%' }
       },
       {
         'skillName': 'Java 8',
-        'level': { 'width': '50%' },
-        'color': 'progress-bar progress-bar-success'
+        'level': { 'width': '50%' }
       },
       {
         'skillName': 'Spring',
-        'level': { 'width': '60%' },
-        'color': 'progress-bar progress-bar-warning'
+        'level': { 'width': '60%' }
       },
       {
         'skillName': 'Swift',
-        'level': { 'width': '30%' },
-        'color': 'progress-bar progress-bar-danger'
+        'level': { 'width': '30%' }
       },
       {
         'skillName': 'Node.js',
-        'level': { 'width': '20%' },
-        'color': 'progress-bar progress-bar-success'
+        'level': { 'width': '20%' }
       },
       {
         'skillName': 'React',
-        'level': { 'width': '20%' },
-        'color': 'progress-bar progress-bar-info'
+        'level': { 'width': '20%' }
       },
       {
         'skillName': 'Oracle',
-        'level': { 'width': '70%' },
-        'color': 'progress-bar progress-bar-warning'
+        'level': { 'width': '70%' }
       },
       {
         'skillName': 'MySQL',
-        'level': { 'width': '70%' },
-        'color': 'progress-bar progress-bar-danger'
+        'level': { 'width': '70%' }
       }
     ];
   }
@@ -64,15 +55,13 @@ export default class Skill extends React.Component {
   }
   
   render() {
-    var twenty = { width: '20%' };
-    var forty = { width: '40%' };
-    var sixty = { width: '60%' };
-    var eighty = { width: '80%' };
+    const color = ['success', 'info', 'warning', 'danger', 'primary'];
     
     const skills = this.skillDatas.map( (skill, i) => {
+      
       return (
         <div className="progress" key={i}>
-          <div className={skill.color} role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style={skill.level}>
+          <div className={`progress-bar progress-bar-${color[i % 5]}`} role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style={skill.level}>
             {skill.skillName}
           </div>
         </div>
