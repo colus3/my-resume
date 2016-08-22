@@ -4,6 +4,7 @@
 import React from 'react';
 import Education from './contents/education';
 import Skill from './contents/skill';
+import Interest from './contents/interest';
 
 export default class RightContent extends React.Component {
   
@@ -18,6 +19,7 @@ export default class RightContent extends React.Component {
       <div className={this.props.className}>
         <Education className="page-header"/>
         <Skill className="page-header"/>
+        <Interest className="page-header"/>
       </div>
     );
   }

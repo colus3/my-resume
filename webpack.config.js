@@ -19,6 +19,14 @@ var loaders = [
   }
 ];
 
+var plugins = [
+  new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false
+    }
+  })
+];
+
 module.exports = [
   {
     name: 'browser',
@@ -31,13 +39,7 @@ module.exports = [
       preLoaders: preLoaders,
       loaders: loaders
     },
-/*    plugins: [
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false
-        }
-      })
-    ],*/
+/*    plugins: plugins, */
     devServer: {
       inline: true,
       port: 7777,
@@ -68,12 +70,6 @@ module.exports = [
         }
       ]
     },
-/*    plugins: [
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false
-        }
-      })
-    ],*/
+/*    plugins: plugins*/
   }
 ];

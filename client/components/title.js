@@ -10,7 +10,7 @@ export default class Title extends React.Component {
     super();
     this.state = {
       name: 'Donghwan Lee',
-      description: '프로그래머',
+      description: '믿음이 가는 프로그래머',
       userImage: 'images/my-image.jpg'
     };
   }
