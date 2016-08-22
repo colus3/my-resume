@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
+    "cross-env": "^2.0.0",
     "react-addons-test-utils": "^15.3.1",
     "webpack-dev-server": "^1.14.1"
   }
