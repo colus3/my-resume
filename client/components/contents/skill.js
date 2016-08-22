@@ -71,7 +71,7 @@ export default class Skill extends React.Component {
     
     const skills = this.skillDatas.map( (skill, i) => {
       return (
-        <div className="progress">
+        <div className="progress" key={i}>
           <div className={skill.color} role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style={skill.level}>
             {skill.skillName}
           </div>
