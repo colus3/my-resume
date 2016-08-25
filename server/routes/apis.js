@@ -3,7 +3,6 @@
  */
 import express from 'express';
 import phantom from 'phantom';
-import Horseman from 'node-horseman';
 
 const router = express.Router();
 
@@ -13,32 +12,32 @@ router.get('/me', function(req, res) {
   });
 });
 
-router.get('/users/:user/profile', function(req, res) {
+router.get('/profile', function(req, res) {
   res.json({
     test: 'profile'
   });
 });
 
-router.get('/users/:user/workExps', function(req, res) {
+router.get('/workExps', function(req, res) {
   res.json({
     test: 'workExps'
   });
 });
 
-router.get('/users/:user/projectExps', function(req, res) {
+router.get('/projectExps', function(req, res) {
   res.json({
     test: 'projectExps'
   });
 });
 
-router.get('/users/:user/skills', function(req, res) {
+router.get('/skills', function(req, res) {
   res.json({
     test: 'skills'
   });
 });
 
 
-router.get('/users/:user/interests', function(req, res) {
+router.get('/interests', function(req, res) {
   res.json({
     test: 'interests'
   });
