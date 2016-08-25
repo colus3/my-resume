@@ -60,8 +60,21 @@ export default class Skill extends React.Component {
     const skills = this.skillDatas.map( (skill, i) => {
       
       return (
-        <div className="progress" key={i}>
+        <div className="progress hidden-print" key={i}>
           <div className={`progress-bar progress-bar-${color[i % 5]}`} role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style={skill.level}>
+            {skill.skillName}
+          </div>
+        </div>
+      );
+    });
+    
+    // visible-print
+  
+    const skillsPrint = this.skillDatas.map( (skill, i) => {
+    
+      return (
+        <div className="progress visible-print" key={i}>
+          <div className="progress-bar progress-bar-gray" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style={skill.level}>
             {skill.skillName}
           </div>
         </div>
@@ -72,6 +85,7 @@ export default class Skill extends React.Component {
       <div>
         <h1 className={this.props.className}>SKILL</h1>
         {skills}
+        {skillsPrint}
       </div>
     );
   }

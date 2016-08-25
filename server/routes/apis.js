@@ -45,6 +45,7 @@ router.get('/interests', function(req, res) {
 
 router.get('/download', function(req, res) {
   
+  const id = req.query.id;
   let filename = 'resume.pdf';
   let _ph, _page;
   
@@ -55,8 +56,7 @@ router.get('/download', function(req, res) {
     
   }).then(page => {
     _page = page;
-    console.log('page open');
-    return page.open('http://localhost:3000');
+    return page.open(`${req.protocol}://${req.get('host')}/${id ? id : ''}`);
     
   }).then(status => {
     console.log('status : ' + status);
@@ -66,11 +66,7 @@ router.get('/download', function(req, res) {
       orientation: 'portrait',
       margin: {left: '1cm', right: '1cm', top: '1cm', bottom: '1cm'}
     });
-  
-    _page.invokeMethod('evaluate', () => {
-      return Array.prototype.forEach.call(
-        document.getElementsByClassName('page-hidden'), (page_hidden, index) => page_hidden.style.display = 'none' );
-    });
+
     return _page.render(filename);
     
   }).then(() => {
