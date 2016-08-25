@@ -30,6 +30,9 @@ export default class Title extends React.Component {
               <h1 className="visible-xs-inline-block visible-sm-inline-block visible-lg-inline-block" style={nameStyle}>{this.state.name}</h1>
               <h2 className="visible-md-inline-block" style={nameStyle}>{this.state.name}</h2>
               <h2>{this.state.description}</h2>
+              <p>
+                <a className="btn btn-primary btn-lg page-hidden" id="page-hidden" href="api/download" role="button">PDF Download</a>
+              </p>
             </div>
             <div className="col-md-2 visible-md-block visible-lg-block">
               <p>
