@@ -46,3 +46,6 @@ public/server.js
 
 # Babel build directory
 build
+
+# PDF Temp directory
+tmp

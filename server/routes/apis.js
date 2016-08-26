@@ -46,7 +46,7 @@ router.get('/interests', function(req, res) {
 router.get('/download', function(req, res) {
   
   const id = req.query.id;
-  let filename = 'resume.pdf';
+  let filename = './tmp/resume.pdf';
   let _ph, _page;
   
   phantom.create().then(instance => {
@@ -64,7 +64,7 @@ router.get('/download', function(req, res) {
     _page.property('paperSize', {
       format: 'A2',
       orientation: 'portrait',
-      margin: {left: '1cm', right: '1cm', top: '1cm', bottom: '1cm'}
+      margin: {left: '1cm', right: '1cm', top: '0.5cm', bottom: '0.5cm'}
     });
 
     return _page.render(filename);

@@ -14,6 +14,13 @@ export default class Title extends React.Component {
       description: '믿음이 가는 프로그래머',
       userImage: 'images/my-image.jpg'
     };
+    
+    this.handleDownload = this.handleDownload.bind(this);
+  }
+  
+  handleDownload() {
+    location.href = 'api/download';
+    return false;
   }
   
   
@@ -31,7 +38,7 @@ export default class Title extends React.Component {
               <h2 className="visible-md-inline-block" style={nameStyle}>{this.state.name}</h2>
               <h2>{this.state.description}</h2>
               <p className="lead">
-                <a className="btn btn-outline-inverse btn-lg hidden-print" href="api/download" role="button">PDF 다운로드</a>
+                <a className="btn btn-outline-inverse btn-lg hidden-print" onClick={this.handleDownload} role="button">PDF 다운로드</a>
               </p>
             </div>
             <div className="col-md-2 visible-md-block visible-lg-block">
