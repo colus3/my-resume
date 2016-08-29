@@ -2,7 +2,7 @@
  * Created by Colus on 2016. 8. 19..
  */
 import React from 'react';
-import Contacts from './contacts';
+import Contacts from './contents/contacts';
 
 export default class Title extends React.Component {
   

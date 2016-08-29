@@ -4,12 +4,39 @@
 import express from 'express';
 import phantom from 'phantom';
 
+// import db from '../db/orientdb';
+import { getInitialData } from '../db/orientdb';
+
 const router = express.Router();
 
 router.get('/me', function(req, res) {
-  res.json({
-    test: 'me'
-  });
+  
+  // let object = new Object();
+  // // db.traverse().from('MY_RESUME').all()
+  // db.select('name as resumeName, user.name as name, user.phone as phone, user.email as email, user.birthDate as birthDate')
+  //   .from('myResume').one()
+  //   .then(result => {
+  //     object = result;
+  //     return db.select('Expand(contents)').from('myResume').all();
+  //   })
+  //   .then(result => {
+  //
+  //     object.contents = new Object();
+  //
+  //     Promise.all(result.map(resumeContent => {
+  //       if ( object.contents[resumeContent.type] ) {
+  //         object.contents[resumeContent.type] = new Array();
+  //       }
+  //       return db.select('Expand(content)').from(resumeContent['@rid']).all()
+  //         .then(content => {
+  //           object.contents[resumeContent.type] = content;
+  //           return content;
+  //         });
+  //     }))
+  //       .then(() => res.json(object));
+  //   });
+  
+  getInitialData().then( (object) => res.json(object) );
 });
 
 router.get('/profile', function(req, res) {
