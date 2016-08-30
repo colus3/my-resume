@@ -4,7 +4,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-export default class Profile extends React.Component {
+class Profile extends React.Component {
   
   constructor(props) {
     super(props);
