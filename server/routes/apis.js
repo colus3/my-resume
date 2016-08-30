@@ -91,7 +91,7 @@ router.get('/download', function(req, res) {
     _page.property('paperSize', {
       format: 'A2',
       orientation: 'portrait',
-      margin: {left: '1cm', right: '1cm', top: '0.5cm', bottom: '0.5cm'}
+      margin: {left: '1cm', right: '1cm', top: '2cm', bottom: '1cm'}
     });
 
     return _page.render(filename);

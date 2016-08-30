@@ -3,14 +3,15 @@
  */
 import React from 'react';
 import Contacts from './contents/contacts';
+import { connect } from 'react-redux';
 
-export default class Title extends React.Component {
+class Title extends React.Component {
   
   constructor(props) {
     super(props);
     
     this.state = {
-      name: 'Donghwan Lee',
+      name: this.props.name,
       description: '믿음이 가는 프로그래머',
       userImage: 'images/my-image.jpg'
     };
@@ -23,6 +24,11 @@ export default class Title extends React.Component {
     return false;
   }
   
+  static propTypes() {
+    return {
+      name: React.PropTypes.string
+    };
+  }
   
   render() {
     const baseStyle = { color: '#cdbfe3', backgroundColor: '#6f5499' };
@@ -53,6 +59,13 @@ export default class Title extends React.Component {
       </div>
     );
   }
-  
-
 }
+
+const mapStateToProps = (state) => {
+  return {
+    name: state.name
+    
+  };
+};
+
+export default connect(mapStateToProps)(Title);

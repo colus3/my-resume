@@ -11,21 +11,13 @@ import { reducer } from '../client/reducer';
 
 import { getInitialData } from './db/orientdb';
 
-// function serverSideRendering(req, res) {
-//   const reactString =  ReactDOMServer.renderToString(<App/>);
-//
-//   res.send(index.replace('<div id="root"></div>', `<div id="root">${reactString}</div>`));
-// }
-
 function renderToString() {
   
   return indexPage.replace('<div id="root"></div>', `<div id="root">${ReactDOMServer.renderToString(<App/>)}</div>`);
 }
 
 function handleRender(req, res) {
-  // Create a new Redux store instance
-  // const store = createStore(counterApp);
-  // const initialState = getInitialData();
+
   getInitialData().then((initialData) => {
 
     const store = createStore(reducer, initialData);
@@ -39,8 +31,6 @@ function handleRender(req, res) {
   
     // Grab the initial state from our Redux store
     const initialState = store.getState();
-  
-    console.log(`initialData1 : ${JSON.stringify(initialState)}`);
   
     // Send the rendered page back to the client
     res.send(renderFullPage(html, initialState));

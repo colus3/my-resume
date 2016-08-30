@@ -25,9 +25,9 @@ export default class Content extends React.Component {
             <Education className="page-header"/>
             <Skill className="page-header"/>
             <Interest className="page-header"/>
+            <WorkExp className="page-header"/>
           </div>
           <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <WorkExp className="page-header"/>
             <ProjectExp className="page-header"/>
           </div>
         </div>

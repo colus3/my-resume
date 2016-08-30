@@ -2,22 +2,28 @@
  * Created by Colus on 2016. 8. 20..
  */
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default class Contacts extends React.Component {
+class Contacts extends React.Component {
   
   constructor(props) {
     super(props);
     this.state = {
-      birthDate: '1982.01.26',
-      phone: '010-2041-9909',
-      email: 'colus4@gmail.com',
-      address: '인천 서구 청마로4번길 6'
+      birthDate: this.props.birthDate,
+      phone: this.props.phone,
+      email: this.props.email,
+      address: this.props.address
     };
   }
   
   static propTypes() {
     return {
-      className: React.PropTypes.string
+      className: React.PropTypes.string,
+      address: React.PropTypes.string,
+      name: React.PropTypes.string,
+      phone: React.PropTypes.string,
+      email: React.PropTypes.string,
+      birthDate: React.PropTypes.object,
     };
   }
   
@@ -42,3 +48,16 @@ export default class Contacts extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+
+  return {
+    phone: state.phone,
+    email: state.email,
+    address: state.address,
+    birthDate: new Date(state.birthDate).toISOString().slice(0,10)
+    
+  };
+};
+
+export default connect(mapStateToProps)(Contacts);
