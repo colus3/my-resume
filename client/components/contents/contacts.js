@@ -12,8 +12,11 @@ class Contacts extends React.Component {
       birthDate: this.props.birthDate,
       phone: this.props.phone,
       email: this.props.email,
-      address: this.props.address
+      address: this.props.address,
+      homepage: this.props.homepage
     };
+  
+    this.handleHomePage = this.handleHomePage.bind(this);
   }
   
   static propTypes() {
@@ -24,7 +27,13 @@ class Contacts extends React.Component {
       phone: React.PropTypes.string,
       email: React.PropTypes.string,
       birthDate: React.PropTypes.object,
+      homepage: React.PropTypes.string
     };
+  }
+  
+  handleHomePage() {
+    location.href = `http://${this.state.homepage}`;
+    return false;
   }
   
   render() {
@@ -43,6 +52,9 @@ class Contacts extends React.Component {
           <h4 className="text-right">
             {this.state.address} <span className="glyphicon glyphicon-home" aria-hidden="true"/>
           </h4>
+          <h4 className="text-right">
+            <a href="#" onClick={this.handleHomePage}>{this.state.homepage}</a> <span className="glyphicon glyphicon-link" aria-hidden="true"/>
+          </h4>
         </address>
       </div>
     );
@@ -55,7 +67,8 @@ const mapStateToProps = (state) => {
     phone: state.phone,
     email: state.email,
     address: state.address,
-    birthDate: new Date(state.birthDate).toISOString().slice(0,10)
+    birthDate: new Date(state.birthDate).toISOString().slice(0,10),
+    homepage: state.homepage
     
   };
 };

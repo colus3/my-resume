@@ -696,7 +696,7 @@
     background-color: #999999 !important;
   }
 
-  .page-break { page-break-inside: avoid !important; page-break-before: always !important; }
+  .page-break { float: none !important; page-break-inside: avoid !important; page-break-before: always !important; }
 }
 
 .btn-outline-inverse {

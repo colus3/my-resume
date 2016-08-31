@@ -9,22 +9,27 @@ class Education extends React.Component {
   constructor(props) {
     super(props);
     
-    this.educationDatas = [
-      { 'startDate': '2000.03', 'endDate': '2008.02', 'content': '서경대학교 컴퓨터과학과' },
-      { 'startDate': '2007.11', 'endDate': '2008.02', 'content': 'C++ 윈도우 마스터(정부 지원 비트교육센터)' },
-    ];
+    // this.educationDatas = [
+    //   { 'startDate': '2000.03', 'endDate': '2008.02', 'content': '서경대학교 컴퓨터과학과' },
+    //   { 'startDate': '2007.11', 'endDate': '2008.02', 'content': 'C++ 윈도우 마스터(정부 지원 비트교육센터)' },
+    // ];
+    
+    this.state = {
+      education: this.props.education
+    };
   }
   
   static propTypes() {
     return {
-      'className': React.PropTypes.string
+      className: React.PropTypes.string,
+      education: React.PropTypes.object
     };
   }
   
   render() {
-    const educations = this.educationDatas.map( (education, i) => {
+    const educations = this.state.education.map( (education, i) => {
       return (
-        <li key={i}>{`${education.startDate} ~ ${education.endDate} ${education.content}`}</li>
+        <li key={i}>{`${new Date(education.startDate).toISOString().slice(0,7)} ~ ${new Date(education.startDate).toISOString().slice(0,7)} ${education.title}`}</li>
       );
     });
     
@@ -40,9 +45,8 @@ class Education extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  
   return {
-    
+    education: state.contents.education
   };
 };
 

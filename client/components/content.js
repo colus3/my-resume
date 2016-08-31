@@ -18,19 +18,26 @@ export default class Content extends React.Component {
   
   render() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <Profile className="page-header"/>
-            <WorkExp className="page-header"/>
+      <div>
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <Profile className="page-header"/>
+              <WorkExp className="page-header"/>
+            </div>
+            <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <Education className="page-header"/>
+              <Skill className="page-header"/>
+              <Interest className="page-header"/>
+            </div>
           </div>
-          <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-            <Education className="page-header"/>
-            <Skill className="page-header"/>
-            <Interest className="page-header"/>
-          </div>
-          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <ProjectExp className="page-header page-break"/>
+        </div>
+        <div className="page-break"></div>
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <ProjectExp className="page-header"/>
+            </div>
           </div>
         </div>
       </div>

@@ -18,7 +18,7 @@ export function getInitialData() {
   
   let object = new Object();
   
-  return db.select('name as resumeName, user.name as name, user.moto as moto, user.phone as phone, user.email as email, user.birthDate as birthDate, user.address as address')
+  return db.select('name as resumeName, user.name as name, user.moto as moto, user.phone as phone, user.email as email, user.birthDate as birthDate, user.address as address, user.homepage as homepage')
     .from('myResume').one()
     .then(result => {
       object = result;
@@ -32,7 +32,7 @@ export function getInitialData() {
         if ( object.contents[resumeContent.type] ) {
           object.contents[resumeContent.type] = new Array();
         }
-        return db.select('Expand(content)').from(resumeContent['@rid']).all()
+        return db.select('Expand(content)').from(resumeContent['@rid']).order('order').all()
           .then(content => {
             object.contents[resumeContent.type] = content;
             return content;

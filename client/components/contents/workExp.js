@@ -2,32 +2,37 @@
  * Created by Colus on 2016. 8. 20..
  */
 import React from 'react';
+import { connect } from 'react-redux';
+
 import TimeLine from '../common/timeline';
-import Company from '../../models/company';
 import TimeLineData from '../../models/timelineData';
 
-export default class WorkExperience extends React.Component {
+class WorkExperience extends React.Component {
   
   constructor(props) {
     super(props);
     
-    this.companys = [
-      new Company('1', 'WideTNS', '2008.02', '2013.01', 'C/C++, Java를 이용한 서버 프로세스 개발'),
-      new Company('2', 'Freelancer', '2013.02', '2013.11', 'C, Java, Python, SNMP를 이용한 서버 프로세스 개발'),
-      new Company('3', 'CODEbean', '2013.12', '2016.07', 'Java, Spring을 이용한 웹 및 API 서버 개발')
-    ];
+    this.state = {
+      experience: this.props.experience
+    };
   }
   
   static propTypes() {
     return {
-      'className': React.PropTypes.string
+      className: React.PropTypes.string,
+      experience: React.PropTypes.object
     };
   }
   
   render() {
   
-    let datas = this.companys.map((company, i) => {
-      return new TimeLineData( i, `${company.startDate}~${company.endDate} ${company.companyName}`, company.business, [] );
+    const datas = this.state.experience.map((work, i) => {
+      return new TimeLineData(
+        i,
+        `${new Date(work.startDate).toISOString().slice(0,7)} ~ ${new Date(work.endDate).toISOString().slice(0,7)} ${work.title}`,
+        `${work.content}`,
+        work.labels ? new Object(work.labels).toString().split(',') : []
+      );
     });
     
     return (
@@ -38,3 +43,11 @@ export default class WorkExperience extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    experience: state.contents.workExperience
+  };
+};
+
+export default connect(mapStateToProps)(WorkExperience);

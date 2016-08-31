@@ -2,79 +2,51 @@
  * Created by Colus on 2016. 8. 20..
  */
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default class Skill extends React.Component {
+class Skill extends React.Component {
   
   constructor(props) {
     super(props);
     
-    this.skillDatas = [
-      {
-        'skillName': 'Java',
-        'level': { 'width': '80%' }
-      },
-      {
-        'skillName': 'C/C++',
-        'level': { 'width': '80%' }
-      },
-      {
-        'skillName': 'Java 8',
-        'level': { 'width': '50%' }
-      },
-      {
-        'skillName': 'Spring',
-        'level': { 'width': '60%' }
-      },
-      {
-        'skillName': 'Swift',
-        'level': { 'width': '30%' }
-      },
-      {
-        'skillName': 'Node.js',
-        'level': { 'width': '20%' }
-      },
-      {
-        'skillName': 'React',
-        'level': { 'width': '20%' }
-      },
-      {
-        'skillName': 'Oracle',
-        'level': { 'width': '70%' }
-      },
-      {
-        'skillName': 'MySQL',
-        'level': { 'width': '70%' }
-      }
-    ];
+    this.state = {
+      skills: this.props.skills
+    };
   }
   
   static propTypes() {
     return {
-      'className': React.PropTypes.string
+      className: React.PropTypes.string,
+      skills: React.PropTypes.object
     };
   }
   
   render() {
     const color = ['success', 'info', 'warning', 'danger', 'primary'];
     
-    const skills = this.skillDatas.map( (skill, i) => {
+    const skills = this.state.skills.map((skill, i) => {
       
+      const level = { width: `${skill.expertiseRating}%` };
       return (
         <div className="progress hidden-print" key={i}>
-          <div className={`progress-bar progress-bar-${color[i % 5]}`} role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style={skill.level}>
+          <div className={`progress-bar progress-bar-${color[i % 5]}`}
+               role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+               style={level}>
             {skill.skillName}
           </div>
         </div>
       );
     });
-    
-    // visible-print
   
-    const skillsPrint = this.skillDatas.map( (skill, i) => {
-    
+  
+    const skillsPrint = this.state.skills.map((skill, i) => {
+      
+      const level = { width: `${skill.expertiseRating}%` };
       return (
         <div className="progress visible-print" key={i}>
-          <div className="progress-bar progress-bar-gray" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style={skill.level}>
+          <div className="progress-bar progress-bar-gray"
+               role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+               style={level}>
             {skill.skillName}
           </div>
         </div>
@@ -90,3 +62,11 @@ export default class Skill extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    skills: state.contents.skill
+  };
+};
+
+export default connect(mapStateToProps)(Skill);
