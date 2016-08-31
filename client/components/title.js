@@ -12,7 +12,7 @@ class Title extends React.Component {
     
     this.state = {
       name: this.props.name,
-      description: '믿음이 가는 프로그래머',
+      moto: this.props.moto,
       userImage: 'images/my-image.jpg'
     };
     
@@ -26,7 +26,8 @@ class Title extends React.Component {
   
   static propTypes() {
     return {
-      name: React.PropTypes.string
+      name: React.PropTypes.string,
+      moto: React.PropTypes.string
     };
   }
   
@@ -42,7 +43,7 @@ class Title extends React.Component {
             <div className="col-xs-12 col-sm-8 col-md-5">
               <h1 className="visible-xs-inline-block visible-sm-inline-block visible-lg-inline-block" style={nameStyle}>{this.state.name}</h1>
               <h2 className="visible-md-inline-block" style={nameStyle}>{this.state.name}</h2>
-              <h2>{this.state.description}</h2>
+              <h2>{this.state.moto}</h2>
               <p className="lead">
                 <a className="btn btn-outline-inverse btn-lg hidden-print" onClick={this.handleDownload} role="button">PDF 다운로드</a>
               </p>
@@ -63,7 +64,8 @@ class Title extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    name: state.name
+    name: state.name,
+    moto: state.moto
     
   };
 };

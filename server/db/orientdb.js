@@ -18,7 +18,7 @@ export function getInitialData() {
   
   let object = new Object();
   
-  return db.select('name as resumeName, user.name as name, user.phone as phone, user.email as email, user.birthDate as birthDate, user.address as address')
+  return db.select('name as resumeName, user.name as name, user.moto as moto, user.phone as phone, user.email as email, user.birthDate as birthDate, user.address as address')
     .from('myResume').one()
     .then(result => {
       object = result;

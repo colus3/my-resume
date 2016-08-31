@@ -4,7 +4,7 @@
 import React from 'react';
 import TimeLineData from '../../models/timelineData';
 
-export default class TimeLine extends React.Component {
+export default class TimeLine2 extends React.Component {
   
   constructor() {
     super();
@@ -41,7 +41,7 @@ export default class TimeLine extends React.Component {
       
       return (
         <div key={data.id} className="timeline-item">
-          <div className="timeline-point"><i className="fa fa-star"></i></div>
+          <div className="timeline-point timeline-point-success"><i className="fa fa-star"></i></div>
           <div className="timeline-event">
             {timeLineHead}
             {timeLineBody}
@@ -51,7 +51,7 @@ export default class TimeLine extends React.Component {
     });
     
     return (
-      <div className="timeline timeline-single-column">
+      <div className="timeline">
         {timeLines}
       </div>
     );

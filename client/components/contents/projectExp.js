@@ -2,7 +2,7 @@
  * Created by Colus on 2016. 8. 21..
  */
 import React from 'react';
-import TimeLine from '../common/timeline';
+import TimeLine2 from '../common/timeline2';
 import Project from '../../models/project';
 import TimeLineData from '../../models/timelineData';
 
@@ -55,7 +55,7 @@ export default class ProjectExperience extends React.Component {
     return (
       <div>
         <h1 className={this.props.className}>PROJECT EXPERIENCE</h1>
-        <TimeLine datas={datas}/>
+        <TimeLine2 datas={datas}/>
       </div>
     );
   }

@@ -2,8 +2,9 @@
  * Created by Colus on 2016. 8. 20..
  */
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default class Education extends React.Component {
+class Education extends React.Component {
   
   constructor(props) {
     super(props);
@@ -37,3 +38,12 @@ export default class Education extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  
+  return {
+    
+  };
+};
+
+export default connect(mapStateToProps)(Education);
