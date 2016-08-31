@@ -10,7 +10,6 @@ COPY . /usr/my-resume
 RUN cd /usr/my-resume \
         && npm install -g webpack \
         && npm install -g babel-cli \
-        && npm install -g orientjs \
         && npm install \
         && npm run build
 

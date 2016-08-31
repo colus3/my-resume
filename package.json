@@ -26,6 +26,7 @@
     "express": "^4.14.0",
     "html-loader": "^0.4.3",
     "node-sass": "^3.8.0",
+    "orientjs": "^2.2.2",
     "path": "^0.12.7",
     "phantom": "^2.1.18",
     "phantomjs-prebuilt": "^2.1.12",
