@@ -25,7 +25,7 @@ export default class TimeLine extends React.Component {
       const timeLineHead = (
         <div className="timeline-heading">
           <h4 className="timeline-title">
-            <span name="title"><strong>{data.title}</strong> </span>
+            <span name="title"><strong>{data.title}</strong></span>
           </h4>
         </div>
       );
@@ -41,7 +41,7 @@ export default class TimeLine extends React.Component {
       
       return (
         <div key={data.id} className="timeline-item">
-          <div className="timeline-point"><i className="fa fa-star"></i></div>
+          <div className="timeline-point"><i className="glyphicon glyphicon-star"></i></div>
           <div className="timeline-event">
             {timeLineHead}
             {timeLineBody}
