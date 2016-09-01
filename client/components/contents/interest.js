@@ -9,10 +9,6 @@ class Interest extends React.Component {
   constructor(props) {
     super(props);
     
-    // this.interestDatas = [
-    //   'Scala', 'Functional Programming', 'iOS', 'Swift', 'ECMA Script 6', 'React', 'Docker', 'Javascript', 'Java 8', 'Modern C++', 'Akka', 'Node.js', 'Apache Spark', 'NoSQL', 'IoT'
-    // ];
-    
     this.state = {
       interest: this.props.interest
     };
@@ -20,7 +16,6 @@ class Interest extends React.Component {
   
   static propTypes() {
     return {
-      className: React.PropTypes.string,
       interest: React.PropTypes.object
     };
   }
@@ -42,7 +37,7 @@ class Interest extends React.Component {
     
     return (
       <div>
-        <h1 className={this.props.className}>INTEREST</h1>
+        <h1 className="page-header">INTEREST</h1>
         <h3>{interests}</h3>
       </div>
     );

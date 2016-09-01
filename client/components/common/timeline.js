@@ -12,20 +12,32 @@ export default class TimeLine extends React.Component {
   
   static propTypes() {
     return {
-      datas: React.PropTypes.object
+      datas: React.PropTypes.object,
+      usePeriod: React.PropTypes.bool
     };
   }
   
   render() {
     
     const style={ 'display': 'inline-block', 'marginRight': '5px', 'color': '#fff' };
-  
+    
     const timeLines = this.props.datas.map( data => {
-      
+  
+      let period = '';
+      if ( this.props.usePeriod ) {
+        if ( data.period.year > 0 && data.period.month > 0 ) {
+          period = ` ( ${data.period.year} 년 ${data.period.month} 개월 )`;
+        } else if ( data.period.year > 0 && data.period.month <= 0 ) {
+          period = ` ( ${data.period.year} 년 )`;
+        } else if ( data.period.year <= 0 && data.period.month > 0 ) {
+          period = ` ( ${data.period.month} 개월 )`;
+        }
+      }
+          
       const timeLineHead = (
         <div className="timeline-heading">
           <h4 className="timeline-title">
-            <span name="title"><strong>{data.title}</strong></span>
+            <span name="title">{data.startDate} ~ {data.endDate} <strong>{data.title}</strong>{period}</span>
           </h4>
         </div>
       );

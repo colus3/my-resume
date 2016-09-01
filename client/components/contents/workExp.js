@@ -19,26 +19,27 @@ class WorkExperience extends React.Component {
   
   static propTypes() {
     return {
-      className: React.PropTypes.string,
       experience: React.PropTypes.object
     };
   }
   
   render() {
-  
+    
     const datas = this.state.experience.map((work, i) => {
       return new TimeLineData(
         i,
-        `${new Date(work.startDate).toISOString().slice(0,7)} ~ ${new Date(work.endDate).toISOString().slice(0,7)} ${work.title}`,
-        `${work.content}`,
+        new Date(work.startDate),
+        new Date(work.endDate),
+        work.title,
+        work.content,
         work.labels ? new Object(work.labels).toString().split(',') : []
       );
     });
     
     return (
       <div>
-        <h1 className={this.props.className}>WORK EXPERIENCE</h1>
-        <TimeLine datas={datas}/>
+        <h1 className="page-header">WORK EXPERIENCE</h1>
+        <TimeLine datas={datas} usePeriod />
       </div>
     );
   }

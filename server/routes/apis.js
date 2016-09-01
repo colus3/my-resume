@@ -78,7 +78,7 @@ router.get('/download', function(req, res) {
   
   phantom.create().then(instance => {
     _ph = instance;
-    console.log('createPage');
+    console.log('Create page for PDF');
     return instance.createPage();
     
   }).then(page => {

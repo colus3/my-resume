@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
+import { DateFormat, DateTime } from 'dateutils';
 
 class Contacts extends React.Component {
   
@@ -21,7 +22,6 @@ class Contacts extends React.Component {
   
   static propTypes() {
     return {
-      className: React.PropTypes.string,
       address: React.PropTypes.string,
       name: React.PropTypes.string,
       phone: React.PropTypes.string,
@@ -32,13 +32,12 @@ class Contacts extends React.Component {
   }
   
   handleHomePage() {
-    location.href = `http://${this.state.homepage}`;
-    return false;
+    window.location.assign(`http://${this.state.homepage}`);
   }
   
   render() {
     return (
-      <div className={this.props.className}>
+      <div className="col-xs-12 col-sm-4 col-md-5">
         <address>
           <h4 className="text-right">
             {this.state.birthDate} <span className="glyphicon glyphicon-user" aria-hidden="true"/>
@@ -67,7 +66,7 @@ const mapStateToProps = (state) => {
     phone: state.phone,
     email: state.email,
     address: state.address,
-    birthDate: new Date(state.birthDate).toISOString().slice(0,10),
+    birthDate: DateFormat.format(DateTime.fromDateObject(new Date(state.birthDate)), 'Y-m-d'),
     homepage: state.homepage
     
   };

@@ -59,7 +59,7 @@ module.exports = [
     },
     module: {
       loaders: [
-        { test: /\.js$/, loader: 'babel', exclude: /(node_modules|bower_components)/, query: { presets: ['es2015', 'react'] } },
+        { test: /\.js$/, loader: 'babel', exclude: /(node_modules|bower_components)/, query: { presets: ['es2015', 'react', 'stage-0'] } },
         { test: /\.css$/,  loader: 'style!raw' },
         {
           test: /\.scss$/,

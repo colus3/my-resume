@@ -2,8 +2,10 @@
  * Created by Colus on 2016. 8. 19..
  */
 import React from 'react';
-import Contacts from './contents/contacts';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
+
+import Contacts from './contents/contacts';
 
 class Title extends React.Component {
   
@@ -20,8 +22,7 @@ class Title extends React.Component {
   }
   
   handleDownload() {
-    location.href = 'api/download';
-    return false;
+    window.location.assign('/api/download');
   }
   
   static propTypes() {
@@ -45,7 +46,7 @@ class Title extends React.Component {
               <h2 className="visible-md-inline-block" style={nameStyle}>{this.state.name}</h2>
               <h2>{this.state.moto}</h2>
               <p className="lead">
-                <a className="btn btn-outline-inverse btn-lg hidden-print" onClick={this.handleDownload} role="button">PDF 다운로드</a>
+                <a className="btn btn-outline-inverse btn-lg hidden-print" href="#" onClick={this.handleDownload} role="button">PDF 다운로드</a>
               </p>
             </div>
             <div className="col-md-2 visible-md-block visible-lg-block">
@@ -54,7 +55,7 @@ class Title extends React.Component {
                      alt="Responsive image" style={imgStyle}/>
               </p>
             </div>
-            <Contacts className="col-xs-12 col-sm-4 col-md-5"/>
+            <Contacts/>
           </div>
         </div>
       </div>

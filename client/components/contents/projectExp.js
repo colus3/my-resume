@@ -5,7 +5,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import TimeLine2 from '../common/timeline2';
-import Project from '../../models/project';
+// import Project from '../../models/project';
 import TimeLineData from '../../models/timelineData';
 
 class ProjectExperience extends React.Component {
@@ -42,7 +42,6 @@ class ProjectExperience extends React.Component {
   
   static propTypes() {
     return {
-      className: React.PropTypes.string,
       experience: React.PropTypes.object
       
     };
@@ -53,8 +52,10 @@ class ProjectExperience extends React.Component {
     let datas = this.state.experience.map((project, i) => {
       return new TimeLineData(
         i,
-        `${new Date(project.startDate).toISOString().slice(0,7)} ~ ${new Date(project.endDate).toISOString().slice(0,7)} ${project.title}`,
-        `${project.content}`,
+        new Date(project.startDate),
+        new Date(project.endDate),
+        project.title,
+        project.content,
         project.labels ? new Object(project.labels).toString().split(',') : []
       );
     });
@@ -62,7 +63,7 @@ class ProjectExperience extends React.Component {
     
     return (
       <div>
-        <h1 className={this.props.className}>PROJECT EXPERIENCE</h1>
+        <h1 className="page-header">PROJECT EXPERIENCE</h1>
         <TimeLine2 datas={datas}/>
       </div>
     );

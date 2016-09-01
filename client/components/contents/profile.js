@@ -16,18 +16,16 @@ class Profile extends React.Component {
   
   static propTypes() {
     return {
-      className: React.PropTypes.string,
       aboutMe: React.PropTypes.string
     };
   }
   
   render() {
+    const aboutMe = this.state.aboutMe.replace(/\n/g,'<br />');
     return (
       <div>
-        <h1 className={this.props.className}>PROFILE</h1>
-        <p>
-          {this.state.aboutMe}
-        </p>
+        <h1 className="page-header">PROFILE</h1>
+        <h4><div dangerouslySetInnerHTML={{__html: aboutMe}} /></h4>
       </div>
     );
   }

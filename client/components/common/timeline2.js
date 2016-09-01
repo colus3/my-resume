@@ -25,7 +25,7 @@ export default class TimeLine2 extends React.Component {
       const timeLineHead = (
         <div className="timeline-heading">
           <h4 className="timeline-title">
-            <span name="title"><strong>{data.title}</strong> </span>
+            <span name="title">{data.startDate} ~ {data.endDate} <strong>{data.title}</strong> </span>
           </h4>
         </div>
       );

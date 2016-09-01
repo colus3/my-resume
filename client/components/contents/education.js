@@ -3,16 +3,12 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
+import { DateFormat, DateTime } from 'dateutils';
 
 class Education extends React.Component {
   
   constructor(props) {
     super(props);
-    
-    // this.educationDatas = [
-    //   { 'startDate': '2000.03', 'endDate': '2008.02', 'content': '서경대학교 컴퓨터과학과' },
-    //   { 'startDate': '2007.11', 'endDate': '2008.02', 'content': 'C++ 윈도우 마스터(정부 지원 비트교육센터)' },
-    // ];
     
     this.state = {
       education: this.props.education
@@ -21,23 +17,24 @@ class Education extends React.Component {
   
   static propTypes() {
     return {
-      className: React.PropTypes.string,
       education: React.PropTypes.object
     };
   }
   
   render() {
     const educations = this.state.education.map( (education, i) => {
+      const startDate = DateFormat.format(DateTime.fromDateObject(new Date(education.startDate)), 'Y-m');
+      const endDate = DateFormat.format(DateTime.fromDateObject(new Date(education.endDate)), 'Y-m');
       return (
-        <li key={i}>{`${new Date(education.startDate).toISOString().slice(0,7)} ~ ${new Date(education.startDate).toISOString().slice(0,7)} ${education.title}`}</li>
+        <li key={i}>{`${startDate} ~ ${endDate} ${education.title}`}</li>
       );
     });
     
     return (
       <div>
-        <h1 className={this.props.className}>EDUCATION</h1>
+        <h1 className="page-header">EDUCATION</h1>
         <ul>
-          {educations}
+          <h4>{educations}</h4>
         </ul>
       </div>
     );

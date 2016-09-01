@@ -16,7 +16,6 @@ class Skill extends React.Component {
   
   static propTypes() {
     return {
-      className: React.PropTypes.string,
       skills: React.PropTypes.object
     };
   }
@@ -55,7 +54,7 @@ class Skill extends React.Component {
     
     return (
       <div>
-        <h1 className={this.props.className}>SKILL</h1>
+        <h1 className="page-header">SKILL</h1>
         {skills}
         {skillsPrint}
       </div>
