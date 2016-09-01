@@ -38,10 +38,16 @@ export default class TimeLine2 extends React.Component {
           </p>
         </div>
       );
+  
+      // const timeLineFooter = (
+      //   <div className="timeline-footer">
+      //     <p className="text-right">{period}</p>
+      //   </div>
+      // );
       
       return (
         <div key={data.id} className="timeline-item">
-          <div className="timeline-point timeline-point-success"><i className="glyphicon glyphicon-star"></i></div>
+          <div className="timeline-point timeline-point-blank timeline-point-success"></div>
           <div className="timeline-event">
             {timeLineHead}
             {timeLineBody}

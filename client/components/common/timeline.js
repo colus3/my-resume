@@ -26,18 +26,18 @@ export default class TimeLine extends React.Component {
       let period = '';
       if ( this.props.usePeriod ) {
         if ( data.period.year > 0 && data.period.month > 0 ) {
-          period = ` ( ${data.period.year} 년 ${data.period.month} 개월 )`;
+          period = `${data.period.year} 년 ${data.period.month} 개월`;
         } else if ( data.period.year > 0 && data.period.month <= 0 ) {
-          period = ` ( ${data.period.year} 년 )`;
+          period = `${data.period.year} 년`;
         } else if ( data.period.year <= 0 && data.period.month > 0 ) {
-          period = ` ( ${data.period.month} 개월 )`;
+          period = `${data.period.month} 개월`;
         }
       }
           
       const timeLineHead = (
         <div className="timeline-heading">
           <h4 className="timeline-title">
-            <span name="title">{data.startDate} ~ {data.endDate} <strong>{data.title}</strong>{period}</span>
+            <span name="title">{data.startDate} ~ {data.endDate} <strong>{data.title}</strong></span>
           </h4>
         </div>
       );
@@ -51,12 +51,19 @@ export default class TimeLine extends React.Component {
         </div>
       );
       
+      const timeLineFooter = (
+        <div className="timeline-footer">
+          <p className="text-right">{period}</p>
+        </div>
+      );
+      
       return (
         <div key={data.id} className="timeline-item">
-          <div className="timeline-point"><i className="glyphicon glyphicon-star"></i></div>
+          <div className="timeline-point timeline-point-blank"></div>
           <div className="timeline-event">
             {timeLineHead}
             {timeLineBody}
+            {timeLineFooter}
           </div>
         </div>
       );
