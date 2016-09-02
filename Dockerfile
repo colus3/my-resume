@@ -10,7 +10,7 @@ COPY . /usr/my-resume
 RUN cd /usr/my-resume \
         && npm install -g webpack \
         && npm install -g babel-cli \
-        && npm install \
+        && npm install -only=prod\
         && npm run build
 
 
