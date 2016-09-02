@@ -33,7 +33,7 @@ class Contacts extends React.Component {
   }
   
   handleHomePage() {
-    window.location.assign(`http://${this.state.homepage}`);
+    window.location.assign(`${this.state.homepage}`);
   }
   
   render() {
