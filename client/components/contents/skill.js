@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
+import { PageHeader } from 'react-bootstrap';
 
 class Skill extends React.Component {
   
@@ -54,7 +55,7 @@ class Skill extends React.Component {
     
     return (
       <div>
-        <h1 className="page-header">SKILL</h1>
+        <PageHeader>SKILL</PageHeader>
         {skills}
         {skillsPrint}
       </div>

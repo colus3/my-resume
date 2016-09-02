@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
+import { PageHeader } from 'react-bootstrap';
 import { DateFormat, DateTime } from 'dateutils';
 
 class Education extends React.Component {
@@ -32,9 +33,9 @@ class Education extends React.Component {
     
     return (
       <div>
-        <h1 className="page-header">EDUCATION</h1>
+        <PageHeader>EDUCATION</PageHeader>
         <ul>
-          <h4>{educations}</h4>
+          <h5>{educations}</h5>
         </ul>
       </div>
     );

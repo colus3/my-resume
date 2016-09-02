@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
+import { PageHeader } from 'react-bootstrap';
 
 class Profile extends React.Component {
   
@@ -24,8 +25,8 @@ class Profile extends React.Component {
     const aboutMe = this.state.aboutMe.replace(/\n/g,'<br />');
     return (
       <div>
-        <h1 className="page-header">PROFILE</h1>
-        <h4><div dangerouslySetInnerHTML={{__html: aboutMe}} /></h4>
+        <PageHeader>PROFILE</PageHeader>
+        <h5><div dangerouslySetInnerHTML={{__html: aboutMe}} /></h5>
       </div>
     );
   }

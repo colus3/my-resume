@@ -3,9 +3,9 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
+import { PageHeader } from 'react-bootstrap';
 
 import TimeLine2 from '../common/timeline2';
-// import Project from '../../models/project';
 import TimeLineData from '../../models/timelineData';
 
 class ProjectExperience extends React.Component {
@@ -63,7 +63,7 @@ class ProjectExperience extends React.Component {
     
     return (
       <div>
-        <h1 className="page-header">PROJECT EXPERIENCE</h1>
+        <PageHeader>PROJECT EXPERIENCE</PageHeader>
         <TimeLine2 datas={datas}/>
       </div>
     );

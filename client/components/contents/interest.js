@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
+import { PageHeader } from 'react-bootstrap';
 
 class Interest extends React.Component {
   
@@ -37,7 +38,7 @@ class Interest extends React.Component {
     
     return (
       <div>
-        <h1 className="page-header">INTEREST</h1>
+        <PageHeader>INTEREST</PageHeader>
         <h3>{interests}</h3>
       </div>
     );

@@ -2,8 +2,8 @@
  * Created by Colus on 2016. 8. 19..
  */
 import React from 'react';
-import { Link } from 'react-router';
 import { connect } from 'react-redux';
+import { Jumbotron, Grid, Row, Col, Button } from 'react-bootstrap';
 
 import Contacts from './contents/contacts';
 
@@ -38,27 +38,28 @@ class Title extends React.Component {
     var imgStyle = { height: '150px' };
     
     return (
-      <div className="jumbotron" id="content" tabIndex="-1" style={baseStyle}>
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-xs-12 col-sm-8 col-md-5">
+      <Jumbotron id="content" tabIndex="-1" style={baseStyle}>
+        <Grid fluid>
+          <Row>
+            <Col xs={12} sm={8} md={5}>
               <h1 className="visible-xs-inline-block visible-sm-inline-block visible-lg-inline-block" style={nameStyle}>{this.state.name}</h1>
               <h2 className="visible-md-inline-block" style={nameStyle}>{this.state.name}</h2>
               <h2>{this.state.moto}</h2>
               <p className="lead">
-                <a className="btn btn-outline-inverse btn-lg hidden-print" href="#" onClick={this.handleDownload} role="button">PDF 다운로드</a>
+                {/*<a className="btn btn-outline-inverse btn-lg hidden-print" href="#" onClick={this.handleDownload} role="button">PDF 다운로드</a>*/}
+                <Button bsSize="large" className="btn-outline-inverse hidden-print" href="#" onClick={this.handleDownload}>PDF 다운로드</Button>
               </p>
-            </div>
-            <div className="col-md-2 visible-md-block visible-lg-block">
+            </Col>
+            <Col md={2} visibleMdBlock visibleLgBlock>
               <p>
                 <img src={this.state.userImage} className="img-responsive img-circle center-block"
                      alt="Responsive image" style={imgStyle}/>
               </p>
-            </div>
+            </Col>
             <Contacts/>
-          </div>
-        </div>
-      </div>
+          </Row>
+        </Grid>
+      </Jumbotron>
     );
   }
 }

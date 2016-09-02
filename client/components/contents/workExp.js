@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
+import { PageHeader } from 'react-bootstrap';
 
 import TimeLine from '../common/timeline';
 import TimeLineData from '../../models/timelineData';
@@ -38,7 +39,7 @@ class WorkExperience extends React.Component {
     
     return (
       <div>
-        <h1 className="page-header">WORK EXPERIENCE</h1>
+        <PageHeader>WORK EXPERIENCE</PageHeader>
         <TimeLine datas={datas} usePeriod />
       </div>
     );

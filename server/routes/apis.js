@@ -87,7 +87,7 @@ router.get('/download', function(req, res) {
     
   }).then(status => {
     console.log('status : ' + status);
-    _page.property('viewportSize', {width: 1024, height: 768});
+    _page.property('viewportSize', {width: 1366, height: 768});
     _page.property('paperSize', {
       format: 'A2',
       orientation: 'portrait',

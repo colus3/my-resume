@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
+import { Col } from 'react-bootstrap';
 import { DateFormat, DateTime } from 'dateutils';
 
 class Contacts extends React.Component {
@@ -37,7 +38,7 @@ class Contacts extends React.Component {
   
   render() {
     return (
-      <div className="col-xs-12 col-sm-4 col-md-5">
+      <Col xs={12} sm={4} md={5}>
         <address>
           <h4 className="text-right">
             {this.state.birthDate} <span className="glyphicon glyphicon-user" aria-hidden="true"/>
@@ -55,7 +56,7 @@ class Contacts extends React.Component {
             <a href="#" onClick={this.handleHomePage}>{this.state.homepage}</a> <span className="glyphicon glyphicon-link" aria-hidden="true"/>
           </h4>
         </address>
-      </div>
+      </Col>
     );
   }
 }
