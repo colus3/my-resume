@@ -20,7 +20,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
     "body-parser": "^1.15.2",
-    "css-loader": "^0.23.1",
+    "css-loader": "^0.24.0",
     "dateutils": "^0.3.0",
     "eslint": "^3.3.1",
     "eslint-loader": "^1.5.0",
@@ -30,7 +30,7 @@
     "node-sass": "^3.8.0",
     "orientjs": "^2.2.2",
     "path": "^0.12.7",
-    "phantom": "^2.1.18",
+    "phantom": "^2.1.21",
     "phantomjs-prebuilt": "^2.1.12",
     "react": "^15.3.1",
     "react-bootstrap": "^0.30.3",
@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",
-    "cross-env": "^2.0.0",
+    "cross-env": "^2.0.1",
     "react-addons-test-utils": "^15.3.1",
     "webpack-dev-server": "^1.14.1"
   }

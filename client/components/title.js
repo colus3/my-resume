@@ -46,11 +46,10 @@ class Title extends React.Component {
               <h2 className="visible-md-inline-block" style={nameStyle}>{this.state.name}</h2>
               <h2>{this.state.moto}</h2>
               <p className="lead">
-                {/*<a className="btn btn-outline-inverse btn-lg hidden-print" href="#" onClick={this.handleDownload} role="button">PDF 다운로드</a>*/}
-                <Button bsSize="large" className="btn-outline-inverse hidden-print" href="#" onClick={this.handleDownload}>PDF 다운로드</Button>
+                <a className="btn btn-outline-inverse btn-lg hidden-print" href="#" onClick={this.handleDownload} role="button">PDF 다운로드</a>
               </p>
             </Col>
-            <Col md={2} visibleMdBlock visibleLgBlock>
+            <Col md={2} className="visible-md-block visible-lg-block">
               <p>
                 <img src={this.state.userImage} className="img-responsive img-circle center-block"
                      alt="Responsive image" style={imgStyle}/>
