@@ -14,15 +14,25 @@ const db = new ODatabase({
 
 db.open();
 
-export function getInitialData() {
+export function getInitialData(id) {
   
   let object = new Object();
   
-  return db.select('name as resumeName, user.name as name, user.moto as moto, user.phone as phone, user.email as email, user.birthDate as birthDate, user.address as address, user.homepage as homepage')
-    .from('myResume').one()
+  return db.select(`
+        @rid as id, 
+        id as resumeId,
+        name as resumeName,
+        user.name as name, 
+        user.moto as moto, 
+        user.phone as phone, 
+        user.email as email,
+        user.birthDate as birthDate, 
+        user.address as address, 
+        user.homepage as homepage`
+  ).from('myResume').where({id: id}).one()
     .then(result => {
       object = result;
-      return db.select('Expand(contents)').from('myResume').all();
+      return db.select('Expand(contents)').from(result.id).all();
     })
     .then(result => {
       

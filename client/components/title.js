@@ -15,20 +15,22 @@ class Title extends React.Component {
     this.state = {
       name: this.props.name,
       moto: this.props.moto,
-      userImage: 'images/my-image.jpg'
+      resumeId: this.props.resumeId,
+      userImage: '/images/my-image.jpg'
     };
     
     this.handleDownload = this.handleDownload.bind(this);
   }
   
   handleDownload() {
-    window.location.assign('/api/download');
+    window.location.assign(`/api/download/${this.state.resumeId}`);
   }
   
   static propTypes() {
     return {
       name: React.PropTypes.string,
-      moto: React.PropTypes.string
+      moto: React.PropTypes.string,
+      resumeId: React.PropTypes.string
     };
   }
   
@@ -66,7 +68,8 @@ class Title extends React.Component {
 const mapStateToProps = (state) => {
   return {
     name: state.name,
-    moto: state.moto
+    moto: state.moto,
+    resumeId: state.resumeId
     
   };
 };

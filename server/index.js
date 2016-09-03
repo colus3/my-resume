@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import App from '../client/components/app';
-import indexPage from '../public/index.html';
+import resumePage from '../public/resume.html';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { reducer } from '../client/reducer';
@@ -13,12 +13,13 @@ import { getInitialData } from './db/orientdb';
 
 function renderToString() {
   
-  return indexPage.replace('<div id="root"></div>', `<div id="root">${ReactDOMServer.renderToString(<App/>)}</div>`);
+  return resumePage.replace('<div id="root"></div>', `<div id="root">${ReactDOMServer.renderToString(<App/>)}</div>`);
 }
 
 function handleRender(req, res) {
-
-  getInitialData().then((initialData) => {
+  
+  console.log(`id : ${req.params.id}`);
+  getInitialData(req.params.id).then((initialData) => {
 
     const store = createStore(reducer, initialData);
   
@@ -38,7 +39,7 @@ function handleRender(req, res) {
 }
 
 function renderFullPage(html, initialState) {
-  return indexPage.replace('<div id="root"></div>', `<div id="root">${html}</div><script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>`);
+  return resumePage.replace('<div id="root"></div>', `<div id="root">${html}</div><script>window.__INITIAL_STATE__ = ${JSON.stringify(initialState)};</script>`);
 }
 
 export { handleRender, renderToString };

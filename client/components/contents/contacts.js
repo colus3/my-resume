@@ -15,7 +15,8 @@ class Contacts extends React.Component {
       phone: this.props.phone,
       email: this.props.email,
       address: this.props.address,
-      homepage: this.props.homepage
+      homepage: this.props.homepage,
+      resumeId: this.props.resumeId
     };
   
     this.handleHomePage = this.handleHomePage.bind(this);
@@ -28,12 +29,13 @@ class Contacts extends React.Component {
       phone: React.PropTypes.string,
       email: React.PropTypes.string,
       birthDate: React.PropTypes.object,
-      homepage: React.PropTypes.string
+      homepage: React.PropTypes.string,
+      resumeId: React.PropTypes.string
     };
   }
   
   handleHomePage() {
-    window.location.assign(`${this.state.homepage}`);
+    window.location.assign(`${this.state.homepage}/resume/${this.state.resumeId}`);
   }
   
   render() {
@@ -53,7 +55,7 @@ class Contacts extends React.Component {
             {this.state.address} <span className="glyphicon glyphicon-home" aria-hidden="true"/>
           </h4>
           <h4 className="text-right">
-            <a href="#" onClick={this.handleHomePage}>{this.state.homepage}</a> <span className="glyphicon glyphicon-link" aria-hidden="true"/>
+            <a href="#" onClick={this.handleHomePage}>Resume</a> <span className="glyphicon glyphicon-link" aria-hidden="true"/>
           </h4>
         </address>
       </Col>
@@ -68,8 +70,8 @@ const mapStateToProps = (state) => {
     email: state.email,
     address: state.address,
     birthDate: DateFormat.format(DateTime.fromDateObject(new Date(state.birthDate)), 'Y-m-d'),
-    homepage: state.homepage
-    
+    homepage: state.homepage,
+    resumeId: state.resumeId
   };
 };
 

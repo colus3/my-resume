@@ -14,9 +14,9 @@ router.get('/me', function(req, res) {
   getInitialData().then( (object) => res.json(object) );
 });
 
-router.get('/download', function(req, res) {
+router.get('/download/:id', function(req, res) {
   
-  const id = req.query.id;
+  const id = req.params.id;
   const suffix = DateFormat.format(DateTime.now(), 'YmdHis');
   const filename = `./tmp/resume_${suffix}.pdf`;
   let _ph, _page;
@@ -28,7 +28,7 @@ router.get('/download', function(req, res) {
     
   }).then(page => {
     _page = page;
-    return page.open(`${req.protocol}://${req.get('host')}/${id ? id : ''}`);
+    return page.open(`${req.protocol}://${req.get('host')}/resume/${id ? id : ''}`);
     
   }).then(status => {
     console.log('status : ' + status);
