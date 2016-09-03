@@ -17,8 +17,7 @@ db.open();
 export function getInitialData(id) {
   
   let object = new Object();
-  
-  return db.select(`
+  const selectedProperties = `
         @rid as id, 
         id as resumeId,
         name as resumeName,
@@ -28,8 +27,11 @@ export function getInitialData(id) {
         user.email as email,
         user.birthDate as birthDate, 
         user.address as address, 
-        user.homepage as homepage`
-  ).from('myResume').where({id: id}).one()
+        user.homepage as homepage`;
+  
+  const where = id ? {id: id} : {defaults: true};
+  
+  return db.select(selectedProperties).from('myResume').where(where).one()
     .then(result => {
       object = result;
       return db.select('Expand(contents)').from(result.id).all();
@@ -48,7 +50,6 @@ export function getInitialData(id) {
             return content;
           });
       }));
-      // .then(() => res.json(object));
     })
     .then( () => object );
 }

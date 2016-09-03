@@ -18,7 +18,6 @@ function renderToString() {
 
 function handleRender(req, res) {
   
-  console.log(`id : ${req.params.id}`);
   getInitialData(req.params.id).then((initialData) => {
 
     const store = createStore(reducer, initialData);

@@ -13,7 +13,7 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(bodyParser.json()); // for parsing application/json
 app.use(express.static(path.join(__dirname, './../public')));
-app.get('/resume/:id', handleRender); // React Server Side Rendering
+app.get('/resume/:id*?', handleRender); // React Server Side Rendering
 app.use('/api', api);
 
 app.listen(port, () => {
