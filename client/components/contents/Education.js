@@ -6,6 +6,10 @@ import { connect } from 'react-redux';
 import { PageHeader } from 'react-bootstrap';
 import { DateFormat, DateTime } from 'dateutils';
 
+const propTypes = {
+  education: React.PropTypes.object
+};
+
 class Education extends React.Component {
   
   constructor(props) {
@@ -13,12 +17,6 @@ class Education extends React.Component {
     
     this.state = {
       education: this.props.education
-    };
-  }
-  
-  static propTypes() {
-    return {
-      education: React.PropTypes.object
     };
   }
   
@@ -41,6 +39,8 @@ class Education extends React.Component {
     );
   }
 }
+
+Education.propTypes = propTypes;
 
 const mapStateToProps = (state) => {
   return {

@@ -5,8 +5,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { PageHeader } from 'react-bootstrap';
 
-import TimeLine from '../common/timeline';
+import TimeLine from '../common/Timeline';
 import TimeLineData from '../../models/timelineData';
+
+const propTypes = {
+  experience: React.PropTypes.object
+};
 
 class WorkExperience extends React.Component {
   
@@ -15,12 +19,6 @@ class WorkExperience extends React.Component {
     
     this.state = {
       experience: this.props.experience
-    };
-  }
-  
-  static propTypes() {
-    return {
-      experience: React.PropTypes.object
     };
   }
   
@@ -45,6 +43,8 @@ class WorkExperience extends React.Component {
     );
   }
 }
+
+WorkExperience.propTypes = propTypes;
 
 const mapStateToProps = (state) => {
   return {

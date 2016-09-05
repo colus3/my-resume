@@ -4,12 +4,12 @@
 import React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 
-import Profile from './contents/profile';
-import WorkExp from './contents/workExp';
-import ProjectExp from './contents/projectExp';
-import Education from './contents/education';
-import Skill from './contents/skill';
-import Interest from './contents/interest';
+import Profile from './contents/Profile';
+import WorkExp from './contents/WorkExp';
+import ProjectExp from './contents/ProjectExp';
+import Education from './contents/Education';
+import Skill from './contents/Skill';
+import Interest from './contents/Interest';
 
 export default class Content extends React.Component {
   

@@ -5,6 +5,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { PageHeader } from 'react-bootstrap';
 
+const propTypes = {
+  skills: React.PropTypes.object
+};
+
 class Skill extends React.Component {
   
   constructor(props) {
@@ -12,12 +16,6 @@ class Skill extends React.Component {
     
     this.state = {
       skills: this.props.skills
-    };
-  }
-  
-  static propTypes() {
-    return {
-      skills: React.PropTypes.object
     };
   }
   
@@ -62,6 +60,8 @@ class Skill extends React.Component {
     );
   }
 }
+
+Skill.propTypes = propTypes;
 
 const mapStateToProps = (state) => {
   return {

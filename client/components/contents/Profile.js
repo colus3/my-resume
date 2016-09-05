@@ -5,6 +5,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { PageHeader } from 'react-bootstrap';
 
+const propTypes = {
+  aboutMe: React.PropTypes.string
+};
+
 class Profile extends React.Component {
   
   constructor(props) {
@@ -12,12 +16,6 @@ class Profile extends React.Component {
     
     this.state = {
       aboutMe: this.props.aboutMe
-    };
-  }
-  
-  static propTypes() {
-    return {
-      aboutMe: React.PropTypes.string
     };
   }
   
@@ -32,6 +30,7 @@ class Profile extends React.Component {
   }
 }
 
+Profile.propTypes = propTypes;
 
 const mapStateToProps = (state) => {
   return {

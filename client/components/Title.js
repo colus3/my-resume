@@ -5,7 +5,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Jumbotron, Grid, Row, Col, Button } from 'react-bootstrap';
 
-import Contacts from './contents/contacts';
+import Contacts from './contents/Contacts';
+
+const propTypes = {
+  name: React.PropTypes.string,
+  moto: React.PropTypes.string,
+  resumeId: React.PropTypes.string
+};
 
 class Title extends React.Component {
   
@@ -24,14 +30,6 @@ class Title extends React.Component {
   
   handleDownload() {
     window.location.assign(`/api/download/${this.state.resumeId}`);
-  }
-  
-  static propTypes() {
-    return {
-      name: React.PropTypes.string,
-      moto: React.PropTypes.string,
-      resumeId: React.PropTypes.string
-    };
   }
   
   render() {
@@ -64,6 +62,8 @@ class Title extends React.Component {
     );
   }
 }
+
+Title.propTypes = propTypes;
 
 const mapStateToProps = (state) => {
   return {

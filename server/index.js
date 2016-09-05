@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
-import App from '../client/components/app';
+import App from '../client/components/App';
 import resumePage from '../public/resume.html';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';

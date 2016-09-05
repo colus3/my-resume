@@ -6,6 +6,16 @@ import { connect } from 'react-redux';
 import { Col } from 'react-bootstrap';
 import { DateFormat, DateTime } from 'dateutils';
 
+const propTypes = {
+  address: React.PropTypes.string,
+  name: React.PropTypes.string,
+  phone: React.PropTypes.string,
+  email: React.PropTypes.string,
+  birthDate: React.PropTypes.object,
+  homepage: React.PropTypes.string,
+  resumeId: React.PropTypes.string
+};
+
 class Contacts extends React.Component {
   
   constructor(props) {
@@ -20,18 +30,6 @@ class Contacts extends React.Component {
     };
   
     this.handleHomePage = this.handleHomePage.bind(this);
-  }
-  
-  static propTypes() {
-    return {
-      address: React.PropTypes.string,
-      name: React.PropTypes.string,
-      phone: React.PropTypes.string,
-      email: React.PropTypes.string,
-      birthDate: React.PropTypes.object,
-      homepage: React.PropTypes.string,
-      resumeId: React.PropTypes.string
-    };
   }
   
   handleHomePage() {
@@ -55,13 +53,15 @@ class Contacts extends React.Component {
             {this.state.address} <span className="glyphicon glyphicon-home" aria-hidden="true"/>
           </h4>
           <h4 className="text-right">
-            <a href="#" onClick={this.handleHomePage}>Resume</a> <span className="glyphicon glyphicon-link" aria-hidden="true"/>
+            <a href="#" onClick={this.handleHomePage}>Link</a> <span className="glyphicon glyphicon-link" aria-hidden="true"/>
           </h4>
         </address>
       </Col>
     );
   }
 }
+
+Contacts.propTypes = propTypes;
 
 const mapStateToProps = (state) => {
 

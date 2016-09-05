@@ -5,6 +5,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { PageHeader } from 'react-bootstrap';
 
+const propTypes = {
+  interest: React.PropTypes.object
+};
+
 class Interest extends React.Component {
   
   constructor(props) {
@@ -12,12 +16,6 @@ class Interest extends React.Component {
     
     this.state = {
       interest: this.props.interest
-    };
-  }
-  
-  static propTypes() {
-    return {
-      interest: React.PropTypes.object
     };
   }
   
@@ -44,6 +42,8 @@ class Interest extends React.Component {
     );
   }
 }
+
+Interest.propTypes = propTypes;
 
 const mapStateToProps = (state) => {
   return {
