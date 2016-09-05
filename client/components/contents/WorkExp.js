@@ -9,7 +9,7 @@ import TimeLine from '../common/Timeline';
 import TimeLineData from '../../models/timelineData';
 
 const propTypes = {
-  experience: React.PropTypes.object
+  experience: React.PropTypes.array
 };
 
 class WorkExperience extends React.Component {

@@ -4,7 +4,7 @@
 import React from 'react';
 
 const propTypes = {
-  datas: React.PropTypes.object,
+  datas: React.PropTypes.array,
   usePeriod: React.PropTypes.bool
 };
 

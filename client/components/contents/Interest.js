@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { PageHeader } from 'react-bootstrap';
 
 const propTypes = {
-  interest: React.PropTypes.object
+  interest: React.PropTypes.array
 };
 
 class Interest extends React.Component {

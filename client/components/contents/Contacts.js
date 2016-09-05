@@ -11,7 +11,7 @@ const propTypes = {
   name: React.PropTypes.string,
   phone: React.PropTypes.string,
   email: React.PropTypes.string,
-  birthDate: React.PropTypes.object,
+  birthDate: React.PropTypes.string,
   homepage: React.PropTypes.string,
   resumeId: React.PropTypes.string
 };

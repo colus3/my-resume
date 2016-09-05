@@ -7,7 +7,7 @@ import { PageHeader } from 'react-bootstrap';
 import { DateFormat, DateTime } from 'dateutils';
 
 const propTypes = {
-  education: React.PropTypes.object
+  education: React.PropTypes.array
 };
 
 class Education extends React.Component {

@@ -9,7 +9,7 @@ import TimeLine2 from '../common/Timeline2';
 import TimeLineData from '../../models/timelineData';
 
 const propTypes = {
-  experience: React.PropTypes.object
+  experience: React.PropTypes.array
 };
 
 class ProjectExperience extends React.Component {
@@ -39,7 +39,7 @@ class ProjectExperience extends React.Component {
     return (
       <div>
         <PageHeader>PROJECT EXPERIENCE</PageHeader>
-        <TimeLine2 datas={datas}/>
+        <TimeLine2 datas={datas} useYearLabel/>
       </div>
     );
   }

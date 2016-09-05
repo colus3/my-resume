@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { PageHeader } from 'react-bootstrap';
 
 const propTypes = {
-  skills: React.PropTypes.object
+  skills: React.PropTypes.array
 };
 
 class Skill extends React.Component {
