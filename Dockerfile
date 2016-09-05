@@ -1,7 +1,7 @@
 FROM node:6.4-wheezy
 
 # Set the timezone.
-RUN echo "Asia/Seoul" > /etc/timezone
+RUN echo "Asia/Seoul" > /etc/timezone \
         && dpkg-reconfigure -f noninteractive tzdata
 
 # Install font.
