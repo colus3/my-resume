@@ -1,5 +1,10 @@
 FROM node:6.4-wheezy
 
+# Set the timezone.
+RUN echo "Asia/Seoul" > /etc/timezone
+        && dpkg-reconfigure -f noninteractive tzdata
+
+# Install font.
 RUN apt-get update \
         && apt-get install fonts-nanum fonts-nanum-coding fonts-nanum-extra
 
