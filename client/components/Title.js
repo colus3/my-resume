@@ -70,7 +70,6 @@ const mapStateToProps = (state) => {
     name: state.name,
     moto: state.moto,
     resumeId: state.resumeId
-    
   };
 };
 
