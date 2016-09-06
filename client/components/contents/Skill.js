@@ -2,11 +2,10 @@
  * Created by Colus on 2016. 8. 20..
  */
 import React from 'react';
-import { connect } from 'react-redux';
 import { PageHeader } from 'react-bootstrap';
 
 const propTypes = {
-  skills: React.PropTypes.array
+  datas: React.PropTypes.array
 };
 
 class Skill extends React.Component {
@@ -15,14 +14,14 @@ class Skill extends React.Component {
     super(props);
     
     this.state = {
-      skills: this.props.skills
+      skill: this.props.datas
     };
   }
   
   render() {
     const color = ['success', 'info', 'warning', 'danger', 'primary'];
     
-    const skills = this.state.skills.map((skill, i) => {
+    const skills = this.state.skill.map((skill, i) => {
       
       const level = { width: `${skill.expertiseRating}%` };
       return (
@@ -37,7 +36,7 @@ class Skill extends React.Component {
     });
   
   
-    const skillsPrint = this.state.skills.map((skill, i) => {
+    const skillsPrint = this.state.skill.map((skill, i) => {
       
       const level = { width: `${skill.expertiseRating}%` };
       return (
@@ -63,10 +62,4 @@ class Skill extends React.Component {
 
 Skill.propTypes = propTypes;
 
-const mapStateToProps = (state) => {
-  return {
-    skills: state.contents.skill
-  };
-};
-
-export default connect(mapStateToProps)(Skill);
+export default Skill;

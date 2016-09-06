@@ -2,14 +2,13 @@
  * Created by Colus on 2016. 8. 21..
  */
 import React from 'react';
-import { connect } from 'react-redux';
 import { PageHeader } from 'react-bootstrap';
 
 import TimeLine2 from '../common/Timeline2';
 import TimeLineData from '../../models/timelineData';
 
 const propTypes = {
-  experience: React.PropTypes.array
+  datas: React.PropTypes.array
 };
 
 class ProjectExperience extends React.Component {
@@ -18,7 +17,7 @@ class ProjectExperience extends React.Component {
     super(props);
     
     this.state = {
-      experience: this.props.experience
+      experience: this.props.datas
     };
   }
   
@@ -46,11 +45,5 @@ class ProjectExperience extends React.Component {
 }
 
 ProjectExperience.propTypes = propTypes;
-  
-const mapStateToProps = (state) => {
-  return {
-    experience: state.contents.projectExperience
-  };
-};
 
-export default connect(mapStateToProps)(ProjectExperience);
+export default ProjectExperience;

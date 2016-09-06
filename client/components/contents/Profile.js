@@ -2,11 +2,10 @@
  * Created by Colus on 2016. 8. 20..
  */
 import React from 'react';
-import { connect } from 'react-redux';
 import { PageHeader } from 'react-bootstrap';
 
 const propTypes = {
-  aboutMe: React.PropTypes.string
+  datas: React.PropTypes.array
 };
 
 class Profile extends React.Component {
@@ -15,7 +14,7 @@ class Profile extends React.Component {
     super(props);
     
     this.state = {
-      aboutMe: this.props.aboutMe
+      aboutMe: this.props.datas[0].aboutMe
     };
   }
   
@@ -32,11 +31,4 @@ class Profile extends React.Component {
 
 Profile.propTypes = propTypes;
 
-const mapStateToProps = (state) => {
-  return {
-    aboutMe: state.contents.profile[0].aboutMe
-    
-  };
-};
-
-export default connect(mapStateToProps)(Profile);
+export default Profile;

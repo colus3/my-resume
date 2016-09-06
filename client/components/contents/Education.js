@@ -2,12 +2,11 @@
  * Created by Colus on 2016. 8. 20..
  */
 import React from 'react';
-import { connect } from 'react-redux';
 import { PageHeader } from 'react-bootstrap';
 import { DateFormat, DateTime } from 'dateutils';
 
 const propTypes = {
-  education: React.PropTypes.array
+  datas: React.PropTypes.array
 };
 
 class Education extends React.Component {
@@ -16,7 +15,7 @@ class Education extends React.Component {
     super(props);
     
     this.state = {
-      education: this.props.education
+      education: this.props.datas
     };
   }
   
@@ -42,10 +41,4 @@ class Education extends React.Component {
 
 Education.propTypes = propTypes;
 
-const mapStateToProps = (state) => {
-  return {
-    education: state.contents.education
-  };
-};
-
-export default connect(mapStateToProps)(Education);
+export default Education;

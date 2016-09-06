@@ -2,11 +2,10 @@
  * Created by Colus on 2016. 8. 22..
  */
 import React from 'react';
-import { connect } from 'react-redux';
 import { PageHeader } from 'react-bootstrap';
 
 const propTypes = {
-  interest: React.PropTypes.array
+  datas: React.PropTypes.array
 };
 
 class Interest extends React.Component {
@@ -15,7 +14,7 @@ class Interest extends React.Component {
     super(props);
     
     this.state = {
-      interest: this.props.interest
+      interest: this.props.datas
     };
   }
   
@@ -45,10 +44,4 @@ class Interest extends React.Component {
 
 Interest.propTypes = propTypes;
 
-const mapStateToProps = (state) => {
-  return {
-    interest: state.contents.interest
-  };
-};
-
-export default connect(mapStateToProps)(Interest);
+export default Interest;

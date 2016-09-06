@@ -8,12 +8,7 @@ import Content from './Content';
 
 class App extends React.Component {
   
-  constructor(props) {
-    super(props);
-  }
-  
   render() {
-
     return (
       <div>
         <Title/>

@@ -2,6 +2,7 @@
  * Created by Colus on 2016. 8. 20..
  */
 import React from 'react';
+import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-bootstrap';
 
 import Profile from './contents/Profile';
@@ -11,12 +12,16 @@ import Education from './contents/Education';
 import Skill from './contents/Skill';
 import Interest from './contents/Interest';
 
-export default class Content extends React.Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+const propTypes = {
+  profiles: React.PropTypes.array,
+  works: React.PropTypes.array,
+  educations: React.PropTypes.array,
+  interests: React.PropTypes.array,
+  skills: React.PropTypes.array,
+  projects: React.PropTypes.array
+};
+
+class Content extends React.Component {
   
   render() {
     return (
@@ -24,13 +29,13 @@ export default class Content extends React.Component {
         <Grid>
           <Row>
             <Col xs={12} sm={12} md={6} lg={6}>
-              <Profile/>
-              <WorkExp/>
+              <Profile datas={this.props.profiles} />
+              <WorkExp datas={this.props.works} />
             </Col>
             <Col xs={12} sm={12} md={6} lg={6}>
-              <Education/>
-              <Skill/>
-              <Interest/>
+              <Education datas={this.props.educations} />
+              <Skill datas={this.props.skills} />
+              <Interest datas={this.props.interests} />
             </Col>
           </Row>
         </Grid>
@@ -38,7 +43,7 @@ export default class Content extends React.Component {
         <Grid>
           <Row>
             <Col xs={12} sm={12} md={12} lg={12}>
-              <ProjectExp/>
+              <ProjectExp datas={this.props.projects} />
             </Col>
           </Row>
         </Grid>
@@ -46,3 +51,18 @@ export default class Content extends React.Component {
     );
   }
 }
+
+Content.propTypes = propTypes;
+
+const mapStateToProps = (state) => {
+  return {
+    profiles: state.contents.profile,
+    works: state.contents.work,
+    educations: state.contents.education,
+    interests: state.contents.interest,
+    skills: state.contents.skill,
+    projects: state.contents.project
+  };
+};
+
+export default connect(mapStateToProps)(Content);

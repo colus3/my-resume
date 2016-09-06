@@ -2,14 +2,13 @@
  * Created by Colus on 2016. 8. 20..
  */
 import React from 'react';
-import { connect } from 'react-redux';
 import { PageHeader } from 'react-bootstrap';
 
 import TimeLine from '../common/Timeline';
 import TimeLineData from '../../models/timelineData';
 
 const propTypes = {
-  experience: React.PropTypes.array
+  datas: React.PropTypes.array
 };
 
 class WorkExperience extends React.Component {
@@ -18,7 +17,7 @@ class WorkExperience extends React.Component {
     super(props);
     
     this.state = {
-      experience: this.props.experience
+      experience: this.props.datas
     };
   }
   
@@ -46,10 +45,4 @@ class WorkExperience extends React.Component {
 
 WorkExperience.propTypes = propTypes;
 
-const mapStateToProps = (state) => {
-  return {
-    experience: state.contents.workExperience
-  };
-};
-
-export default connect(mapStateToProps)(WorkExperience);
+export default WorkExperience;
