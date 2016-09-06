@@ -37,9 +37,7 @@ export function getInitialData(id) {
       return db.select('Expand(contents)').from(result.id).all();
     })
     .then(result => {
-      
       object.contents = new Object();
-      
       return Promise.all(result.map(resumeContent => {
         if ( object.contents[resumeContent.type] ) {
           object.contents[resumeContent.type] = new Array();
