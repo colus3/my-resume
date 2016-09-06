@@ -16,7 +16,7 @@ RUN cd /usr/my-resume \
         && npm install -g webpack \
         && npm install -g babel-cli \
         && npm install -g cross-env \
-        && npm install -only=prod\
+        && npm install -only=prod \
         && npm run build
 
 
