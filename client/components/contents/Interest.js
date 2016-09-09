@@ -4,25 +4,19 @@
 import React from 'react';
 import { PageHeader } from 'react-bootstrap';
 
-const propTypes = {
-  datas: React.PropTypes.array
-};
+import Content from './Content';
 
-class Interest extends React.Component {
+class Interest extends Content {
   
   constructor(props) {
     super(props);
-    
-    this.state = {
-      interest: this.props.datas
-    };
   }
   
   render() {
     const style = { 'display': 'inline-block', 'marginRight': '5px' };
     const color = ['success', 'info', 'warning', 'danger', 'primary'];
     
-    const interests = this.state.interest.map( (interest, i) => {
+    const interests = this.state.content.data.map( (interest, i) => {
       return (
         <span
           key={i}
@@ -35,13 +29,11 @@ class Interest extends React.Component {
     
     return (
       <div>
-        <PageHeader>INTEREST</PageHeader>
+        <PageHeader>{this.state.content.name}</PageHeader>
         <h3>{interests}</h3>
       </div>
     );
   }
 }
-
-Interest.propTypes = propTypes;
 
 export default Interest;

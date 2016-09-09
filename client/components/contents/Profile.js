@@ -4,31 +4,23 @@
 import React from 'react';
 import { PageHeader } from 'react-bootstrap';
 
-const propTypes = {
-  datas: React.PropTypes.array
-};
+import Content from './Content';
 
-class Profile extends React.Component {
+class Profile extends Content {
   
   constructor(props) {
     super(props);
-    
-    this.state = {
-      aboutMe: this.props.datas[0].aboutMe
-    };
   }
   
   render() {
-    const aboutMe = this.state.aboutMe.replace(/\n/g,'<br />');
+    const aboutMe = this.state.content.data[0].aboutMe.replace(/\n/g,'<br />');
     return (
       <div>
-        <PageHeader>PROFILE</PageHeader>
+        <PageHeader>{this.state.content.name}</PageHeader>
         <h5><div dangerouslySetInnerHTML={{__html: aboutMe}} /></h5>
       </div>
     );
   }
 }
-
-Profile.propTypes = propTypes;
 
 export default Profile;

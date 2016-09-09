@@ -4,26 +4,20 @@
 import React from 'react';
 import { PageHeader } from 'react-bootstrap';
 
+import Content from './Content';
+
 import TimeLine from '../common/Timeline';
 import TimeLineData from '../../models/timelineData';
 
-const propTypes = {
-  datas: React.PropTypes.array
-};
-
-class WorkExperience extends React.Component {
+class WorkExperience extends Content {
   
   constructor(props) {
     super(props);
-    
-    this.state = {
-      experience: this.props.datas
-    };
   }
   
   render() {
     
-    const datas = this.state.experience.map((work, i) => {
+    const datas = this.state.content.data.map((work, i) => {
       return new TimeLineData(
         i,
         new Date(work.startDate),
@@ -36,13 +30,11 @@ class WorkExperience extends React.Component {
     
     return (
       <div>
-        <PageHeader>WORK EXPERIENCE</PageHeader>
+        <PageHeader>{this.state.content.name}</PageHeader>
         <TimeLine datas={datas} usePeriod />
       </div>
     );
   }
 }
-
-WorkExperience.propTypes = propTypes;
 
 export default WorkExperience;

@@ -13,12 +13,12 @@ import Skill from './contents/Skill';
 import Interest from './contents/Interest';
 
 const propTypes = {
-  profiles: React.PropTypes.array,
-  works: React.PropTypes.array,
-  educations: React.PropTypes.array,
-  interests: React.PropTypes.array,
-  skills: React.PropTypes.array,
-  projects: React.PropTypes.array
+  profiles: React.PropTypes.object,
+  works: React.PropTypes.object,
+  educations: React.PropTypes.object,
+  interests: React.PropTypes.object,
+  skills: React.PropTypes.object,
+  projects: React.PropTypes.object
 };
 
 class Content extends React.Component {
@@ -29,13 +29,13 @@ class Content extends React.Component {
         <Grid>
           <Row>
             <Col xs={12} sm={12} md={6} lg={6}>
-              <Profile datas={this.props.profiles} />
-              <WorkExp datas={this.props.works} />
+              <Profile data={this.props.profiles} />
+              <WorkExp data={this.props.works} />
             </Col>
             <Col xs={12} sm={12} md={6} lg={6}>
-              <Education datas={this.props.educations} />
-              <Skill datas={this.props.skills} />
-              <Interest datas={this.props.interests} />
+              <Education data={this.props.educations} />
+              <Skill data={this.props.skills} />
+              <Interest data={this.props.interests} />
             </Col>
           </Row>
         </Grid>
@@ -43,7 +43,7 @@ class Content extends React.Component {
         <Grid>
           <Row>
             <Col xs={12} sm={12} md={12} lg={12}>
-              <ProjectExp datas={this.props.projects} />
+              <ProjectExp data={this.props.projects} />
             </Col>
           </Row>
         </Grid>

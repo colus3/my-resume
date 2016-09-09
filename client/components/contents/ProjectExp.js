@@ -4,26 +4,20 @@
 import React from 'react';
 import { PageHeader } from 'react-bootstrap';
 
+import Content from './Content';
+
 import TimeLine2 from '../common/Timeline2';
 import TimeLineData from '../../models/timelineData';
 
-const propTypes = {
-  datas: React.PropTypes.array
-};
-
-class ProjectExperience extends React.Component {
+class ProjectExperience extends Content {
   
   constructor(props) {
     super(props);
-    
-    this.state = {
-      experience: this.props.datas
-    };
   }
   
   render() {
     
-    let datas = this.state.experience.map((project, i) => {
+    let datas = this.state.content.data.map((project, i) => {
       return new TimeLineData(
         i,
         new Date(project.startDate),
@@ -37,13 +31,11 @@ class ProjectExperience extends React.Component {
     
     return (
       <div>
-        <PageHeader>PROJECT EXPERIENCE</PageHeader>
+        <PageHeader>{this.state.content.name}</PageHeader>
         <TimeLine2 datas={datas} useYearLabel/>
       </div>
     );
   }
 }
-
-ProjectExperience.propTypes = propTypes;
 
 export default ProjectExperience;

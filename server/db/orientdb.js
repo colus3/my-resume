@@ -3,17 +3,6 @@
  */
 import { ODatabase } from 'orientjs';
 
-const db = new ODatabase({
-  host:     '192.168.0.28',
-  port:     2424,
-  username: 'root',
-  password: 'juno2989',
-  name:     'my-resume',
-  pool: { max: 10 }
-});
-
-db.open();
-
 export function getInitialData(id) {
   
   let object = new Object();
@@ -39,17 +28,31 @@ export function getInitialData(id) {
     .then(result => {
       object.contents = new Object();
       return Promise.all(result.map(resumeContent => {
-        if ( object.contents[resumeContent.type] ) {
-          object.contents[resumeContent.type] = new Array();
+        if ( ! object.contents[resumeContent.type] ) {
+          object.contents[resumeContent.type] = new Object();
         }
+        object.contents[resumeContent.type].name = resumeContent.name;
+        
         return db.select('Expand(content)').from(resumeContent['@rid']).order('order').all()
           .then(content => {
-            object.contents[resumeContent.type] = content;
+            
+            object.contents[resumeContent.type].data = content;
             return content;
           });
       }));
     })
-    .then( () => object );
+.then( () => object );
 }
+
+const db = new ODatabase({
+  host:     '192.168.0.28',
+  port:     2424,
+  username: 'root',
+  password: 'juno2989',
+  name:     'my-resume',
+  pool: { max: 10 }
+});
+
+db.open();
 
 export default db;

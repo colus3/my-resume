@@ -4,24 +4,18 @@
 import React from 'react';
 import { PageHeader } from 'react-bootstrap';
 
-const propTypes = {
-  datas: React.PropTypes.array
-};
+import Content from './Content';
 
-class Skill extends React.Component {
+class Skill extends Content {
   
   constructor(props) {
     super(props);
-    
-    this.state = {
-      skill: this.props.datas
-    };
   }
   
   render() {
     const color = ['success', 'info', 'warning', 'danger', 'primary'];
     
-    const skills = this.state.skill.map((skill, i) => {
+    const skills = this.state.content.data.map((skill, i) => {
       
       const level = { width: `${skill.expertiseRating}%` };
       return (
@@ -36,7 +30,7 @@ class Skill extends React.Component {
     });
   
   
-    const skillsPrint = this.state.skill.map((skill, i) => {
+    const skillsPrint = this.state.content.data.map((skill, i) => {
       
       const level = { width: `${skill.expertiseRating}%` };
       return (
@@ -52,14 +46,12 @@ class Skill extends React.Component {
     
     return (
       <div>
-        <PageHeader>SKILL</PageHeader>
+        <PageHeader>{this.state.content.name}</PageHeader>
         {skills}
         {skillsPrint}
       </div>
     );
   }
 }
-
-Skill.propTypes = propTypes;
 
 export default Skill;

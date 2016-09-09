@@ -5,22 +5,16 @@ import React from 'react';
 import { PageHeader } from 'react-bootstrap';
 import { DateFormat, DateTime } from 'dateutils';
 
-const propTypes = {
-  datas: React.PropTypes.array
-};
+import Content from './Content';
 
-class Education extends React.Component {
+class Education extends Content {
   
   constructor(props) {
     super(props);
-    
-    this.state = {
-      education: this.props.datas
-    };
   }
   
   render() {
-    const educations = this.state.education.map( (education, i) => {
+    const educations = this.state.content.data.map( (education, i) => {
       const startDate = DateFormat.format(DateTime.fromDateObject(new Date(education.startDate)), 'Y-m');
       const endDate = DateFormat.format(DateTime.fromDateObject(new Date(education.endDate)), 'Y-m');
       return (
@@ -30,7 +24,7 @@ class Education extends React.Component {
     
     return (
       <div>
-        <PageHeader>EDUCATION</PageHeader>
+        <PageHeader>{this.state.content.name}</PageHeader>
         <ul>
           <h5>{educations}</h5>
         </ul>
@@ -38,7 +32,5 @@ class Education extends React.Component {
     );
   }
 }
-
-Education.propTypes = propTypes;
 
 export default Education;
