@@ -2,7 +2,7 @@
  * Created by Colus on 2016. 8. 21..
  */
 import React from 'react';
-import TimeLineData from '../../models/timelineData';
+import TimeLineData from '../../domains/timelineData';
 
 const propTypes = {
   datas: React.PropTypes.array,

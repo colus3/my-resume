@@ -7,7 +7,7 @@ import { PageHeader } from 'react-bootstrap';
 import Content from './Content';
 
 import TimeLine2 from '../common/Timeline2';
-import TimeLineData from '../../models/timelineData';
+import TimeLineData from '../../domains/timelineData';
 
 class ProjectExperience extends Content {
   
