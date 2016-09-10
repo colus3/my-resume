@@ -28,7 +28,9 @@ router.get('/download/:id', function(req, res) {
     
   }).then(page => {
     _page = page;
-    return page.open(`${req.protocol}://${req.get('host')}/resume/${id ? id : ''}`);
+    let url = `${req.protocol}://${req.get('host')}/resume/${id ? id : ''}`;
+    console.log(`url : ${url}`);
+    return page.open(url);
     
   }).then(status => {
     console.log('status : ' + status);
