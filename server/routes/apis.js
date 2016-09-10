@@ -34,6 +34,10 @@ router.get('/download/:id', function(req, res) {
     
   }).then(status => {
     console.log('status : ' + status);
+    
+    if ( status !== 'success' ) {
+      return Error(status);
+    }
     _page.property('viewportSize', {width: 1300, height: 768});
     _page.property('paperSize', {
       format: 'A2',

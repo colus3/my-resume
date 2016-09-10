@@ -9,6 +9,7 @@ import api from './routes/apis';
 const app = express();
 const port = process.env.PORT || 3000;
 
+app.enable("trust proxy");
 
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(bodyParser.json()); // for parsing application/json
