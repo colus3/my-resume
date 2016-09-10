@@ -21,7 +21,7 @@ router.get('/download/:id', function(req, res) {
   const filename = `./tmp/resume_${suffix}.pdf`;
   let _ph, _page;
   
-  phantom.create().then(instance => {
+  phantom.create(['--ignore-ssl-errors=yes']).then(instance => {
     _ph = instance;
     console.log('Create page for PDF');
     return instance.createPage();
