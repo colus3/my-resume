@@ -33,8 +33,7 @@ class Content extends React.Component {
               <WorkExp data={this.props.works} />
             </Col>
             <Col xs={12} sm={12} md={6} lg={6}>
-              {/*<Education data={this.props.educations} />*/}
-              <Education/>
+              <Education data={this.props.educations} />
               <Skill data={this.props.skills} />
               <Interest data={this.props.interests} />
             </Col>
