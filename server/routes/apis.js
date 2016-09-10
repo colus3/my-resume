@@ -53,6 +53,7 @@ router.get('/download/:id', function(req, res) {
     _ph.exit();
     
   }).catch(error => {
+    res.end();
     console.log(error);
     _ph.exit();
   });
