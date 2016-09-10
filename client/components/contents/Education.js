@@ -4,8 +4,9 @@
 import React from 'react';
 import { PageHeader } from 'react-bootstrap';
 import { DateFormat, DateTime } from 'dateutils';
+import _ from 'underscore';
 
-import Content from './Content';
+import Content from './AbstractContent';
 
 class Education extends Content {
   
@@ -14,6 +15,10 @@ class Education extends Content {
   }
   
   render() {
+    if ( _.isEmpty(this.state.content.data) ) {
+      return (<div></div>);
+    }
+    
     const educations = this.state.content.data.map( (education, i) => {
       const startDate = DateFormat.format(DateTime.fromDateObject(new Date(education.startDate)), 'Y-m');
       const endDate = DateFormat.format(DateTime.fromDateObject(new Date(education.endDate)), 'Y-m');

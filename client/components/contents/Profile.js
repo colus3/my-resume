@@ -3,8 +3,9 @@
  */
 import React from 'react';
 import { PageHeader } from 'react-bootstrap';
+import _ from 'underscore';
 
-import Content from './Content';
+import Content from './AbstractContent';
 
 class Profile extends Content {
   
@@ -13,6 +14,10 @@ class Profile extends Content {
   }
   
   render() {
+    if ( _.isEmpty(this.state.content.data) || _.isEmpty(this.state.content.data[0].aboutMe) ) {
+      return (<div></div>);
+    }
+  
     const aboutMe = this.state.content.data[0].aboutMe.replace(/\n/g,'<br />');
     return (
       <div>

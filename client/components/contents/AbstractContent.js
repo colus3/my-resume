@@ -8,7 +8,11 @@ const propTypes = {
 };
 
 const defaultProps = {
-  data: 0
+  data: {
+    name: '',
+    type: '',
+    data: []
+  }
 };
 
 class Content extends React.Component {

@@ -3,8 +3,9 @@
  */
 import React from 'react';
 import { PageHeader } from 'react-bootstrap';
+import _ from 'underscore';
 
-import Content from './Content';
+import Content from './AbstractContent';
 
 class Skill extends Content {
   
@@ -13,6 +14,10 @@ class Skill extends Content {
   }
   
   render() {
+    if ( _.isEmpty(this.state.content.data) ) {
+      return (<div></div>);
+    }
+    
     const color = ['success', 'info', 'warning', 'danger', 'primary'];
     
     const skills = this.state.content.data.map((skill, i) => {

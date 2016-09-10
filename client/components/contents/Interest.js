@@ -3,8 +3,9 @@
  */
 import React from 'react';
 import { PageHeader } from 'react-bootstrap';
+import _ from 'underscore';
 
-import Content from './Content';
+import Content from './AbstractContent';
 
 class Interest extends Content {
   
@@ -13,6 +14,10 @@ class Interest extends Content {
   }
   
   render() {
+    if ( _.isEmpty(this.state.content.data) ) {
+      return (<div></div>);
+    }
+    
     const style = { 'display': 'inline-block', 'marginRight': '5px' };
     const color = ['success', 'info', 'warning', 'danger', 'primary'];
     

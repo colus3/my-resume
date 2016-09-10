@@ -3,8 +3,9 @@
  */
 import React from 'react';
 import { PageHeader } from 'react-bootstrap';
+import _ from 'underscore';
 
-import Content from './Content';
+import Content from './AbstractContent';
 
 import TimeLine2 from '../common/Timeline2';
 import TimeLineData from '../../domains/timelineData';
@@ -16,6 +17,9 @@ class ProjectExperience extends Content {
   }
   
   render() {
+    if ( _.isEmpty(this.state.content.data) ) {
+      return (<div></div>);
+    }
     
     let datas = this.state.content.data.map((project, i) => {
       return new TimeLineData(

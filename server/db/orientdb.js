@@ -22,16 +22,19 @@ export function getInitialData(id) {
   
   return db.select(properties).from('myResume').where(conditions).one()
     .then(result => {
+      
       object = result;
       return db.select('Expand(contents)').from(result.id).all();
     })
     .then(result => {
+      
       object.contents = new Object();
       return Promise.all(result.map(resumeContent => {
         if ( ! object.contents[resumeContent.type] ) {
           object.contents[resumeContent.type] = new Object();
         }
         object.contents[resumeContent.type].name = resumeContent.name;
+        object.contents[resumeContent.type].type = resumeContent.type;
         
         return db.select('Expand(content)').from(resumeContent['@rid']).order('order').all()
           .then(content => {
@@ -41,7 +44,7 @@ export function getInitialData(id) {
           });
       }));
     })
-.then( () => object );
+    .then( () => object );
 }
 
 const db = new ODatabase({
