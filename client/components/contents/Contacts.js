@@ -20,36 +20,28 @@ class Contacts extends React.Component {
   
   constructor(props) {
     super(props);
-    this.state = {
-      birthDate: this.props.birthDate,
-      phone: this.props.phone,
-      email: this.props.email,
-      address: this.props.address,
-      homepage: this.props.homepage,
-      resumeId: this.props.resumeId
-    };
   
     this.handleHomePage = this.handleHomePage.bind(this);
   }
   
   handleHomePage() {
-    window.location.assign(`${this.state.homepage}/resume/${this.state.resumeId}`);
+    window.location.assign(`${this.props.homepage}/resume/${this.props.resumeId}`);
   }
   
   render() {
     return (
       <address>
         <h4 className="text-right">
-          {this.state.birthDate} <span className="glyphicon glyphicon-user" aria-hidden="true"/>
+          {this.props.birthDate} <span className="glyphicon glyphicon-user" aria-hidden="true"/>
         </h4>
         <h4 className="text-right">
-          <abbr title="phone">{this.state.phone}</abbr> <span className="glyphicon glyphicon-earphone" aria-hidden="true"/>
+          <abbr title="phone">{this.props.phone}</abbr> <span className="glyphicon glyphicon-earphone" aria-hidden="true"/>
         </h4>
         <h4 className="text-right">
-          <a href={`mailto:${this.state.email}`}>{this.state.email}</a> <span className="glyphicon glyphicon-envelope" aria-hidden="true"/>
+          <a href={`mailto:${this.props.email}`}>{this.props.email}</a> <span className="glyphicon glyphicon-envelope" aria-hidden="true"/>
         </h4>
         <h4 className="text-right">
-          {this.state.address} <span className="glyphicon glyphicon-home" aria-hidden="true"/>
+          {this.props.address} <span className="glyphicon glyphicon-home" aria-hidden="true"/>
         </h4>
         <h4 className="text-right">
           <a href="#" onClick={this.handleHomePage}>Link</a> <span className="glyphicon glyphicon-link" aria-hidden="true"/>
