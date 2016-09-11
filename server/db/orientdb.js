@@ -24,7 +24,7 @@ export function getInitialData(id) {
     .then(result => {
       
       object = result;
-      return db.select('Expand(contents)').from(result.id).all();
+      return db.select('Expand(contents)').from(result.id).order('order').all();
     })
     .then(result => {
       
@@ -35,6 +35,7 @@ export function getInitialData(id) {
         }
         object.contents[resumeContent.type].name = resumeContent.name;
         object.contents[resumeContent.type].type = resumeContent.type;
+        object.contents[resumeContent.type].align = resumeContent.align;
         
         return db.select('Expand(content)').from(resumeContent['@rid']).order('order').all()
           .then(content => {

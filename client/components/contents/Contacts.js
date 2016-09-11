@@ -38,25 +38,23 @@ class Contacts extends React.Component {
   
   render() {
     return (
-      <Col xs={12} sm={4} md={5}>
-        <address>
-          <h4 className="text-right">
-            {this.state.birthDate} <span className="glyphicon glyphicon-user" aria-hidden="true"/>
-          </h4>
-          <h4 className="text-right">
-            <abbr title="phone">{this.state.phone}</abbr> <span className="glyphicon glyphicon-earphone" aria-hidden="true"/>
-          </h4>
-          <h4 className="text-right">
-            <a href={`mailto:${this.state.email}`}>{this.state.email}</a> <span className="glyphicon glyphicon-envelope" aria-hidden="true"/>
-          </h4>
-          <h4 className="text-right">
-            {this.state.address} <span className="glyphicon glyphicon-home" aria-hidden="true"/>
-          </h4>
-          <h4 className="text-right">
-            <a href="#" onClick={this.handleHomePage}>Link</a> <span className="glyphicon glyphicon-link" aria-hidden="true"/>
-          </h4>
-        </address>
-      </Col>
+      <address>
+        <h4 className="text-right">
+          {this.state.birthDate} <span className="glyphicon glyphicon-user" aria-hidden="true"/>
+        </h4>
+        <h4 className="text-right">
+          <abbr title="phone">{this.state.phone}</abbr> <span className="glyphicon glyphicon-earphone" aria-hidden="true"/>
+        </h4>
+        <h4 className="text-right">
+          <a href={`mailto:${this.state.email}`}>{this.state.email}</a> <span className="glyphicon glyphicon-envelope" aria-hidden="true"/>
+        </h4>
+        <h4 className="text-right">
+          {this.state.address} <span className="glyphicon glyphicon-home" aria-hidden="true"/>
+        </h4>
+        <h4 className="text-right">
+          <a href="#" onClick={this.handleHomePage}>Link</a> <span className="glyphicon glyphicon-link" aria-hidden="true"/>
+        </h4>
+      </address>
     );
   }
 }

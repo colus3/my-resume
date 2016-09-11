@@ -33,7 +33,7 @@ class Title extends React.Component {
   }
   
   render() {
-    const baseStyle = { color: '#cdbfe3', backgroundColor: '#6f5499' };
+    const baseStyle = { color: '#cdbfe3', backgroundColor: '#6f5499', paddingBottom: '4px' };
     const nameStyle = { color: '#fff' };
     var imgStyle = { height: '150px' };
     
@@ -55,9 +55,12 @@ class Title extends React.Component {
                      alt="Responsive image" style={imgStyle}/>
               </p>
             </Col>
-            <Contacts/>
+            <Col xs={12} sm={4} md={5}>
+              <Contacts/>
+            </Col>
           </Row>
         </Grid>
+        <h6 className="visible-lg-inline-block"> <span className="glyphicon glyphicon-console"></span> 이 페이지는 NodeJs, ExpressJs, ReactJs, Redux, OrientDB, Bootstrap, PhantomJs 등을 이용하여 제작되었습니다.</h6>
       </Jumbotron>
     );
   }

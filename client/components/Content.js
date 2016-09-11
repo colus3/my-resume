@@ -13,29 +13,39 @@ import Skill from './contents/Skill';
 import Interest from './contents/Interest';
 
 const propTypes = {
-  profiles: React.PropTypes.object,
-  works: React.PropTypes.object,
-  educations: React.PropTypes.object,
-  interests: React.PropTypes.object,
-  skills: React.PropTypes.object,
-  projects: React.PropTypes.object
+  contents: React.PropTypes.object
 };
 
 class Content extends React.Component {
   
   render() {
+    
+    let leftContents = new Array();
+    let rightContents = new Array();
+    let bottomContents = new Array();
+  
+    Object.keys(this.props.contents)
+      .map( (key, index) => {
+        
+        switch ( this.props.contents[key].align ) {
+        case 'left'  :
+          leftContents.push(contentFactory(key, index, this.props.contents[key])); break;
+        case 'right' :
+          rightContents.push(contentFactory(key, index, this.props.contents[key])); break;
+        case 'bottom':
+          bottomContents.push(contentFactory(key, index, this.props.contents[key])); break;
+        }
+      });
+
     return (
       <div>
         <Grid>
           <Row>
             <Col xs={12} sm={12} md={6} lg={6}>
-              <Profile data={this.props.profiles} />
-              <WorkExp data={this.props.works} />
+              {leftContents}
             </Col>
             <Col xs={12} sm={12} md={6} lg={6}>
-              <Education data={this.props.educations} />
-              <Skill data={this.props.skills} />
-              <Interest data={this.props.interests} />
+              {rightContents}
             </Col>
           </Row>
         </Grid>
@@ -43,7 +53,7 @@ class Content extends React.Component {
         <Grid>
           <Row>
             <Col xs={12} sm={12} md={12} lg={12}>
-              <ProjectExp data={this.props.projects} />
+              {bottomContents}
             </Col>
           </Row>
         </Grid>
@@ -54,14 +64,21 @@ class Content extends React.Component {
 
 Content.propTypes = propTypes;
 
+const contentFactory = (contentName, key, data) => {
+  switch ( contentName ) {
+  case 'profile': return (<Profile key={key} data={data}/>);
+  case 'education': return (<Education key={key} data={data}/>);
+  case 'skill': return (<Skill key={key} data={data}/>);
+  case 'work': return (<WorkExp key={key} data={data}/>);
+  case 'interest': return (<Interest key={key} data={data}/>);
+  case 'project': return (<ProjectExp key={key} data={data}/>);
+  default: return '';
+  }
+};
+
 const mapStateToProps = (state) => {
   return {
-    profiles: state.contents.profile,
-    works: state.contents.work,
-    educations: state.contents.education,
-    interests: state.contents.interest,
-    skills: state.contents.skill,
-    projects: state.contents.project
+    contents: state.contents
   };
 };
 
