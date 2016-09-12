@@ -3,7 +3,6 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
-import { Col } from 'react-bootstrap';
 import { DateFormat, DateTime } from 'dateutils';
 
 const propTypes = {
