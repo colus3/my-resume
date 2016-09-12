@@ -10,7 +10,8 @@ import Contacts from './contents/Contacts';
 const propTypes = {
   name: React.PropTypes.string,
   moto: React.PropTypes.string,
-  resumeId: React.PropTypes.string
+  resumeId: React.PropTypes.string,
+  image: React.PropTypes.string
 };
 
 class Title extends React.Component {
@@ -22,7 +23,7 @@ class Title extends React.Component {
       name: this.props.name,
       moto: this.props.moto,
       resumeId: this.props.resumeId,
-      userImage: '/images/my-image.jpg'
+      image: this.props.image
     };
     
     this.handleDownload = this.handleDownload.bind(this);
@@ -33,7 +34,7 @@ class Title extends React.Component {
   }
   
   render() {
-    const baseStyle = { color: '#cdbfe3', backgroundColor: '#6f5499', paddingBottom: '4px' };
+    const baseStyle = { color: '#cdbfe3', backgroundColor: '#6f5499', paddingBottom: '6px' };
     const nameStyle = { color: '#fff' };
     var imgStyle = { height: '150px' };
     
@@ -51,7 +52,7 @@ class Title extends React.Component {
             </Col>
             <Col md={2} className="visible-md-block visible-lg-block">
               <p>
-                <img src={this.state.userImage} className="img-responsive img-circle center-block"
+                <img src={this.state.image} className="img-responsive img-circle center-block"
                      alt="Responsive image" style={imgStyle}/>
               </p>
             </Col>
@@ -72,7 +73,8 @@ const mapStateToProps = (state) => {
   return {
     name: state.name,
     moto: state.moto,
-    resumeId: state.resumeId
+    resumeId: state.resumeId,
+    image: state.image
   };
 };
 

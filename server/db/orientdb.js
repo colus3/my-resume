@@ -14,6 +14,7 @@ export function getInitialData(id) {
         user.moto as moto, 
         user.phone as phone, 
         user.email as email,
+        user.image as image,
         user.birthDate as birthDate, 
         user.address as address, 
         user.homepage as homepage`;
@@ -22,7 +23,7 @@ export function getInitialData(id) {
   
   return db.select(properties).from('myResume').where(conditions).one()
     .then(result => {
-      
+
       object = result;
       return db.select('Expand(contents)').from(result.id).order('order').all();
     })
