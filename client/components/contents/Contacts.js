@@ -20,11 +20,11 @@ class Contacts extends React.Component {
   constructor(props) {
     super(props);
   
-    this.handleHomePage = this.handleHomePage.bind(this);
+    this.handleResumeUrl = this.handleResumeUrl.bind(this);
     this.handleMailTo = this.handleMailTo.bind(this);
   }
   
-  handleHomePage() {
+  handleResumeUrl() {
     window.location.assign(`${this.props.resumeUrl}`);
   }
   
@@ -48,7 +48,7 @@ class Contacts extends React.Component {
           {this.props.address} <span className="glyphicon glyphicon-home" aria-hidden="true"/>
         </h4>
         <h4 className="text-right">
-          <a href="#" onClick={this.handleHomePage}>{this.props.resumeUrl}</a> <span className="glyphicon glyphicon-link" aria-hidden="true"/>
+          <a href="#" onClick={this.handleResumeUrl}>{this.props.resumeUrl}</a> <span className="glyphicon glyphicon-link" aria-hidden="true"/>
         </h4>
       </address>
     );
