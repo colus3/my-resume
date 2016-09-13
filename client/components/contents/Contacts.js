@@ -11,7 +11,7 @@ const propTypes = {
   phone: React.PropTypes.string,
   email: React.PropTypes.string,
   birthDate: React.PropTypes.string,
-  homepage: React.PropTypes.string,
+  resumeUrl: React.PropTypes.string,
   resumeId: React.PropTypes.string
 };
 
@@ -21,10 +21,15 @@ class Contacts extends React.Component {
     super(props);
   
     this.handleHomePage = this.handleHomePage.bind(this);
+    this.handleMailTo = this.handleMailTo.bind(this);
   }
   
   handleHomePage() {
-    window.location.assign(`${this.props.homepage}/resume/${this.props.resumeId}`);
+    window.location.assign(`${this.props.resumeUrl}`);
+  }
+  
+  handleMailTo() {
+    window.location.assign(`mailto:${this.props.email}`);
   }
   
   render() {
@@ -37,13 +42,13 @@ class Contacts extends React.Component {
           <abbr title="phone">{this.props.phone}</abbr> <span className="glyphicon glyphicon-earphone" aria-hidden="true"/>
         </h4>
         <h4 className="text-right">
-          <a href={`mailto:${this.props.email}`}>{this.props.email}</a> <span className="glyphicon glyphicon-envelope" aria-hidden="true"/>
+          <a href="#" onClick={this.handleMailTo}>{this.props.email}</a> <span className="glyphicon glyphicon-envelope" aria-hidden="true"/>
         </h4>
         <h4 className="text-right">
           {this.props.address} <span className="glyphicon glyphicon-home" aria-hidden="true"/>
         </h4>
         <h4 className="text-right">
-          <a href="#" onClick={this.handleHomePage}>Link</a> <span className="glyphicon glyphicon-link" aria-hidden="true"/>
+          <a href="#" onClick={this.handleHomePage}>{this.props.resumeUrl}</a> <span className="glyphicon glyphicon-link" aria-hidden="true"/>
         </h4>
       </address>
     );
@@ -59,7 +64,7 @@ const mapStateToProps = (state) => {
     email: state.email,
     address: state.address,
     birthDate: DateFormat.format(DateTime.fromDateObject(new Date(state.birthDate)), 'Y-m-d'),
-    homepage: state.homepage,
+    resumeUrl: state.resumeUrl,
     resumeId: state.resumeId
   };
 };

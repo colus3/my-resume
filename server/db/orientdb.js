@@ -9,6 +9,7 @@ export function getInitialData(id) {
   const properties = `
         @rid as id, 
         id as resumeId,
+        resumeUrl as resumeUrl,
         name as resumeName,
         user.name as name, 
         user.moto as moto, 
@@ -16,8 +17,7 @@ export function getInitialData(id) {
         user.email as email,
         user.image as image,
         user.birthDate as birthDate, 
-        user.address as address, 
-        user.homepage as homepage`;
+        user.address as address`;
   
   const conditions = id ? {id: id} : {defaults: true};
   

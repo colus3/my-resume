@@ -61,7 +61,7 @@ class Title extends React.Component {
             </Col>
           </Row>
         </Grid>
-        <h6 className="visible-lg-inline-block"> <span className="glyphicon glyphicon-console"></span> 이 페이지는 NodeJs, ExpressJs, ReactJs, Redux, OrientDB, Bootstrap, PhantomJs 등을 이용하여 제작되었습니다.</h6>
+        <h6 className="visible-lg-inline-block"> <span className="glyphicon glyphicon-console"></span> 이 페이지는 NodeJs, ExpressJs, ReactJs, Redux, OrientDB, Bootstrap, PhantomJs, Jenkins, Docker 등을 이용하여 제작되었습니다.</h6>
       </Jumbotron>
     );
   }
