@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
+import morgan from 'morgan';
 
 import { handleRender, renderToString } from '../public/server';
 
@@ -11,6 +12,7 @@ const port = process.env.PORT || 3000;
 
 app.enable('trust proxy');
 
+app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(bodyParser.json()); // for parsing application/json
 app.use(express.static(path.join(__dirname, './../public'))); // Static Resource
