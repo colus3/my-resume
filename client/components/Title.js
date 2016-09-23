@@ -30,14 +30,14 @@ class Title extends React.Component {
   }
   
   handleDownload() {
-    window.location.assign(`/api/download/${this.state.resumeId}`);
+    window.location.assign(`/resume/api/download/${this.state.resumeId}`);
   }
   
   render() {
     const baseStyle = { color: '#cdbfe3', backgroundColor: '#6f5499', paddingBottom: '6px' };
     const nameStyle = { color: '#fff' };
     var imgStyle = { height: '150px' };
-    
+
     return (
       <Jumbotron id="content" tabIndex="-1" style={baseStyle}>
         <Grid fluid>
