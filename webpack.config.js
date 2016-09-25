@@ -39,7 +39,7 @@ module.exports = [
       preLoaders: preLoaders,
       loaders: loaders
     },
-/*    plugins: plugins, */
+    plugins: plugins,
     devServer: {
       inline: true,
       port: 7777,
