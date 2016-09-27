@@ -16,7 +16,8 @@ var loaders = [
   {
     test: /\.scss$/,
     loader: 'css-loader/locals?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
-  }
+  },
+  { test: /\.json$/, loader: 'json' }
 ];
 
 var plugins = [
