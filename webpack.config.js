@@ -51,7 +51,7 @@ module.exports = [
   {
     name: 'server',
     target: 'node',
-    entry: './server/index.js',
+    entry: './server/serverside.js',
     externals: [ nodeExternals() ],
     output: {
       path: path.join(__dirname, 'public'),
@@ -72,6 +72,6 @@ module.exports = [
         }
       ]
     },
-/*    plugins: plugins*/
+    // plugins: plugins
   }
 ];
