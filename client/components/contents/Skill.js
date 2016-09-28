@@ -12,7 +12,7 @@ class Skill extends Content {
   constructor(props) {
     super(props);
   }
-  
+
   render() {
     if ( _.isEmpty(this.state.content.data) ) {
       return (<div></div>);
@@ -26,10 +26,11 @@ class Skill extends Content {
       return (
         <div className="progress hidden-print" key={i}>
           <div className={`progress-bar progress-bar-${color[i % 5]}`}
-               role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+               role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
                style={level}>
-            {skill.skillName}
           </div>
+          <span className="progress-type">{skill.skillName}</span>
+          <span className="progress-completed">{skill.expertiseRating} %</span>
         </div>
       );
     });
@@ -41,10 +42,11 @@ class Skill extends Content {
       return (
         <div className="progress visible-print" key={i}>
           <div className="progress-bar progress-bar-gray"
-               role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+               role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
                style={level}>
-            {skill.skillName}
           </div>
+          <span className="progress-type">{skill.skillName}</span>
+          <span className="progress-completed">{skill.expertiseRating} %</span>
         </div>
       );
     });
