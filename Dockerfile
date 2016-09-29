@@ -1,4 +1,4 @@
-FROM node:slim
+FROM node:wheezy
 
 # Set the timezone.
 RUN echo "Asia/Seoul" > /etc/timezone \
