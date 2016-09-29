@@ -1,4 +1,4 @@
-/**
+ /**
  * Created by Colus on 2016. 8. 20..
  */
 import React from 'react';
@@ -7,32 +7,27 @@ import { PageHeader } from 'react-bootstrap';
 import { DateFormat, DateTime } from 'dateutils';
 import _ from 'underscore';
 
-import Content from './AbstractContent';
+const Education = (props) => {
 
-class Education extends Content {
-  
-  constructor(props) {
-    super(props);
+  if ( _.isEmpty(props.data.content) ) {
+    return (<div></div>);
   }
-  
-  render() {
-    if ( _.isEmpty(this.state.content.data) ) {
-      return (<div></div>);
-    }
-    
-    const educations = this.state.content.data.map( (education, i) => {
-      const startDate = DateFormat.format(DateTime.fromDateObject(new Date(education.startDate)), 'Y-m');
-      const endDate = DateFormat.format(DateTime.fromDateObject(new Date(education.endDate)), 'Y-m');
-      return `* ${startDate} ~ ${endDate} ${education.title}\n`;
-    }).join(' ');
-    
-    return (
+
+  const educations = props.data.content.map( (education, i) => {
+    const startDate = DateFormat.format(DateTime.fromDateObject(new Date(education.startDate)), 'Y-m');
+    const endDate = DateFormat.format(DateTime.fromDateObject(new Date(education.endDate)), 'Y-m');
+    return `* ${startDate} ~ ${endDate} ${education.title}\n`;
+  }).join(' ');
+
+  return (
       <div>
-        <PageHeader>{this.state.content.name}</PageHeader>
+        <PageHeader>{props.data.name}</PageHeader>
         <ReactMarkdown source={educations} />
       </div>
-    );
-  }
-}
+  );
+};
+
+Education.propTypes = { data: React.PropTypes.object };
+Education.defaultProps = { data: { name: '', type: '', content: [] } };
 
 export default Education;

@@ -6,28 +6,23 @@ import ReactMarkdown from 'react-markdown';
 import { PageHeader } from 'react-bootstrap';
 import _ from 'underscore';
 
-import Content from './AbstractContent';
+const Profile = (props) => {
 
-class Profile extends Content {
-  
-  constructor(props) {
-    super(props);
+  if ( _.isEmpty(props.data.content) || _.isEmpty(props.data.content[0].aboutMe) ) {
+    return (<div></div>);
   }
-  
-  render() {
-    if ( _.isEmpty(this.state.content.data) || _.isEmpty(this.state.content.data[0].aboutMe) ) {
-      return (<div></div>);
-    }
-  
-    // const aboutMe = this.state.content.data[0].aboutMe.replace(/\n/g,'<br />');
-    return (
-      <div>
-        <PageHeader>{this.state.content.name}</PageHeader>
-        <ReactMarkdown source={this.state.content.data[0].aboutMe}/>
-        {/*<h5><div dangerouslySetInnerHTML={{__html: aboutMe}} /></h5>*/}
-      </div>
-    );
-  }
-}
+
+  // const aboutMe = this.state.content.data[0].aboutMe.replace(/\n/g,'<br />');
+  return (
+    <div>
+      <PageHeader>{props.data.name}</PageHeader>
+      <ReactMarkdown source={props.data.content[0].aboutMe}/>
+      {/*<h5><div dangerouslySetInnerHTML={{__html: aboutMe}} /></h5>*/}
+    </div>
+  );
+};
+
+Profile.propTypes = { data: React.PropTypes.object };
+Profile.defaultProps = { data: { name: '', type: '', content: [] } };
 
 export default Profile;

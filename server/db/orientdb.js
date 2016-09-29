@@ -41,7 +41,7 @@ export function getInitialData(id) {
         return db.select('Expand(content)').from(resumeContent['@rid']).order('order').all()
           .then(content => {
             
-            object.contents[resumeContent.type].data = content;
+            object.contents[resumeContent.type].content = content;
             return content;
           });
       }));

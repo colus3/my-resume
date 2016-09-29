@@ -5,40 +5,35 @@ import React from 'react';
 import { PageHeader } from 'react-bootstrap';
 import _ from 'underscore';
 
-import Content from './AbstractContent';
-
 import TimeLine from '../common/Timeline';
 import TimeLineData from '../../domains/timelineData';
 
-class WorkExperience extends Content {
-  
-  constructor(props) {
-    super(props);
+const WorkExperience = (props) => {
+
+  if ( _.isEmpty(props.data.content) ) {
+    return (<div></div>);
   }
-  
-  render() {
-    if ( _.isEmpty(this.state.content.data) ) {
-      return (<div></div>);
-    }
-    
-    const datas = this.state.content.data.map((work, i) => {
-      return new TimeLineData(
-        i,
-        new Date(work.startDate),
-        new Date(work.endDate),
-        work.title,
-        work.content,
-        work.labels ? new Object(work.labels).toString().split(',') : []
-      );
-    });
-    
-    return (
-      <div>
-        <PageHeader>{this.state.content.name}</PageHeader>
-        <TimeLine datas={datas} usePeriod />
-      </div>
+
+  const datas = props.data.content.map((work, i) => {
+    return new TimeLineData(
+      i,
+      new Date(work.startDate),
+      new Date(work.endDate),
+      work.title,
+      work.content,
+      work.labels ? new Object(work.labels).toString().split(',') : []
     );
-  }
-}
+  });
+
+  return (
+    <div>
+      <PageHeader>{props.data.name}</PageHeader>
+      <TimeLine datas={datas} usePeriod />
+    </div>
+  );
+};
+
+WorkExperience.propTypes = { data: React.PropTypes.object };
+WorkExperience.defaultProps = { data: { name: '', type: '', content: [] } };
 
 export default WorkExperience;

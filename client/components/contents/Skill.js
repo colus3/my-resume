@@ -5,60 +5,55 @@ import React from 'react';
 import { PageHeader } from 'react-bootstrap';
 import _ from 'underscore';
 
-import Content from './AbstractContent';
+const Skill = (props) => {
 
-class Skill extends Content {
-  
-  constructor(props) {
-    super(props);
+  if ( _.isEmpty(props.data.content) ) {
+    return (<div></div>);
   }
 
-  render() {
-    if ( _.isEmpty(this.state.content.data) ) {
-      return (<div></div>);
-    }
-    
-    const color = ['success', 'info', 'warning', 'danger', 'primary'];
-    
-    const skills = this.state.content.data.map((skill, i) => {
-      
-      const level = { width: `${skill.expertiseRating}%` };
-      return (
-        <div className="progress hidden-print" key={i}>
-          <div className={`progress-bar progress-bar-${color[i % 5]}`}
-               role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-               style={level}>
-          </div>
-          <span className="progress-type">{skill.skillName}</span>
-          <span className="progress-completed">{skill.expertiseRating} %</span>
-        </div>
-      );
-    });
-  
-  
-    const skillsPrint = this.state.content.data.map((skill, i) => {
-      
-      const level = { width: `${skill.expertiseRating}%` };
-      return (
-        <div className="progress visible-print" key={i}>
-          <div className="progress-bar progress-bar-gray"
-               role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
-               style={level}>
-          </div>
-          <span className="progress-type">{skill.skillName}</span>
-          <span className="progress-completed">{skill.expertiseRating} %</span>
-        </div>
-      );
-    });
-    
+  const color = ['success', 'info', 'warning', 'danger', 'primary'];
+
+  const skills = props.data.content.map((skill, i) => {
+
+    const level = { width: `${skill.expertiseRating}%` };
     return (
-      <div>
-        <PageHeader>{this.state.content.name}</PageHeader>
-        {skills}
-        {skillsPrint}
+      <div className="progress hidden-print" key={i}>
+        <div className={`progress-bar progress-bar-${color[i % 5]}`}
+             role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+             style={level}>
+        </div>
+        <span className="progress-type">{skill.skillName}</span>
+        <span className="progress-completed">{skill.expertiseRating} %</span>
       </div>
     );
-  }
-}
+  });
+
+
+  const skillsPrint = props.data.content.map((skill, i) => {
+
+    const level = { width: `${skill.expertiseRating}%` };
+    return (
+      <div className="progress visible-print" key={i}>
+        <div className="progress-bar progress-bar-gray"
+             role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+             style={level}>
+        </div>
+        <span className="progress-type">{skill.skillName}</span>
+        <span className="progress-completed">{skill.expertiseRating} %</span>
+      </div>
+    );
+  });
+
+  return (
+    <div>
+      <PageHeader>{props.data.name}</PageHeader>
+      {skills}
+      {skillsPrint}
+    </div>
+  );
+};
+
+Skill.propTypes = { data: React.PropTypes.object };
+Skill.defaultProps = { data: { name: '', type: '', content: [] } };
 
 export default Skill;

@@ -64,14 +64,14 @@ class Content extends React.Component {
 
 Content.propTypes = propTypes;
 
-const contentFactory = (contentName, key, data) => {
+const contentFactory = (contentName, index, data) => {
   switch ( contentName ) {
-  case 'profile': return (<Profile key={key} data={data}/>);
-  case 'education': return (<Education key={key} data={data}/>);
-  case 'skill': return (<Skill key={key} data={data}/>);
-  case 'work': return (<WorkExp key={key} data={data}/>);
-  case 'interest': return (<Interest key={key} data={data}/>);
-  case 'project': return (<ProjectExp key={key} data={data}/>);
+  case 'profile': return (<Profile key={index} data={data}/>);
+  case 'education': return (<Education key={index} data={data}/>);
+  case 'skill': return (<Skill key={index} data={data}/>);
+  case 'work': return (<WorkExp key={index} data={data}/>);
+  case 'interest': return (<Interest key={index} data={data}/>);
+  case 'project': return (<ProjectExp key={index} data={data}/>);
   default: return '';
   }
 };
