@@ -15,24 +15,24 @@ const propTypes = {
 };
 
 class Title extends React.Component {
-  
+
   constructor(props) {
     super(props);
-    
+
     this.state = {
       name: this.props.name,
       moto: this.props.moto,
       resumeId: this.props.resumeId,
       image: this.props.image
     };
-    
+
     this.handleDownload = this.handleDownload.bind(this);
   }
-  
+
   handleDownload() {
     window.location.assign(`/resume/api/download/${this.state.resumeId}`);
   }
-  
+
   render() {
     const baseStyle = { color: '#cdbfe3', backgroundColor: '#6f5499', paddingBottom: '6px' };
     const nameStyle = { color: '#fff' };

@@ -1,4 +1,4 @@
- /**
+/**
  * Created by Colus on 2016. 8. 20..
  */
 import React from 'react';
@@ -20,10 +20,10 @@ const Education = (props) => {
   }).join(' ');
 
   return (
-      <div>
-        <PageHeader>{props.data.name}</PageHeader>
-        <ReactMarkdown source={educations} />
-      </div>
+    <div>
+      <PageHeader>{props.data.name}</PageHeader>
+      <ReactMarkdown source={educations} />
+    </div>
   );
 };
 
