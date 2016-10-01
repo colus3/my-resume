@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
-import { DateFormat, DateTime } from 'dateutils';
+import { DateFormat, DateTime, DateLocale } from 'dateutils';
 
 const propTypes = {
   address: React.PropTypes.string,
@@ -63,7 +63,7 @@ const mapStateToProps = (state) => {
     phone: state.phone,
     email: state.email,
     address: state.address,
-    birthDate: DateFormat.format(DateTime.fromDateObject(new Date(state.birthDate)), 'Y-m-d'),
+    birthDate: DateFormat.format(DateTime.fromDateObject(new Date(state.birthDate)), 'Y-m-d', DateLocale.EN),
     resumeUrl: state.resumeUrl,
     resumeId: state.resumeId
   };

@@ -9,6 +9,7 @@ import Profile from './contents/Profile';
 import WorkExp from './contents/WorkExp';
 import ProjectExp from './contents/ProjectExp';
 import Education from './contents/Education';
+import Certification from './contents/Certification';
 import Skill from './contents/Skill';
 import Interest from './contents/Interest';
 
@@ -68,6 +69,7 @@ const contentFactory = (contentName, index, data) => {
   switch ( contentName ) {
   case 'profile': return (<Profile key={index} data={data}/>);
   case 'education': return (<Education key={index} data={data}/>);
+  case 'certification': return (<Certification key={index} data={data}/>);
   case 'skill': return (<Skill key={index} data={data}/>);
   case 'work': return (<WorkExp key={index} data={data}/>);
   case 'interest': return (<Interest key={index} data={data}/>);

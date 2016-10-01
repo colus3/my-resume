@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
-import { Jumbotron, Grid, Row, Col, Button } from 'react-bootstrap';
+import { Jumbotron, Grid, Row, Col } from 'react-bootstrap';
 
 import Contacts from './contents/Contacts';
 

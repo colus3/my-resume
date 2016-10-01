@@ -20,7 +20,7 @@ const ProjectExperience = (props) => {
       new Date(project.startDate),
       new Date(project.endDate),
       project.title,
-      project.content,
+      `role : ${project.content}`,
       project.labels ? new Object(project.labels).toString().split(',') : []
     );
   });
