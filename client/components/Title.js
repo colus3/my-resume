@@ -47,7 +47,7 @@ class Title extends React.Component {
               <h2 className="visible-md-inline-block" style={nameStyle}>{this.state.name}</h2>
               <h2>{this.state.moto}</h2>
               <p className="lead">
-                <a className="btn btn-outline-inverse btn-lg hidden-print" href="#" onClick={this.handleDownload} role="button">PDF 다운로드</a>
+                <a className="btn btn-outline-inverse btn-lg hidden-print" href="#" onClick={this.handleDownload} role="button">Download PDF</a>
               </p>
             </Col>
             <Col md={2} className="visible-md-block visible-lg-block">
@@ -61,7 +61,7 @@ class Title extends React.Component {
             </Col>
           </Row>
         </Grid>
-        <h6 className="visible-lg-inline-block"> <span className="glyphicon glyphicon-console"></span> 이 페이지는 NodeJs, ExpressJs, ReactJs, Redux, OrientDB, Bootstrap, PhantomJs, Jenkins, Docker 등을 이용하여 제작되었습니다.</h6>
+        <h6 className="visible-lg-inline-block"> <span className="glyphicon glyphicon-console"></span> This page is designed using NodeJs, ExpressJs, ReactJs, Redux, OrientDB, Bootstrap, PhantomJs, Jenkins, Docker.</h6>
       </Jumbotron>
     );
   }

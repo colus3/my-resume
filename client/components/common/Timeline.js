@@ -23,11 +23,11 @@ class TimeLine extends React.Component {
       let period = '';
       if ( this.props.usePeriod ) {
         if ( data.period.year > 0 && data.period.month > 0 ) {
-          period = `${data.period.year} 년 ${data.period.month} 개월`;
+          period = `${data.period.year} ${data.period.year > 1 ? 'years' : 'year'} ${data.period.month} ${data.period.month > 1 ? 'months' : 'month'}`;
         } else if ( data.period.year > 0 && data.period.month <= 0 ) {
-          period = `${data.period.year} 년`;
+          period = `${data.period.year} ${data.period.year > 1 ? 'years' : 'year'}`;
         } else if ( data.period.year <= 0 && data.period.month > 0 ) {
-          period = `${data.period.month} 개월`;
+          period = `${data.period.month} ${data.period.month > 1 ? 'months' : 'month'}`;
         }
       }
           
