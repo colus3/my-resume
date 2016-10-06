@@ -40,6 +40,9 @@ module.exports = [
       preLoaders: preLoaders,
       loaders: loaders
     },
+    resolve: {
+      root: path.resolve('./client')
+    },
     plugins: plugins,
     devServer: {
       inline: true,
@@ -71,6 +74,9 @@ module.exports = [
           loader: 'html'
         }
       ]
+    },
+    resolve: {
+      root: path.resolve('./client')
     },
     // plugins: plugins
   }

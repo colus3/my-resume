@@ -5,8 +5,10 @@ import React from 'react';
 import { PageHeader } from 'react-bootstrap';
 import _ from 'underscore';
 
-import TimeLine2 from '../common/Timeline2';
-import TimeLineData from '../../domains/timelineData';
+// import TimeLine2 from '../common/Timeline2';
+
+import { TimeLine2 } from 'components';
+import { TimeLineData } from 'domains';
 
 const ProjectExperience = (props) => {
 

@@ -3,8 +3,10 @@
  */
 import React from 'react';
 
-import Title from './Title';
-import Content from './Content';
+// import Title from './Title';
+// import Content from './Content';
+
+import { Title, Content } from 'components';
 
 class App extends React.Component {
   

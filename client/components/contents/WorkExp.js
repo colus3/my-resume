@@ -5,8 +5,8 @@ import React from 'react';
 import { PageHeader } from 'react-bootstrap';
 import _ from 'underscore';
 
-import TimeLine from '../common/Timeline';
-import TimeLineData from '../../domains/timelineData';
+import { TimeLine } from 'components';
+import { TimeLineData } from 'domains';
 
 const WorkExperience = (props) => {
 
