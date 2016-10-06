@@ -5,14 +5,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-bootstrap';
 
-// import Profile from './contents/Profile';
-// import WorkExp from './contents/WorkExp';
-// import ProjectExp from './contents/ProjectExp';
-// import Education from './contents/Education';
-// import Certification from './contents/Certification';
-// import Skill from './contents/Skill';
-// import Interest from './contents/Interest';
-
 import { Profile, WorkExp, ProjectExp, Education, Certification, Skill, Interest } from 'components';
 
 const propTypes = {
@@ -23,9 +15,9 @@ class Content extends React.Component {
   
   render() {
     
-    let leftContents = new Array();
-    let rightContents = new Array();
-    let bottomContents = new Array();
+    let leftContents = [];
+    let rightContents = [];
+    let bottomContents = [];
   
     Object.keys(this.props.contents)
       .map( (key, index) => {

@@ -5,8 +5,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Jumbotron, Grid, Row, Col } from 'react-bootstrap';
 
-// import Contacts from './contents/Contacts';
-
 import { Contacts } from 'components';
 
 const propTypes = {
@@ -63,7 +61,7 @@ class Title extends React.Component {
             </Col>
           </Row>
         </Grid>
-        <h6 className="visible-lg-inline-block"> <span className="glyphicon glyphicon-console"></span> This page is designed using NodeJs, ExpressJs, ReactJs, Redux, OrientDB, Bootstrap, PhantomJs, Jenkins, Docker.</h6>
+        <h6 className="visible-lg-inline-block"> <span className="glyphicon glyphicon-console"/> This page is designed using NodeJs, ExpressJs, ReactJs, Redux, OrientDB, Bootstrap, PhantomJs, Jenkins, Docker.</h6>
       </Jumbotron>
     );
   }
