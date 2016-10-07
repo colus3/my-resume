@@ -18,19 +18,21 @@ class Content extends React.Component {
     let leftContents = [];
     let rightContents = [];
     let bottomContents = [];
-  
-    Object.keys(this.props.contents)
-      .map( (key, index) => {
-        
-        switch ( this.props.contents[key].align ) {
-        case 'left'  :
-          leftContents.push(contentFactory(key, index, this.props.contents[key])); break;
-        case 'right' :
-          rightContents.push(contentFactory(key, index, this.props.contents[key])); break;
-        case 'bottom':
-          bottomContents.push(contentFactory(key, index, this.props.contents[key])); break;
-        }
-      });
+
+    if ( ! this.props.contents ) {
+
+      Object.keys(this.props.contents)
+          .map( (key, index) => {
+            switch ( this.props.contents[key].align ) {
+            case 'left'  :
+              leftContents.push(contentFactory(key, index, this.props.contents[key])); break;
+            case 'right' :
+              rightContents.push(contentFactory(key, index, this.props.contents[key])); break;
+            case 'bottom':
+              bottomContents.push(contentFactory(key, index, this.props.contents[key])); break;
+            }
+          });
+    }
 
     return (
       <div>
