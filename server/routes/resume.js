@@ -4,7 +4,7 @@
 import express from 'express';
 import path from 'path';
 
-import { handleRender } from '../../public/server';
+import { handleRender } from '../../public/js/server';
 import api from './apis';
 
 const router = express.Router();

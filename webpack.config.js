@@ -36,7 +36,7 @@ module.exports = [
     name: 'browser',
     entry: './client/index.js',
     output: {
-      path: path.join(__dirname, 'public'),
+      path: path.join(__dirname, 'public/js'),
       filename: 'bundle.js'
     },
     module: {
@@ -60,7 +60,7 @@ module.exports = [
     entry: './server/serverside.js',
     externals: [ nodeExternals() ],
     output: {
-      path: path.join(__dirname, 'public'),
+      path: path.join(__dirname, 'public/js'),
       filename: 'server.js',
       libraryTarget: 'commonjs2'
     },
