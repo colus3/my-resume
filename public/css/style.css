@@ -720,11 +720,13 @@
 .btn-outline-inverse {
   color: #fff;
   background-color: transparent;
-  border-color: #cdbfe3;
+  /*border-color: #cdbfe3;*/
+  border-color: #fff;
 }
 .btn-outline-inverse:active,.btn-outline-inverse:focus,.btn-outline-inverse:hover {
-  color: #563d7c;
+  /*color: #563d7c;*/
+  color: #000;
   text-shadow: none;
   background-color: #fff;
-  border-color: #fff
+  border-color: #fff;
 }
