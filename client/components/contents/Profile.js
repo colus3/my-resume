@@ -12,12 +12,10 @@ const Profile = (props) => {
     return (<div></div>);
   }
 
-  // const aboutMe = this.state.content.data[0].aboutMe.replace(/\n/g,'<br />');
   return (
     <div>
       <PageHeader>{props.data.name}</PageHeader>
       <ReactMarkdown source={props.data.content[0].aboutMe}/>
-      {/*<h5><div dangerouslySetInnerHTML={{__html: aboutMe}} /></h5>*/}
     </div>
   );
 };
