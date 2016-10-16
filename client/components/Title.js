@@ -38,7 +38,7 @@ class Title extends React.Component {
       // color: '#cdbfe3',
       color: '#fff',
       // backgroundColor: '#6f5499',
-      backgroundImage: 'url(https://source.unsplash.com/category/nature/)',
+      backgroundImage: 'url(https://source.unsplash.com/category/nature/1600x400)',
       backgroundSize: 'cover',
       paddingBottom: '6px' };
     const nameStyle = { color: '#fff' };
