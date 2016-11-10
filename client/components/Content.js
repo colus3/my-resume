@@ -27,7 +27,8 @@ class Content extends React.Component {
           case 'right' :
             rightContents.push(contentFactory(key, index, this.props.contents[key])); break;
           case 'bottom':
-            bottomContents.push(contentFactory(key, index, this.props.contents[key])); break;
+            bottomContents.push(<div className="page-break">{contentFactory(key, index, this.props.contents[key])}</div>);
+            break;
           }
         });
 
@@ -67,6 +68,7 @@ const contentFactory = (contentName, index, data) => {
   case 'work': return (<WorkExp key={index} data={data}/>);
   case 'interest': return (<Interest key={index} data={data}/>);
   case 'project': return (<ProjectExp key={index} data={data}/>);
+  case 'self-introduction': return (<Profile key={index} data={data}/>);
   default: return '';
   }
 };
