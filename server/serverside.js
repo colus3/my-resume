@@ -9,7 +9,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducer from 'reducers';
 
-import { getInitialData } from './db/orientdb';
+import { getInitialData } from './api_call';
 
 function renderToString() {
   
@@ -17,21 +17,21 @@ function renderToString() {
 }
 
 function handleRender(req, res) {
-  
-  getInitialData(req.params.id).then((initialData) => {
+
+  getInitialData(req.params.id).then(initialData => {
 
     const store = createStore(reducer, initialData);
-  
+
     // Render the component to a string
     const html = ReactDOMServer.renderToString(
       <Provider store={store}>
         <App />
       </Provider>
     );
-  
+
     // Grab the initial state from our Redux store
     const initialState = store.getState();
-  
+
     // Send the rendered page back to the client
     res.send(renderFullPage(html, initialState));
   } );

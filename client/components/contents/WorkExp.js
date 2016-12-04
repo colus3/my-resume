@@ -10,30 +10,30 @@ import { TimeLineData } from 'domains';
 
 const WorkExperience = (props) => {
 
-  if ( _.isEmpty(props.data.content) ) {
+  if ( _.isEmpty(props.data.contents) ) {
     return (<div></div>);
   }
 
-  const datas = props.data.content.map((work, i) => {
+  const datas = props.data.contents.map((work, i) => {
     return new TimeLineData(
       i,
-      new Date(work.startDate),
-      new Date(work.endDate),
+      new Date(work.start_date),
+      new Date(work.end_date),
       work.title,
-      work.content,
-      work.labels ? new Object(work.labels).toString().split(',') : []
+      work.contents,
+      work.label ? new Object(work.label).toString().split(',') : []
     );
   });
 
   return (
     <div>
-      <PageHeader>{props.data.name}</PageHeader>
+      <PageHeader>{props.data.display_name}</PageHeader>
       <TimeLine datas={datas} usePeriod />
     </div>
   );
 };
 
 WorkExperience.propTypes = { data: React.PropTypes.object };
-WorkExperience.defaultProps = { data: { name: '', type: '', content: [] } };
+WorkExperience.defaultProps = { data: { display_name: '', type: '', contents: [] } };
 
 export default WorkExperience;

@@ -9,24 +9,24 @@ import _ from 'underscore';
 
 const Certification = (props) => {
 
-  if ( _.isEmpty(props.data.content) ) {
+  if ( _.isEmpty(props.data.contents) ) {
     return (<div></div>);
   }
 
-  const certifications = props.data.content.map( (certification, i) => {
-    const startDate = DateFormat.format(DateTime.fromDateObject(new Date(certification.startDate)), 'Y-m', DateLocale.EN);
+  const certifications = props.data.contents.map( certification => {
+    const startDate = DateFormat.format(DateTime.fromDateObject(new Date(certification.start_date)), 'Y-m', DateLocale.EN);
     return `* ${startDate} ${certification.title}\n`;
   }).join(' ');
 
   return (
       <div>
-        <PageHeader>{props.data.name}</PageHeader>
+        <PageHeader>{props.data.display_name}</PageHeader>
         <ReactMarkdown source={certifications} />
       </div>
   );
 };
 
 Certification.propTypes = { data: React.PropTypes.object };
-Certification.defaultProps = { data: { name: '', type: '', content: [] } };
+Certification.defaultProps = { data: { display_name: '', type: '', contents: [] } };
 
 export default Certification;

@@ -9,25 +9,25 @@ import _ from 'underscore';
 
 const Education = (props) => {
 
-  if ( _.isEmpty(props.data.content) ) {
+  if ( _.isEmpty(props.data.contents) ) {
     return (<div></div>);
   }
 
-  const educations = props.data.content.map( (education, i) => {
-    const startDate = DateFormat.format(DateTime.fromDateObject(new Date(education.startDate)), 'Y-m', DateLocale.EN);
-    const endDate = DateFormat.format(DateTime.fromDateObject(new Date(education.endDate)), 'Y-m', DateLocale.EN);
+  const educations = props.data.contents.map( education => {
+    const startDate = DateFormat.format(DateTime.fromDateObject(new Date(education.start_date)), 'Y-m', DateLocale.EN);
+    const endDate = DateFormat.format(DateTime.fromDateObject(new Date(education.end_date)), 'Y-m', DateLocale.EN);
     return `* ${startDate} ~ ${endDate} ${education.title}\n`;
   }).join(' ');
 
   return (
     <div>
-      <PageHeader>{props.data.name}</PageHeader>
+      <PageHeader>{props.data.display_name}</PageHeader>
       <ReactMarkdown source={educations} />
     </div>
   );
 };
 
 Education.propTypes = { data: React.PropTypes.object };
-Education.defaultProps = { data: { name: '', type: '', content: [] } };
+Education.defaultProps = { data: { display_name: '', type: '', contents: [] } };
 
 export default Education;

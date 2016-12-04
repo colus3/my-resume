@@ -5,12 +5,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Jumbotron, Grid, Row, Col } from 'react-bootstrap';
 
-import { Contacts } from 'components';
+import { Contacts } from '../components';
 
 const propTypes = {
   name: React.PropTypes.string,
   moto: React.PropTypes.string,
-  resumeId: React.PropTypes.string,
+  directAccessId: React.PropTypes.string,
   image: React.PropTypes.string
 };
 
@@ -22,7 +22,7 @@ class Title extends React.Component {
     this.state = {
       name: this.props.name,
       moto: this.props.moto,
-      resumeId: this.props.resumeId,
+      directAccessId: this.props.directAccessId,
       image: this.props.image
     };
 
@@ -30,7 +30,7 @@ class Title extends React.Component {
   }
 
   handleDownload() {
-    window.location.assign(`/my-resume/api/download/${this.state.resumeId}`);
+    window.location.assign(`http://localhost:4000/api/my-resume/download/${this.state.directAccessId}`);
   }
 
   render() {
@@ -77,10 +77,10 @@ Title.propTypes = propTypes;
 
 const mapStateToProps = (state) => {
   return {
-    name: state.name,
-    moto: state.moto,
-    resumeId: state.resumeId,
-    image: state.image
+    name: state.User.user_name,
+    moto: state.User.moto,
+    directAccessId: state.direct_access_id,
+    image: state.User.image
   };
 };
 

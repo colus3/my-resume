@@ -8,19 +8,19 @@ import _ from 'underscore';
 
 const Profile = (props) => {
 
-  if ( _.isEmpty(props.data.content) || _.isEmpty(props.data.content[0].aboutMe) ) {
+  if ( _.isEmpty(props.data.contents) || _.isEmpty(props.data.contents[0].contents) ) {
     return (<div></div>);
   }
 
   return (
     <div>
-      <PageHeader>{props.data.name}</PageHeader>
-      <ReactMarkdown source={props.data.content[0].aboutMe}/>
+      <PageHeader>{props.data.display_name}</PageHeader>
+      <ReactMarkdown source={props.data.contents[0].contents}/>
     </div>
   );
 };
 
 Profile.propTypes = { data: React.PropTypes.object };
-Profile.defaultProps = { data: { name: '', type: '', content: [] } };
+Profile.defaultProps = { data: { display_name: '', type: '', contents: [] } };
 
 export default Profile;

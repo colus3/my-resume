@@ -11,8 +11,7 @@ const propTypes = {
   phone: React.PropTypes.string,
   email: React.PropTypes.string,
   birthDate: React.PropTypes.string,
-  resumeUrl: React.PropTypes.string,
-  resumeId: React.PropTypes.string
+  resumeUrl: React.PropTypes.string
 };
 
 class Contacts extends React.Component {
@@ -60,12 +59,11 @@ Contacts.propTypes = propTypes;
 const mapStateToProps = (state) => {
 
   return {
-    phone: state.phone,
-    email: state.email,
-    address: state.address,
-    birthDate: DateFormat.format(DateTime.fromDateObject(new Date(state.birthDate)), 'Y-m-d', DateLocale.EN),
-    resumeUrl: state.resumeUrl,
-    resumeId: state.resumeId
+    phone: state.User.phone,
+    email: state.User.email,
+    address: state.User.address,
+    birthDate: DateFormat.format(DateTime.fromDateObject(new Date(state.User.birthDate)), 'Y-m-d', DateLocale.EN),
+    resumeUrl: state.resume_short_url
   };
 };
 

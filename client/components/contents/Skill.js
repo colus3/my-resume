@@ -7,46 +7,46 @@ import _ from 'underscore';
 
 const Skill = (props) => {
 
-  if ( _.isEmpty(props.data.content) ) {
+  if ( _.isEmpty(props.data.contents) ) {
     return (<div></div>);
   }
 
   const color = ['success', 'info', 'warning', 'danger', 'primary'];
 
-  const skills = props.data.content.map((skill, i) => {
+  const skills = props.data.contents.map((skill, i) => {
 
-    const level = { width: `${skill.expertiseRating}%` };
+    const level = { width: `${skill.label}%` };
     return (
       <div className="progress hidden-print" key={i}>
         <div className={`progress-bar progress-bar-${color[i % 5]}`}
              role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
              style={level}>
         </div>
-        <span className="progress-type">{skill.skillName}</span>
-        <span className="progress-completed">{skill.expertiseRating} %</span>
+        <span className="progress-type">{skill.title}</span>
+        <span className="progress-completed">{skill.label} %</span>
       </div>
     );
   });
 
 
-  const skillsPrint = props.data.content.map((skill, i) => {
+  const skillsPrint = props.data.contents.map((skill, i) => {
 
-    const level = { width: `${skill.expertiseRating}%` };
+    const level = { width: `${skill.label}%` };
     return (
       <div className="progress visible-print" key={i}>
         <div className="progress-bar progress-bar-gray"
              role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
              style={level}>
         </div>
-        <span className="progress-type">{skill.skillName}</span>
-        <span className="progress-completed">{skill.expertiseRating} %</span>
+        <span className="progress-type">{skill.title}</span>
+        <span className="progress-completed">{skill.label} %</span>
       </div>
     );
   });
 
   return (
     <div>
-      <PageHeader>{props.data.name}</PageHeader>
+      <PageHeader>{props.data.display_name}</PageHeader>
       {skills}
       {skillsPrint}
     </div>
@@ -54,6 +54,6 @@ const Skill = (props) => {
 };
 
 Skill.propTypes = { data: React.PropTypes.object };
-Skill.defaultProps = { data: { name: '', type: '', content: [] } };
+Skill.defaultProps = { data: { display_name: '', type: '', contents: [] } };
 
 export default Skill;
