@@ -33,7 +33,6 @@
     "json-loader": "^0.5.4",
     "morgan": "^1.7.0",
     "node-sass": "^3.8.0",
-    "orientjs": "^2.2.2",
     "path": "^0.12.7",
     "react": "^15.3.2",
     "react-bootstrap": "^0.30.3",
