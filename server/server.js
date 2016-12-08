@@ -5,7 +5,7 @@ import morgan from 'morgan';
 import router from './routes/resume';
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3500;
 
 app.enable('trust proxy');
 
