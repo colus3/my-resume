@@ -13,10 +13,10 @@ RUN mkdir -p /usr/my-resume
 COPY . /usr/my-resume
 
 RUN cd /usr/my-resume \
-        && npm install -g webpack \
-        && npm install -g babel-cli \
-        && npm install -g cross-env \
-        && npm install -only=prod \
+        && npm --loglevel=silent install -g webpack \
+        && npm --loglevel=silent install -g babel-cli \
+        && npm --loglevel=silent install -g cross-env \
+        && npm --loglevel=silent install -only=prod \
         && npm run build
 
 
