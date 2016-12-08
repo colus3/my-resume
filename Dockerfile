@@ -20,5 +20,5 @@ RUN cd /usr/my-resume \
         && npm run build
 
 
-EXPOSE 3000
+EXPOSE 3500
 CMD cd /usr/my-resume && npm start
