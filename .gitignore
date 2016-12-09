@@ -49,3 +49,6 @@ build
 
 # PDF Temp directory
 tmp
+
+# Envinronment variable file
+.env
