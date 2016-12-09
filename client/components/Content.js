@@ -5,10 +5,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Grid, Row, Col } from 'react-bootstrap';
 
-import { Profile, WorkExp, ProjectExp, Education, Certification, Skill, Interest } from 'components';
+import { Profile, WorkExp, ProjectExp, Education, Certification, Skill, Interest } from '../components';
 
 const propTypes = {
-  contents: React.PropTypes.object
+  contents: React.PropTypes.array
 };
 
 class Content extends React.Component {
@@ -19,16 +19,13 @@ class Content extends React.Component {
     let rightContents = [];
     let bottomContents = [];
 
-    Object.keys(this.props.contents)
-        .map( (key, index) => {
-          switch ( this.props.contents[key].align ) {
-          case 'left'  :
-            leftContents.push(contentFactory(key, index, this.props.contents[key])); break;
-          case 'right' :
-            rightContents.push(contentFactory(key, index, this.props.contents[key])); break;
-          case 'bottom':
-            bottomContents.push(<div className="page-break">{contentFactory(key, index, this.props.contents[key])}</div>);
-            break;
+    this.props.contents
+        .map( value => {
+          switch ( value.position ) {
+          case 35: console.log('top'); break;
+          case 36: leftContents.push(contentFactory(value.content_type, value.id, value)); break;
+          case 37: rightContents.push(contentFactory(value.content_type, value.id, value)); break;
+          case 38: bottomContents.push(contentFactory(value.content_type, value.id, value)); break;
           }
         });
 
@@ -59,23 +56,23 @@ class Content extends React.Component {
 
 Content.propTypes = propTypes;
 
-const contentFactory = (contentName, index, data) => {
-  switch ( contentName ) {
-  case 'profile': return (<Profile key={index} data={data}/>);
-  case 'education': return (<Education key={index} data={data}/>);
-  case 'certification': return (<Certification key={index} data={data}/>);
-  case 'skill': return (<Skill key={index} data={data}/>);
-  case 'work': return (<WorkExp key={index} data={data}/>);
-  case 'interest': return (<Interest key={index} data={data}/>);
-  case 'project': return (<ProjectExp key={index} data={data}/>);
-  case 'self-introduction': return (<Profile key={index} data={data}/>);
+const contentFactory = (contentType, index, data) => {
+  switch ( contentType ) {
+  case 1: return (<Profile key={index} data={data}/>);
+  case 2: return (<Education key={index} data={data}/>);
+  case 3: return (<Certification key={index} data={data}/>);
+  case 4: return (<Interest key={index} data={data}/>);
+  case 5: return (<WorkExp key={index} data={data}/>);
+  case 6: return (<ProjectExp key={index} data={data}/>);
+  case 7: return (<Skill key={index} data={data}/>);
+  case 8: return (<Profile key={index} data={data}/>);
   default: return '';
   }
 };
 
 const mapStateToProps = (state) => {
   return {
-    contents: state.contents
+    contents: state.ResumeContents
   };
 };
 

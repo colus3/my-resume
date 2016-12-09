@@ -10,30 +10,30 @@ import { TimeLineData } from 'domains';
 
 const ProjectExperience = (props) => {
 
-  if ( _.isEmpty(props.data.content) ) {
+  if ( _.isEmpty(props.data.contents) ) {
     return (<div></div>);
   }
 
-  let datas = props.data.content.map((project, i) => {
+  let datas = props.data.contents.map((project, i) => {
     return new TimeLineData(
       i,
-      new Date(project.startDate),
-      new Date(project.endDate),
+      new Date(project.start_date),
+      new Date(project.end_date),
       project.title,
-      `role : ${project.content}`,
-      project.labels ? new Object(project.labels).toString().split(',') : []
+      `role : ${project.contents}`,
+      project.label ? new Object(project.label).toString().split(',') : []
     );
   });
 
   return (
     <div>
-      <PageHeader>{props.data.name}</PageHeader>
+      <PageHeader>{props.data.display_name}</PageHeader>
       <TimeLine2 datas={datas} useYearLabel/>
     </div>
   );
 };
 
 ProjectExperience.propTypes = { data: React.PropTypes.object };
-ProjectExperience.defaultProps = { data: { name: '', type: '', content: [] } };
+ProjectExperience.defaultProps = { data: { display_name: '', type: '', contents: [] } };
 
 export default ProjectExperience;

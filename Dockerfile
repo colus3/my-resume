@@ -12,13 +12,5 @@ RUN mkdir -p /usr/my-resume
 
 COPY . /usr/my-resume
 
-RUN cd /usr/my-resume \
-        && npm install -g webpack \
-        && npm install -g babel-cli \
-        && npm install -g cross-env \
-        && npm install -only=prod \
-        && npm run build
-
-
-EXPOSE 3000
+EXPOSE 3500
 CMD cd /usr/my-resume && npm start
