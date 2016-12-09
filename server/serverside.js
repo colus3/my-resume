@@ -20,7 +20,6 @@ function handleRender(req, res) {
 
   getInitialData(req.params.id).then(initialData => {
 
-    console.log('initialData : ' + initialData);
     const store = createStore(reducer, initialData);
 
     // Render the component to a string

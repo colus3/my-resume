@@ -6,7 +6,7 @@ import _ from 'underscore';
 
 function getInitialData(id) {
 
-  const host = process.env.API_IP + ":" + process.env.API_PORT;
+  const host = process.env.API_SERVER_IP + ":" + process.env.API_SERVER_PORT;
   let options = {
     uri: `http://${host}/api/my-resume/default`,
     json: true,
