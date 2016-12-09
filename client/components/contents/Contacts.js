@@ -62,7 +62,7 @@ const mapStateToProps = (state) => {
     phone: state.User.phone,
     email: state.User.email,
     address: state.User.address,
-    birthDate: DateFormat.format(DateTime.fromDateObject(new Date(state.User.birthDate)), 'Y-m-d', DateLocale.EN),
+    birthDate: DateFormat.format(DateTime.fromDateObject(new Date(state.User.birth_date)), 'Y-m-d', DateLocale.EN),
     resumeUrl: state.resume_short_url
   };
 };
