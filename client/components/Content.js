@@ -8,7 +8,7 @@ import { Grid, Row, Col } from 'react-bootstrap';
 import { Profile, WorkExp, ProjectExp, Education, Certification, Skill, Interest } from '../components';
 
 const propTypes = {
-  contents: React.PropTypes.object
+  contents: React.PropTypes.array
 };
 
 class Content extends React.Component {
