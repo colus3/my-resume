@@ -4,7 +4,7 @@
 import rp from 'request-promise';
 import _ from 'underscore';
 
-let host = 'localhost:4000';
+let host = '192.168.0.28:4000';
 let options = {
   uri: `http://${host}/api/my-resume/default`,
   json: true,
