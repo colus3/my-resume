@@ -6,7 +6,7 @@ RUN echo "Asia/Seoul" > /etc/timezone \
 
 # Install font.
 RUN apt-get update \
-        && apt-get install fonts-nanum fonts-nanum-coding fonts-nanum-extra
+        && apt-get install -y fonts-nanum fonts-nanum-coding fonts-nanum-extra
 
 RUN mkdir -p /usr/my-resume
 
