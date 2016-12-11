@@ -11,6 +11,7 @@ const propTypes = {
   name: React.PropTypes.string,
   moto: React.PropTypes.string,
   directAccessId: React.PropTypes.string,
+  apiServerUrl: React.PropTypes.string,
   image: React.PropTypes.string
 };
 
@@ -23,6 +24,7 @@ class Title extends React.Component {
       name: this.props.name,
       moto: this.props.moto,
       directAccessId: this.props.directAccessId,
+      apiServerUrl: this.props.apiServerUrl,
       image: this.props.image
     };
 
@@ -30,7 +32,7 @@ class Title extends React.Component {
   }
 
   handleDownload() {
-    window.location.assign(`http://localhost:4000/api/my-resume/download/${this.state.directAccessId}`);
+    window.location.assign(`${this.state.apiServerUrl}/download/${this.state.directAccessId}`);
   }
 
   render() {
@@ -80,6 +82,7 @@ const mapStateToProps = (state) => {
     name: state.User.user_name,
     moto: state.User.moto,
     directAccessId: state.direct_access_id,
+    apiServerUrl: state.api_server_url,
     image: state.User.image
   };
 };
