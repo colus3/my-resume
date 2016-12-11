@@ -17,9 +17,10 @@ function renderToString() {
 }
 
 function handleRender(req, res) {
-
   getInitialData(req.params.id).then(initialData => {
 
+    // Add API server URL
+    initialData.api_server_url = process.env.API_SERVER_HTTPS_URL;
     const store = createStore(reducer, initialData);
 
     // Render the component to a string
