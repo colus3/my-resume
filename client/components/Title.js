@@ -71,7 +71,7 @@ class Title extends React.Component {
         </Grid>
         <h6 className="visible-lg-inline-block">
           <span className="glyphicon glyphicon-console"/>
-          This page is designed using Node.js, Express.js, React.js, Redux, MariaDB, Bootstrap, Phantom.js, Jenkins, Docker, AWS.
+          This page is designed using Node.js, Express.js, React.js, Redux, MariaDB, Bootstrap, Phantom.js, TeamCity, Docker, AWS.
         </h6>
       </Jumbotron>
     );
