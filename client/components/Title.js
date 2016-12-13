@@ -10,7 +10,7 @@ import { Contacts } from '../components';
 const propTypes = {
   name: React.PropTypes.string,
   moto: React.PropTypes.string,
-  directAccessId: React.PropTypes.string,
+  resumeUrl: React.PropTypes.string,
   apiServerUrl: React.PropTypes.string,
   image: React.PropTypes.string
 };
@@ -23,7 +23,7 @@ class Title extends React.Component {
     this.state = {
       name: this.props.name,
       moto: this.props.moto,
-      directAccessId: this.props.directAccessId,
+      resumeUrl: this.props.resumeUrl,
       apiServerUrl: this.props.apiServerUrl,
       image: this.props.image
     };
@@ -32,7 +32,7 @@ class Title extends React.Component {
   }
 
   handleDownload() {
-    window.location.assign(`${this.state.apiServerUrl}/download/${this.state.directAccessId}`);
+    window.location.assign(`${this.state.apiServerUrl}/download?url=${encodeURIComponent(this.props.resumeUrl)}`);
   }
 
   render() {
@@ -84,7 +84,7 @@ const mapStateToProps = (state) => {
   return {
     name: state.User.user_name,
     moto: state.User.moto,
-    directAccessId: state.direct_access_id,
+    resumeUrl: state.resume_short_url,
     apiServerUrl: state.api_server_url,
     image: state.User.image
   };
