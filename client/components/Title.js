@@ -20,19 +20,19 @@ class Title extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      name: this.props.name,
-      moto: this.props.moto,
-      resumeUrl: this.props.resumeUrl,
-      apiServerUrl: this.props.apiServerUrl,
-      image: this.props.image
-    };
+    // this.state = {
+    //   name: this.props.name,
+    //   moto: this.props.moto,
+    //   resumeUrl: this.props.resumeUrl,
+    //   apiServerUrl: this.props.apiServerUrl,
+    //   image: this.props.image
+    // };
 
     this.handleDownload = this.handleDownload.bind(this);
   }
 
   handleDownload() {
-    window.location.assign(`${this.state.apiServerUrl}/download?url=${encodeURIComponent(this.props.resumeUrl)}`);
+    window.location.assign(`${this.props.apiServerUrl}/download?url=${encodeURIComponent(this.props.resumeUrl)}`);
   }
 
   render() {
@@ -44,23 +44,23 @@ class Title extends React.Component {
       backgroundSize: 'cover',
       paddingBottom: '6px' };
     const nameStyle = { color: '#fff' };
-    var imgStyle = { height: '150px' };
+    const imgStyle = { height: '150px' };
 
     return (
       <Jumbotron id="content" tabIndex="-1" style={baseStyle}>
         <Grid fluid>
           <Row>
             <Col xs={12} sm={8} md={5}>
-              <h1 className="visible-xs-inline-block visible-sm-inline-block visible-lg-inline-block" style={nameStyle}>{this.state.name}</h1>
-              <h2 className="visible-md-inline-block" style={nameStyle}>{this.state.name}</h2>
-              <h2>{this.state.moto}</h2>
+              <h1 className="visible-xs-inline-block visible-sm-inline-block visible-lg-inline-block" style={nameStyle}>{this.props.name}</h1>
+              <h2 className="visible-md-inline-block" style={nameStyle}>{this.props.name}</h2>
+              <h2>{this.props.moto}</h2>
               <p className="lead">
                 <a className="btn btn-outline-inverse btn-lg hidden-print" href="#" onClick={this.handleDownload} role="button">Download PDF</a>
               </p>
             </Col>
             <Col md={2} className="visible-md-block visible-lg-block">
               <p>
-                <img src={this.state.image} className="img-responsive img-circle center-block"
+                <img src={this.props.image} className="img-responsive img-circle center-block"
                      alt="Responsive image" style={imgStyle}/>
               </p>
             </Col>
