@@ -1,14 +1,14 @@
 /**
  * Created by Colus on 2016. 8. 21..
  */
-import { DateTime, DateFormat, DateRange } from 'dateutils';
+import { DateTime, DateFormat, DateRange, DateLocale } from 'dateutils';
 
 export default class TimeLineData {
   
   constructor(id, startDate, endDate, title, desc, badges) {
     this.id = id;
-    this.startDate = DateFormat.format(DateTime.fromDateObject(startDate), 'Y-m');
-    this.endDate = DateFormat.format(DateTime.fromDateObject(endDate), 'Y-m');
+    this.startDate = DateFormat.format(DateTime.fromDateObject(startDate), 'Y-m', DateLocale.EN);
+    this.endDate = DateFormat.format(DateTime.fromDateObject(endDate), 'Y-m', DateLocale.EN);
     this.title = title;
     this.desc = desc;
     this.badges = badges;
