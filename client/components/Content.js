@@ -30,8 +30,6 @@ class Content extends React.Component {
           }
         });
 
-    console.log(this.props.resumeType);
-
     return this.props.resumeType == 1 ?
       (
         <div>
