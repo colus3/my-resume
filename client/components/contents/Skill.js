@@ -13,7 +13,7 @@ const Skill = (props) => {
 
   const color = ['success', 'info', 'warning', 'danger', 'primary'];
 
-  const skills = props.data.contents.map((skill, i) => {
+  const skills = props.data.contents.slice(0, 10).map((skill, i) => {
 
     const level = { width: `${skill.label}%` };
     return (
@@ -28,8 +28,7 @@ const Skill = (props) => {
     );
   });
 
-
-  const skillsPrint = props.data.contents.map((skill, i) => {
+  const skillsPrint = props.data.contents.slice(0, 10).map((skill, i) => {
 
     const level = { width: `${skill.label}%` };
     return (
