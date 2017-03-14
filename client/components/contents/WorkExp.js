@@ -2,10 +2,11 @@
  * Created by Colus on 2016. 8. 20..
  */
 import React from 'react';
-import { PageHeader } from 'react-bootstrap';
-import _ from 'underscore';
+// import { PageHeader } from 'react-bootstrap';
+import { Header, Divider } from 'semantic-ui-react';
+import _ from 'lodash';
 
-import { TimeLine } from 'components';
+import { ContentItem, TimeLine } from 'components';
 import { TimeLineData } from 'domains';
 
 const WorkExperience = (props) => {
@@ -25,15 +26,12 @@ const WorkExperience = (props) => {
     );
   });
 
-  return (
-    <div>
-      <PageHeader>{props.data.display_name}</PageHeader>
-      <TimeLine datas={datas} usePeriod />
-    </div>
-  );
+  const contentItems = [];
+  contentItems.push(<TimeLine datas={datas} usePeriod />);
+  return (<ContentItem resumeUIType={props.resumeUIType} title={props.data.display_name} contentItems={contentItems}/>);
 };
 
-WorkExperience.propTypes = { data: React.PropTypes.object };
-WorkExperience.defaultProps = { data: { display_name: '', type: '', contents: [] } };
+WorkExperience.propTypes = { resumeUIType: React.PropTypes.string, data: React.PropTypes.object };
+WorkExperience.defaultProps = { resumeUIType: '', data: { display_name: '', type: '', contents: [] } };
 
 export default WorkExperience;

@@ -3,8 +3,8 @@
  */
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { PageHeader } from 'react-bootstrap';
-import _ from 'underscore';
+import { ContentItem } from '../../components';
+import _ from 'lodash';
 
 const Profile = (props) => {
 
@@ -12,15 +12,12 @@ const Profile = (props) => {
     return (<div></div>);
   }
 
-  return (
-    <div>
-      <PageHeader>{props.data.display_name}</PageHeader>
-      <ReactMarkdown source={props.data.contents[0].contents}/>
-    </div>
-  );
+  let contentItems = [];
+  contentItems.push(<ReactMarkdown source={props.data.contents[0].contents}/>);
+  return (<ContentItem resumeUIType={props.resumeUIType} title={props.data.display_name} contentItems={contentItems}/>);
 };
 
-Profile.propTypes = { data: React.PropTypes.object };
-Profile.defaultProps = { data: { display_name: '', type: '', contents: [] } };
+Profile.propTypes = { resumeUIType: React.PropTypes.string, data: React.PropTypes.object };
+Profile.defaultProps = { resumeUIType: '', data: { display_name: '', type: '', contents: [] } };
 
 export default Profile;

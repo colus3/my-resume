@@ -3,9 +3,8 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
-import { Grid, Row, Col } from 'react-bootstrap';
 
-import { Profile, WorkExp, WorkExp2, ProjectExp, Education, Certification, Skill, Interest } from '../components';
+import { ContentType1, ContentType2, Profile, WorkExp, WorkExp2, ProjectExp, Education, Certification, Skill, Interest } from '../components';
 
 const propTypes = {
   resumeType: React.PropTypes.number,
@@ -15,14 +14,14 @@ const propTypes = {
 class Content extends React.Component {
   
   render() {
-    
+
     let leftContents = [];
     let rightContents = [];
     let bottomContents = [];
 
     this.props.contents
-        .map( value => {
-          switch ( value.position ) {
+        .map(value => {
+          switch (value.position) {
           case 35: console.log('top'); break;
           case 36: leftContents.push(contentFactory(this.props.resumeType, value.content_type, value.id, value)); break;
           case 37: rightContents.push(contentFactory(this.props.resumeType, value.content_type, value.id, value)); break;
@@ -30,51 +29,12 @@ class Content extends React.Component {
           }
         });
 
-    return this.props.resumeType == 1 ?
-      (
-        <div>
-          <Grid>
-            <Row>
-              <Col xs={12} sm={12} md={6} lg={6}>
-                {leftContents}
-              </Col>
-              <Col xs={12} sm={12} md={6} lg={6}>
-                {rightContents}
-              </Col>
-            </Row>
-          </Grid>
-          <div className="page-break"></div>
-          <Grid>
-            <Row>
-              <Col xs={12} sm={12} md={12} lg={12}>
-                {bottomContents}
-              </Col>
-            </Row>
-          </Grid>
-        </div>
-      ) :
-      (
-        <div>
-          <Grid>
-            <Row>
-              <Col xs={12} sm={12} md={4} lg={4}>
-                {leftContents}
-              </Col>
-              <Col xs={12} sm={12} md={8} lg={8}>
-                {rightContents}
-              </Col>
-            </Row>
-          </Grid>
-          <div className="page-break"></div>
-          <Grid>
-            <Row>
-              <Col xs={12} sm={12} md={12} lg={12}>
-                {bottomContents}
-              </Col>
-            </Row>
-          </Grid>
-        </div>
-      );
+    switch (this.props.resumeType) {
+    case 1:
+      return (<ContentType1 resumeUIType='bootstrap' left={leftContents} right={rightContents} bottom={bottomContents}/>);
+    case 2:
+      return (<ContentType2 resumeUIType='bootstrap' left={leftContents} right={rightContents} bottom={bottomContents}/>);
+    }
   }
 }
 
@@ -82,14 +42,14 @@ Content.propTypes = propTypes;
 
 const contentFactory = (resumeType, contentType, index, data) => {
   switch ( contentType ) {
-  case 1: return (<Profile key={index} data={data}/>);
-  case 2: return (<Education key={index} data={data}/>);
-  case 3: return (<Certification key={index} data={data}/>);
-  case 4: return (<Interest key={index} data={data}/>);
-  case 5: return resumeType == 1 ? (<WorkExp key={index} data={data}/>) : (<WorkExp2 key={index} data={data}/>);
-  case 6: return (<ProjectExp key={index} data={data}/>);
-  case 7: return (<Skill key={index} data={data}/>);
-  case 8: return (<Profile key={index} data={data}/>);
+  case 1: return (<Profile key={index} resumeUIType='bootstrap' data={data}/>);
+  case 2: return (<Education key={index} resumeUIType='bootstrap' data={data}/>);
+  case 3: return (<Certification key={index} resumeUIType='bootstrap' data={data}/>);
+  case 4: return (<Interest key={index} resumeUIType='bootstrap' data={data}/>);
+  case 5: return resumeType === 1 ? (<WorkExp key={index} resumeUIType='bootstrap' data={data}/>) : (<WorkExp2 key={index} resumeUIType='bootstrap' data={data}/>);
+  case 6: return (<ProjectExp key={index} resumeUIType='bootstrap' data={data}/>);
+  case 7: return (<Skill key={index} resumeUIType='bootstrap' data={data}/>);
+  case 8: return (<Profile key={index} resumeUIType='bootstrap' data={data}/>);
   default: return '';
   }
 };

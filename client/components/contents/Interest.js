@@ -2,8 +2,10 @@
  * Created by Colus on 2016. 8. 22..
  */
 import React from 'react';
-import { PageHeader } from 'react-bootstrap';
-import _ from 'underscore';
+// import { PageHeader } from 'react-bootstrap';
+import { Header, Divider } from 'semantic-ui-react';
+import _ from 'lodash';
+import { ContentItem } from '../../components';
 
 const Interest = (props) => {
 
@@ -25,15 +27,12 @@ const Interest = (props) => {
     );
   });
 
-  return (
-    <div>
-      <PageHeader>{props.data.display_name}</PageHeader>
-      <h3>{interests}</h3>
-    </div>
-  );
+  const contentItems = [];
+  contentItems.push(<h3>{interests}</h3>);
+  return (<ContentItem resumeUIType={props.resumeUIType} title={props.data.display_name} contentItems={contentItems}/>);
 };
 
-Interest.propTypes = { data: React.PropTypes.object };
-Interest.defaultProps = { data: { display_name: '', type: '', contents: [] } };
+Interest.propTypes = { resumeUIType: React.PropTypes.string, data: React.PropTypes.object };
+Interest.defaultProps = { resumeUIType: '', data: { display_name: '', type: '', contents: [] } };
 
 export default Interest;

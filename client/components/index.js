@@ -4,6 +4,9 @@
 import App from './App';
 import Content from './Content';
 import Title from './Title';
+import ContentType1 from './ContentType1';
+import ContentType2 from './ContentType2';
+import ContentItem from './ContentItem';
 import Interest from './contents/Interest';
 import Profile from './contents/Profile';
 import Education from './contents/Education';
@@ -16,6 +19,6 @@ import Certification from './contents/Certification';
 import TimeLine from './common/Timeline';
 import TimeLine2 from './common/Timeline2';
 
-export { App, Content, Title,
+export { App, Content, Title, ContentType1, ContentType2, ContentItem,
   Interest, Profile, Education, ProjectExp, WorkExp, WorkExp2, Skill, Contacts, Certification,
   TimeLine, TimeLine2 };
