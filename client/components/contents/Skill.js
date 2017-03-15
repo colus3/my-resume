@@ -46,9 +46,9 @@ const Skill = (props) => {
   });
 
   const contentItems = [];
-  contentItems.push({skills});
-  // contentItems.push({skillsPrint});
-  return (<ContentItem resumeUIType={props.resumeUIType} title={props.data.display_name} contentItems={skills}/>);
+  contentItems.push(skills);
+  contentItems.push(skillsPrint);
+  return (<ContentItem resumeUIType={props.resumeUIType} title={props.data.display_name} contentItems={contentItems}/>);
 };
 
 Skill.propTypes = { resumeUIType: React.PropTypes.string, data: React.PropTypes.object };

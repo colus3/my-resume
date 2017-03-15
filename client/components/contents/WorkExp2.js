@@ -31,7 +31,7 @@ const WorkExperience = (props) => {
   });
 
   const contentItems = [];
-  contentItems.push({works});
+  contentItems.push(works);
   return (<ContentItem resumeUIType={props.resumeUIType} title={props.data.display_name} contentItems={contentItems}/>);
 };
 
