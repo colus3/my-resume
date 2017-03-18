@@ -15,7 +15,7 @@ const ResumeType = {
 };
 
 const ContentType = {
-  Profile: 1, Education: 2, Certification: 3, Interest: 4, WorkExp: 5, ProjectExp: 6, Skill: 7, SELF_INTRO: 8
+  Profile: 1, Education: 2, Certification: 3, Interest: 4, WorkExp: 5, ProjectExp: 6, Skill: 7, selfIntro: 8
 }
 
 class Content extends React.Component {
@@ -60,7 +60,7 @@ const contentFactory = (resumeType, resumeUIType, contentType, index, data) => {
   case ContentType.WorkExp:       return resumeType === ResumeType.TYPE1 ? (<WorkExp key={index} resumeUIType={resumeUIType} data={data}/>) : (<WorkExp2 key={index} resumeUIType={resumeUIType} data={data}/>);
   case ContentType.ProjectExp:    return (<ProjectExp key={index} resumeUIType={resumeUIType} data={data}/>);
   case ContentType.Skill:         return (<Skill key={index} resumeUIType={resumeUIType} data={data}/>);
-  case ContentType.SELF_INTRO:    return (<Profile key={index} resumeUIType={resumeUIType} data={data}/>);
+  case ContentType.selfIntro:     return (<Profile key={index} resumeUIType={resumeUIType} data={data}/>);
   default: return '';
   }
 };
