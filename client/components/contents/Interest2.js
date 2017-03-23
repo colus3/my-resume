@@ -3,22 +3,23 @@
  */
 import React from 'react';
 import _ from 'lodash';
+import WordCloud from 'react-d3-cloud';
+
 import { ContentItem } from '../../components';
 
-const createInterests = (contents) => {
+const createInterests = (interest, i) => {
+
   const style = { 'display': 'inline-block', 'marginRight': '5px' };
   const color = ['success', 'info', 'warning', 'danger', 'primary'];
 
-  return contents.map((interest, i) => {
-    return (
-        <span
-            key={i}
-            className={`label label-${color[parseInt(i / 5) > 4 ? 4 : parseInt(i / 5)]}`}
-            style={style}>
+  return (
+      <span
+          key={i}
+          className={`label label-${color[parseInt(i / 5) > 4 ? 4 : parseInt(i / 5)]}`}
+          style={style}>
         {interest.title}
       </span>
-    );
-  });
+  );
 };
 
 const Interest = (props) => {
