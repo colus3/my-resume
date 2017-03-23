@@ -7,18 +7,20 @@ import WordCloud from 'react-d3-cloud';
 
 import { ContentItem } from '../../components';
 
-const createInterests = (interest, i) => {
-
+const createInterests = contents => {
   const style = { 'display': 'inline-block', 'marginRight': '5px' };
   const color = ['success', 'info', 'warning', 'danger', 'primary'];
 
+  const data = contents.map((interest, idx) => {
+    return {text: interest.title, value: idx};
+  });
+
   return (
-      <span
-          key={i}
-          className={`label label-${color[parseInt(i / 5) > 4 ? 4 : parseInt(i / 5)]}`}
-          style={style}>
-        {interest.title}
-      </span>
+      <WordCloud
+          data={data}
+          fontsizeMapper={word => Math.log2(word.value) * 5}
+          rotate={word => word.value % 360}
+      />
   );
 };
 
