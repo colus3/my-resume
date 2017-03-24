@@ -3,41 +3,37 @@
  */
 import React from 'react';
 import _ from 'lodash';
-import WordCloud from 'react-d3-cloud';
+import { TagCloud } from 'react-tagcloud';
 
 import { ContentItem } from '../../components';
 
-const createInterests = contents => {
-  const style = { 'display': 'inline-block', 'marginRight': '5px' };
-  const color = ['success', 'info', 'warning', 'danger', 'primary'];
-
-  const data = contents.map((interest, idx) => {
-    return {text: interest.title, value: idx};
-  });
-
-  return (
-      <WordCloud
-          data={data}
-          fontsizeMapper={word => Math.log2(word.value) * 5}
-          rotate={word => word.value % 360}
-      />
-  );
-};
-
-const Interest = (props) => {
+const Interest2 = (props) => {
 
   if ( _.isEmpty(props.data.contents) ) {
     return (<ContentItem/>);
   }
 
+  const createInterests = contents => {
+
+    return contents.map((interest, idx) => {
+      return {value: interest.title, count: (100 - idx * 2)};
+    });
+  };
+
   const interests = createInterests(props.data.contents);
 
   const contentItems = [];
-  contentItems.push({interests});
+  contentItems.push(
+    <TagCloud
+      minSize={12}
+      maxSize={35}
+      tags={interests}
+    />
+  );
   return (<ContentItem resumeUIType={props.resumeUIType} title={props.data.display_name} contentItems={contentItems}/>);
 };
 
-Interest.propTypes = { resumeUIType: React.PropTypes.string, data: React.PropTypes.object };
-Interest.defaultProps = { resumeUIType: '', data: { display_name: '', type: '', contents: [] } };
+Interest2.propTypes = { resumeUIType: React.PropTypes.string, data: React.PropTypes.object };
+Interest2.defaultProps = { resumeUIType: '', data: { display_name: '', type: '', contents: [] } };
 
-export default Interest;
+export default Interest2;

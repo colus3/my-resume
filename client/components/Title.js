@@ -63,11 +63,11 @@ class Title extends React.Component {
 }
 
 Title.propTypes = {
-    name: React.PropTypes.string,
-    moto: React.PropTypes.string,
-    resumeUrl: React.PropTypes.string,
-    apiServerUrl: React.PropTypes.string,
-    image: React.PropTypes.string
+  name: React.PropTypes.string,
+  moto: React.PropTypes.string,
+  resumeUrl: React.PropTypes.string,
+  apiServerUrl: React.PropTypes.string,
+  image: React.PropTypes.string
 };
 
 const mapStateToProps = (state) => {

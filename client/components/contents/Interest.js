@@ -5,32 +5,32 @@ import React from 'react';
 import _ from 'lodash';
 import { ContentItem } from '../../components';
 
-const createInterests = (contents) => {
-  const style = { 'display': 'inline-block', 'marginRight': '5px' };
-  const color = ['success', 'info', 'warning', 'danger', 'primary'];
-
-  return contents.map((interest, i) => {
-    return (
-        <span
-            key={i}
-            className={`label label-${color[parseInt(i / 5) > 4 ? 4 : parseInt(i / 5)]}`}
-            style={style}>
-        {interest.title}
-      </span>
-    );
-  });
-};
-
 const Interest = (props) => {
 
   if ( _.isEmpty(props.data.contents) ) {
     return (<ContentItem/>);
   }
 
+  const createInterests = (contents) => {
+    const style = { 'display': 'inline-block', 'marginRight': '5px' };
+    const color = ['success', 'info', 'warning', 'danger', 'primary'];
+
+    return contents.map((interest, i) => {
+      return (
+          <span
+              key={i}
+              className={`label label-${color[parseInt(i / 5) > 4 ? 4 : parseInt(i / 5)]}`}
+              style={style}>
+        {interest.title}
+      </span>
+      );
+    });
+  };
+
   const interests = createInterests(props.data.contents);
 
   const contentItems = [];
-  contentItems.push({interests});
+  contentItems.push(<h3>{interests}</h3>);
   return (<ContentItem resumeUIType={props.resumeUIType} title={props.data.display_name} contentItems={contentItems}/>);
 };
 

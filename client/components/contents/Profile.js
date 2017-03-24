@@ -9,7 +9,7 @@ import _ from 'lodash';
 const Profile = (props) => {
 
   if ( _.isEmpty(props.data.contents) || _.isEmpty(props.data.contents[0].contents) ) {
-    return (<div></div>);
+    return (<ContentItem/>);
   }
 
   let contentItems = [];

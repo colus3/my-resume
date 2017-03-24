@@ -4,7 +4,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { ContentType1, ContentType2, Profile, WorkExp, WorkExp2, ProjectExp, Education, Certification, Skill, Interest } from '../components';
+import { ContentType1, ContentType2, Profile, WorkExp, WorkExp2, ProjectExp, Education, Certification, Skill, Interest, Interest2 } from '../components';
 
 const Position = {
   TOP: 35, LEFT: 36, RIGHT: 37, BOTTOM: 38
@@ -16,7 +16,7 @@ const ResumeType = {
 
 const ContentType = {
   Profile: 1, Education: 2, Certification: 3, Interest: 4, WorkExp: 5, ProjectExp: 6, Skill: 7, selfIntro: 8
-}
+};
 
 class Content extends React.Component {
   
@@ -56,7 +56,7 @@ const contentFactory = (resumeType, resumeUIType, contentType, index, data) => {
   case ContentType.Profile:       return (<Profile key={index} resumeUIType={resumeUIType} data={data}/>);
   case ContentType.Education:     return (<Education key={index} resumeUIType={resumeUIType} data={data}/>);
   case ContentType.Certification: return (<Certification key={index} resumeUIType={resumeUIType} data={data}/>);
-  case ContentType.Interest:      return (<Interest key={index} resumeUIType={resumeUIType} data={data}/>);
+  case ContentType.Interest:      return resumeType === ResumeType.TYPE1 ? (<Interest key={index} resumeUIType={resumeUIType} data={data}/>) : <Interest2 key={index} resumeUIType={resumeUIType} data={data}/>;
   case ContentType.WorkExp:       return resumeType === ResumeType.TYPE1 ? (<WorkExp key={index} resumeUIType={resumeUIType} data={data}/>) : (<WorkExp2 key={index} resumeUIType={resumeUIType} data={data}/>);
   case ContentType.ProjectExp:    return (<ProjectExp key={index} resumeUIType={resumeUIType} data={data}/>);
   case ContentType.Skill:         return (<Skill key={index} resumeUIType={resumeUIType} data={data}/>);
