@@ -3,8 +3,7 @@
  */
 import React from 'react';
 
-// import { Title, Content } from '../components';
-import { Title, Content, Content2 } from '../components';
+import { Title, Content } from '../components';
 
 const App = () => (
   <div>

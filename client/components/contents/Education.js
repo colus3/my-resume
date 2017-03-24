@@ -3,9 +3,11 @@
  */
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { PageHeader } from 'react-bootstrap';
+
 import { DateFormat, DateTime, DateLocale } from 'dateutils';
-import _ from 'underscore';
+import _ from 'lodash';
+
+import { ContentItem } from '../../components';
 
 const Education = (props) => {
 
@@ -19,15 +21,12 @@ const Education = (props) => {
     return `* ${startDate} ~ ${endDate} ${education.title}\n`;
   }).join(' ');
 
-  return (
-    <div>
-      <PageHeader>{props.data.display_name}</PageHeader>
-      <ReactMarkdown source={educations} />
-    </div>
-  );
+  const contentItems = [];
+  contentItems.push(<ReactMarkdown source={educations} />);
+  return (<ContentItem resumeUIType={props.resumeUIType} title={props.data.display_name} contentItems={contentItems}/>);
 };
 
-Education.propTypes = { data: React.PropTypes.object };
-Education.defaultProps = { data: { display_name: '', type: '', contents: [] } };
+Education.propTypes = { resumeUIType: React.PropTypes.string, data: React.PropTypes.object };
+Education.defaultProps = { resumeUIType: '', data: { display_name: '', type: '', contents: [] } };
 
 export default Education;

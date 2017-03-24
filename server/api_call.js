@@ -2,7 +2,7 @@
  * Created by colus on 2016. 12. 4..
  */
 import rp from 'request-promise';
-import _ from 'underscore';
+import _ from 'lodash';
 
 function getInitialData(id) {
 

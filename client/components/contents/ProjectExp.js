@@ -2,10 +2,10 @@
  * Created by Colus on 2016. 8. 21..
  */
 import React from 'react';
-import { PageHeader } from 'react-bootstrap';
-import _ from 'underscore';
 
-import { TimeLine2 } from 'components';
+import _ from 'lodash';
+
+import { ContentItem, TimeLine2 } from 'components';
 import { TimeLineData } from 'domains';
 
 const ProjectExperience = (props) => {
@@ -24,16 +24,12 @@ const ProjectExperience = (props) => {
       project.label ? new Object(project.label).toString().split(',') : []
     );
   });
-
-  return (
-    <div>
-      <PageHeader>{props.data.display_name}</PageHeader>
-      <TimeLine2 datas={datas} useYearLabel/>
-    </div>
-  );
+  const contentItems = [];
+  contentItems.push(<TimeLine2 datas={datas} useYearLabel/>);
+  return (<ContentItem resumeUIType={props.resumeUIType} title={props.data.display_name} contentItems={contentItems}/>);
 };
 
-ProjectExperience.propTypes = { data: React.PropTypes.object };
-ProjectExperience.defaultProps = { data: { display_name: '', type: '', contents: [] } };
+ProjectExperience.propTypes = { resumeUIType: React.PropTypes.string, data: React.PropTypes.object };
+ProjectExperience.defaultProps = { resumeUIType: '', data: { display_name: '', type: '', contents: [] } };
 
 export default ProjectExperience;

@@ -3,9 +3,11 @@
  */
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { PageHeader } from 'react-bootstrap';
-import _ from 'underscore';
+
+import _ from 'lodash';
 import { DateTime, DateFormat, DateLocale } from 'dateutils';
+
+import { ContentItem } from '../../components';
 
 const WorkExperience = (props) => {
 
@@ -28,15 +30,12 @@ const WorkExperience = (props) => {
     );
   });
 
-  return (
-    <div>
-      <PageHeader>{props.data.display_name}</PageHeader>
-      {works}
-    </div>
-  );
+  const contentItems = [];
+  contentItems.push(works);
+  return (<ContentItem resumeUIType={props.resumeUIType} title={props.data.display_name} contentItems={contentItems}/>);
 };
 
-WorkExperience.propTypes = { data: React.PropTypes.object };
-WorkExperience.defaultProps = { data: { display_name: '', type: '', contents: [] } };
+WorkExperience.propTypes = { resumeUIType: React.PropTypes.string, data: React.PropTypes.object };
+WorkExperience.defaultProps = { resumeUIType: '', data: { display_name: '', type: '', contents: [] } };
 
 export default WorkExperience;

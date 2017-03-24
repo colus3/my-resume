@@ -7,26 +7,10 @@ import { Jumbotron, Grid, Row, Col } from 'react-bootstrap';
 
 import { Contacts } from '../components';
 
-const propTypes = {
-  name: React.PropTypes.string,
-  moto: React.PropTypes.string,
-  resumeUrl: React.PropTypes.string,
-  apiServerUrl: React.PropTypes.string,
-  image: React.PropTypes.string
-};
-
 class Title extends React.Component {
 
   constructor(props) {
     super(props);
-
-    // this.state = {
-    //   name: this.props.name,
-    //   moto: this.props.moto,
-    //   resumeUrl: this.props.resumeUrl,
-    //   apiServerUrl: this.props.apiServerUrl,
-    //   image: this.props.image
-    // };
 
     this.handleDownload = this.handleDownload.bind(this);
   }
@@ -78,7 +62,13 @@ class Title extends React.Component {
   }
 }
 
-Title.propTypes = propTypes;
+Title.propTypes = {
+  name: React.PropTypes.string,
+  moto: React.PropTypes.string,
+  resumeUrl: React.PropTypes.string,
+  apiServerUrl: React.PropTypes.string,
+  image: React.PropTypes.string
+};
 
 const mapStateToProps = (state) => {
   return {
