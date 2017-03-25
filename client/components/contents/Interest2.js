@@ -25,8 +25,8 @@ const Interest2 = (props) => {
   const contentItems = [];
   contentItems.push(
     <TagCloud
-      minSize={12}
-      maxSize={35}
+      minSize={5}
+      maxSize={25}
       tags={interests}
     />
   );
