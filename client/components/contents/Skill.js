@@ -2,8 +2,10 @@
  * Created by Colus on 2016. 8. 20..
  */
 import React from 'react';
-import { PageHeader } from 'react-bootstrap';
-import _ from 'underscore';
+
+import _ from 'lodash';
+
+import { ContentItem } from '../../components';
 
 const Skill = (props) => {
 
@@ -43,16 +45,13 @@ const Skill = (props) => {
     );
   });
 
-  return (
-    <div>
-      <PageHeader>{props.data.display_name}</PageHeader>
-      {skills}
-      {skillsPrint}
-    </div>
-  );
+  const contentItems = [];
+  contentItems.push(skills);
+  contentItems.push(skillsPrint);
+  return (<ContentItem resumeUIType={props.resumeUIType} title={props.data.display_name} contentItems={contentItems}/>);
 };
 
-Skill.propTypes = { data: React.PropTypes.object };
-Skill.defaultProps = { data: { display_name: '', type: '', contents: [] } };
+Skill.propTypes = { resumeUIType: React.PropTypes.string, data: React.PropTypes.object };
+Skill.defaultProps = { resumeUIType: '', data: { display_name: '', type: '', contents: [] } };
 
 export default Skill;
