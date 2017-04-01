@@ -11,7 +11,7 @@ import { TimeLineData } from 'domains';
 const ProjectExperience = (props) => {
 
   if ( _.isEmpty(props.data.contents) ) {
-    return (<div></div>);
+    return (<ContentItem />);
   }
 
   let datas = props.data.contents.map((project, i) => {
