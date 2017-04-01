@@ -12,7 +12,7 @@ import { ContentItem } from '../../components';
 const Certification = (props) => {
 
   if ( _.isEmpty(props.data.contents) ) {
-    return (<div></div>);
+    return (<ContentItem />);
   }
 
   const certifications = props.data.contents.map( certification => {

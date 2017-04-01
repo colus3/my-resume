@@ -12,7 +12,7 @@ import { ContentItem } from '../../components';
 const Education = (props) => {
 
   if ( _.isEmpty(props.data.contents) ) {
-    return (<div></div>);
+    return (<ContentItem />);
   }
 
   const educations = props.data.contents.map( education => {

@@ -10,7 +10,7 @@ import { ContentItem } from '../../components';
 const Skill = (props) => {
 
   if ( _.isEmpty(props.data.contents) ) {
-    return (<div></div>);
+    return (<ContentItem />);
   }
 
   const color = ['success', 'info', 'warning', 'danger', 'primary'];

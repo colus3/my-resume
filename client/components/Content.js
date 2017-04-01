@@ -4,19 +4,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { ContentType1, ContentType2, Profile, WorkExp, WorkExp2, ProjectExp, Education, Certification, Skill, Interest, Interest2 } from '../components';
-
-const Position = {
-  TOP: 35, LEFT: 36, RIGHT: 37, BOTTOM: 38
-};
-
-const ResumeType = {
-  TYPE1: 1, TYPE2: 2
-};
-
-const ContentType = {
-  Profile: 1, Education: 2, Certification: 3, Interest: 4, WorkExp: 5, ProjectExp: 6, Skill: 7, selfIntro: 8
-};
+import { ContentType1, ContentType2, Profile, WorkExp, ProjectExp, Education, Certification, Skill, Interest, Interest2, Position, ResumeType, ContentType } from '../components';
 
 class Content extends React.Component {
   
@@ -27,12 +15,12 @@ class Content extends React.Component {
     let bottomContents = [];
 
     this.props.contents
-        .map(value => {
-          switch (value.position) {
+        .map(content => {
+          switch (content.position) {
           case Position.TOP:    console.log('top'); break;
-          case Position.LEFT:   leftContents.push(contentFactory(this.props.resumeType, this.props.resumeUIType, value.content_type, value.id, value)); break;
-          case Position.RIGHT:  rightContents.push(contentFactory(this.props.resumeType, this.props.resumeUIType, value.content_type, value.id, value)); break;
-          case Position.BOTTOM: bottomContents.push(contentFactory(this.props.resumeType, this.props.resumeUIType, value.content_type, value.id, value)); break;
+          case Position.LEFT:   leftContents.push(contentFactory(this.props.resumeType, this.props.resumeUIType, content)); break;
+          case Position.RIGHT:  rightContents.push(contentFactory(this.props.resumeType, this.props.resumeUIType, content)); break;
+          case Position.BOTTOM: bottomContents.push(contentFactory(this.props.resumeType, this.props.resumeUIType, content)); break;
           }
         });
 
@@ -51,16 +39,16 @@ Content.propTypes = {
   contents: React.PropTypes.array
 };
 
-const contentFactory = (resumeType, resumeUIType, contentType, index, data) => {
-  switch ( contentType ) {
-  case ContentType.Profile:       return (<Profile key={index} resumeUIType={resumeUIType} data={data}/>);
-  case ContentType.Education:     return (<Education key={index} resumeUIType={resumeUIType} data={data}/>);
-  case ContentType.Certification: return (<Certification key={index} resumeUIType={resumeUIType} data={data}/>);
-  case ContentType.Interest:      return resumeType === ResumeType.TYPE1 ? (<Interest key={index} resumeUIType={resumeUIType} data={data}/>) : <Interest2 key={index} resumeUIType={resumeUIType} data={data}/>;
-  case ContentType.WorkExp:       return resumeType === ResumeType.TYPE1 ? (<WorkExp key={index} resumeUIType={resumeUIType} data={data}/>) : (<WorkExp2 key={index} resumeUIType={resumeUIType} data={data}/>);
-  case ContentType.ProjectExp:    return (<ProjectExp key={index} resumeUIType={resumeUIType} data={data}/>);
-  case ContentType.Skill:         return (<Skill key={index} resumeUIType={resumeUIType} data={data}/>);
-  case ContentType.selfIntro:     return (<Profile key={index} resumeUIType={resumeUIType} data={data}/>);
+const contentFactory = (resumeType, resumeUIType, content) => {
+  switch ( content.content_type ) {
+  case ContentType.Profile:       return (<Profile key={content.id} resumeUIType={resumeUIType} data={content}/>);
+  case ContentType.Education:     return (<Education key={content.id} resumeUIType={resumeUIType} data={content}/>);
+  case ContentType.Certification: return (<Certification key={content.id} resumeUIType={resumeUIType} data={content}/>);
+  case ContentType.Interest:      return (<Interest key={content.id} resumeUIType={resumeUIType} data={content}/>);
+  case ContentType.WorkExp:       return (<WorkExp key={content.id} resumeUIType={resumeUIType} data={content}/>);
+  case ContentType.ProjectExp:    return (<ProjectExp key={content.id} resumeUIType={resumeUIType} data={content}/>);
+  case ContentType.Skill:         return (<Skill key={content.id} resumeUIType={resumeUIType} data={content}/>);
+  // case ContentType.selfIntro:     return (<Profile key={index} resumeUIType={resumeUIType} data={data}/>);
   default: return '';
   }
 };
