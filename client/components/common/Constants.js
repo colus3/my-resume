@@ -7,11 +7,19 @@ const Position = {
 };
 
 const ResumeType = {
-  TYPE1: 1, TYPE2: 2
+  TYPE1: 1, TYPE2: 2, TYPE3: 3
 };
 
 const ContentType = {
-  Profile: 1, Education: 2, Certification: 3, Interest: 4, WorkExp: 5, ProjectExp: 6, Skill: 7, selfIntro: 8
+  Profile: 1,
+  Education: 2,
+  Certification: 3,
+  Interest: 4,
+  WorkExp: 5,
+  ProjectExp: 6,
+  Skill: 7,
+  selfIntro: 8,
+  Contacts: 9
 };
 
 const ContentDetailType = {

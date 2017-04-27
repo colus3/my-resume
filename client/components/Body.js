@@ -4,9 +4,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { ContentType1, ContentType2, Profile, WorkExp, ProjectExp, Education, Certification, Skill, Interest, Interest2, Position, ResumeType, ContentType } from '../components';
+import { ContentType1, ContentType2, Contacts, Profile, WorkExp, ProjectExp, Education, Certification, Skill, Interest, Interest2, Position, ResumeType, ContentType } from '../components';
 
-class Content extends React.Component {
+class Body extends React.Component {
   
   render() {
 
@@ -33,7 +33,7 @@ class Content extends React.Component {
   }
 }
 
-Content.propTypes = {
+Body.propTypes = {
   resumeType: React.PropTypes.number,
   resumeUIType: React.PropTypes.string,
   contents: React.PropTypes.array
@@ -41,6 +41,7 @@ Content.propTypes = {
 
 const contentFactory = (resumeType, resumeUIType, content) => {
   switch ( content.content_type ) {
+  case ContentType.Contacts:      return (<Contacts key={content.id} resumeUIType={resumeUIType} data={content}/>);
   case ContentType.Profile:       return (<Profile key={content.id} resumeUIType={resumeUIType} data={content}/>);
   case ContentType.Education:     return (<Education key={content.id} resumeUIType={resumeUIType} data={content}/>);
   case ContentType.Certification: return (<Certification key={content.id} resumeUIType={resumeUIType} data={content}/>);
@@ -61,4 +62,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Content);
+export default connect(mapStateToProps)(Body);

@@ -3,12 +3,12 @@
  */
 import React from 'react';
 
-import { Title, Content } from '../components';
+import { Title, Body } from '../components';
 
 const App = () => (
   <div>
     <Title/>
-    <Content/>
+    <Body/>
   </div>
 );
 
