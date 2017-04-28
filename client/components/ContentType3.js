@@ -5,21 +5,18 @@ import React from 'react';
 import { Grid as SemanticGrid } from 'semantic-ui-react';
 import { Grid as BootstrapGrid, Row as BootstrapRow, Col as BootstrapCol } from 'react-bootstrap';
 
-import { Title } from '../components';
-
-const ContentType1 = (props) => {
+const ContentType3 = (props) => {
 
   switch( props.resumeUIType ) {
   case 'bootstrap':
     return (
         <div>
-          <Title/>
           <BootstrapGrid>
             <BootstrapRow>
-              <BootstrapCol xs={12} sm={12} md={6} lg={6}>
+              <BootstrapCol xs={12} sm={12} md={4} lg={4}>
                 {props.left}
               </BootstrapCol>
-              <BootstrapCol xs={12} sm={12} md={6} lg={6}>
+              <BootstrapCol xs={12} sm={12} md={8} lg={8}>
                 {props.right}
               </BootstrapCol>
             </BootstrapRow>
@@ -37,13 +34,12 @@ const ContentType1 = (props) => {
   case 'semantic-ui':
     return (
         <div>
-          <Title/>
           <SemanticGrid container>
             <SemanticGrid.Row columns={2}>
-              <SemanticGrid.Column mobile={16} tablet={8} computer={8}>
+              <SemanticGrid.Column mobile={16} tablet={5} computer={5} color='grey'>
                 {props.left}
               </SemanticGrid.Column>
-              <SemanticGrid.Column mobile={16} tablet={8} computer={8}>
+              <SemanticGrid.Column mobile={16} tablet={11} computer={11}>
                 {props.right}
               </SemanticGrid.Column>
             </SemanticGrid.Row>
@@ -64,7 +60,7 @@ const ContentType1 = (props) => {
   }
 };
 
-ContentType1.propTypes = { resumeUIType: React.PropTypes.string, left: React.PropTypes.array, right: React.PropTypes.array, bottom: React.PropTypes.array };
-ContentType1.defaultProps = { resumeUIType: '', left: [], right: [], bottom: [] };
+ContentType3.propTypes = { resumeUIType: React.PropTypes.string, left: React.PropTypes.array, right: React.PropTypes.array, bottom: React.PropTypes.array };
+ContentType3.defaultProps = { resumeUIType: '', left: [], right: [], bottom: [] };
 
-export default ContentType1;
+export default ContentType3;

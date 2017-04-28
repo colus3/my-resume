@@ -4,7 +4,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { ContentType1, ContentType2, Contacts, Profile, WorkExp, ProjectExp, Education, Certification, Skill, Interest, Interest2, Position, ResumeType, ContentType } from '../components';
+import { ContentType1, ContentType2, ContentType3, Contacts, Profile, WorkExp, ProjectExp, Education, Certification, Skill, Interest, Interest2, Position, ResumeType, ContentType } from '../components';
 
 class Body extends React.Component {
   
@@ -21,6 +21,7 @@ class Body extends React.Component {
           case Position.LEFT:   leftContents.push(contentFactory(this.props.resumeType, this.props.resumeUIType, content)); break;
           case Position.RIGHT:  rightContents.push(contentFactory(this.props.resumeType, this.props.resumeUIType, content)); break;
           case Position.BOTTOM: bottomContents.push(contentFactory(this.props.resumeType, this.props.resumeUIType, content)); break;
+          case Position.TITLE:  console.log('title'); break;
           }
         });
 
@@ -29,6 +30,8 @@ class Body extends React.Component {
       return (<ContentType1 resumeUIType={this.props.resumeUIType} left={leftContents} right={rightContents} bottom={bottomContents}/>);
     case ResumeType.TYPE2:
       return (<ContentType2 resumeUIType={this.props.resumeUIType} left={leftContents} right={rightContents} bottom={bottomContents}/>);
+    case ResumeType.TYPE3:
+      return (<ContentType3 resumeUIType={this.props.resumeUIType} left={leftContents} right={rightContents} bottom={bottomContents}/>);
     }
   }
 }
@@ -41,7 +44,6 @@ Body.propTypes = {
 
 const contentFactory = (resumeType, resumeUIType, content) => {
   switch ( content.content_type ) {
-  case ContentType.Contacts:      return (<Contacts key={content.id} resumeUIType={resumeUIType} data={content}/>);
   case ContentType.Profile:       return (<Profile key={content.id} resumeUIType={resumeUIType} data={content}/>);
   case ContentType.Education:     return (<Education key={content.id} resumeUIType={resumeUIType} data={content}/>);
   case ContentType.Certification: return (<Certification key={content.id} resumeUIType={resumeUIType} data={content}/>);
@@ -50,6 +52,7 @@ const contentFactory = (resumeType, resumeUIType, content) => {
   case ContentType.ProjectExp:    return (<ProjectExp key={content.id} resumeUIType={resumeUIType} data={content}/>);
   case ContentType.Skill:         return (<Skill key={content.id} resumeUIType={resumeUIType} data={content}/>);
   // case ContentType.selfIntro:     return (<Profile key={index} resumeUIType={resumeUIType} data={data}/>);
+  case ContentType.Contacts:      return (<Contacts key={content.id} resumeUIType={resumeUIType} data={content}/>);
   default: return '';
   }
 };

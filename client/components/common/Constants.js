@@ -3,7 +3,7 @@
  */
 
 const Position = {
-  TOP: 35, LEFT: 36, RIGHT: 37, BOTTOM: 38
+  TOP: 35, LEFT: 36, RIGHT: 37, BOTTOM: 38, TITLE: 39
 };
 
 const ResumeType = {

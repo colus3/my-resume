@@ -7,7 +7,6 @@ import { Title, Body } from '../components';
 
 const App = () => (
   <div>
-    <Title/>
     <Body/>
   </div>
 );
