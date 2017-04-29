@@ -4,7 +4,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { ContentType1, ContentType2, ContentType3, Contacts, Profile, WorkExp, ProjectExp, Education, Certification, Skill, Interest, Interest2, Position, ResumeType, ContentType } from '../components';
+import { ContentType1, ContentType2, ContentType3, Contact, Profile, WorkExp, ProjectExp, Education, Certification, Skill, Interest, Interest2, Position, ResumeType, ContentType } from '../components';
 
 class Body extends React.Component {
   
@@ -52,7 +52,7 @@ const contentFactory = (resumeType, resumeUIType, content) => {
   case ContentType.ProjectExp:    return (<ProjectExp key={content.id} resumeUIType={resumeUIType} data={content}/>);
   case ContentType.Skill:         return (<Skill key={content.id} resumeUIType={resumeUIType} data={content}/>);
   // case ContentType.selfIntro:     return (<Profile key={index} resumeUIType={resumeUIType} data={data}/>);
-  case ContentType.Contacts:      return (<Contacts key={content.id} resumeUIType={resumeUIType} data={content}/>);
+  case ContentType.Contact:       return (<Contact key={content.id} resumeUIType={resumeUIType} data={content}/>);
   default: return '';
   }
 };

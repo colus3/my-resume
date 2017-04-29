@@ -19,7 +19,7 @@ const ContentType = {
   ProjectExp: 6,
   Skill: 7,
   selfIntro: 8,
-  Contacts: 9
+  Contact: 9
 };
 
 const ContentDetailType = {

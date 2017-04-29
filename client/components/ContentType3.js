@@ -5,6 +5,8 @@ import React from 'react';
 import { Grid as SemanticGrid } from 'semantic-ui-react';
 import { Grid as BootstrapGrid, Row as BootstrapRow, Col as BootstrapCol } from 'react-bootstrap';
 
+import { TitleContent } from '../components';
+
 const ContentType3 = (props) => {
 
   switch( props.resumeUIType ) {
@@ -13,10 +15,11 @@ const ContentType3 = (props) => {
         <div>
           <BootstrapGrid>
             <BootstrapRow>
-              <BootstrapCol xs={12} sm={12} md={4} lg={4}>
+              <BootstrapCol xs={12} sm={12} md={4} lg={4} style={{backgroundColor: '#C8C8C8'}}>
                 {props.left}
               </BootstrapCol>
               <BootstrapCol xs={12} sm={12} md={8} lg={8}>
+                <TitleContent/>
                 {props.right}
               </BootstrapCol>
             </BootstrapRow>

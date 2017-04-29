@@ -14,12 +14,13 @@ import Education from './contents/Education';
 import ProjectExp from './contents/ProjectExp';
 import WorkExp from './contents/WorkExp';
 import Skill from './contents/Skill';
-import Contacts from './contents/Contacts';
+import Contact from './contents/Contact';
 import Certification from './contents/Certification';
+import TitleContent from './contents/TitleContent';
 import TimeLine from './common/Timeline';
 import TimeLine2 from './common/Timeline2';
 import { Position, ResumeType, ContentType, ContentDetailType } from './common/Constants';
 
 export { App, Body, Title, ContentType1, ContentType2, ContentType3, ContentItem,
-  Interest, Profile, Education, ProjectExp, WorkExp, Skill, Contacts, Certification,
+  Interest, Profile, Education, ProjectExp, WorkExp, Skill, Contact, Certification, TitleContent,
   TimeLine, TimeLine2, Position, ResumeType, ContentType, ContentDetailType };

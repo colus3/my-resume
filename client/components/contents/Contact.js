@@ -2,7 +2,6 @@
  * Created by Colus on 2016. 8. 20..
  */
 import React from 'react';
-import { DateFormat, DateTime, DateLocale } from 'dateutils';
 import { connect } from 'react-redux';
 import { ContentItem } from '../../components';
 import _ from 'lodash';
@@ -14,7 +13,7 @@ const data = {
   birthDate: ''
 };
 
-class Contacts extends React.Component {
+class Contact extends React.Component {
 
   constructor(props) {
     super(props);
@@ -50,8 +49,9 @@ class Contacts extends React.Component {
     const contentItems = [];
     contentItems.push(
       <div>
-        <img src={this.props.image} className="img-responsive img-circle center-block"
-             alt="Responsive image" style={imgStyle}/>
+        {/*<br/><br/>*/}
+        {/*<img src={this.props.image} className="img-responsive img-circle center-block"*/}
+             {/*alt="Responsive image" style={imgStyle}/>*/}
         <address>
           <h4 className="text-left">
             <span className="glyphicon glyphicon-user" aria-hidden="true"/> {data.birthDate}
@@ -72,18 +72,18 @@ class Contacts extends React.Component {
       </div>
     );
 
-    return (<ContentItem resumeUIType={this.props.resumeUIType} contentItems={contentItems}/>);
+    return (<ContentItem resumeUIType={this.props.resumeUIType} title={this.props.data.display_name} contentItems={contentItems}/>);
   }
 }
 
-Contacts.defaultProps = {
+Contact.defaultProps = {
   resumeUrl: '',
   image: '',
   resumeUIType: '',
   data: { display_name: '', type: '', contents: [] },
 };
 
-Contacts.propTypes = {
+Contact.propTypes = {
   resumeUrl: React.PropTypes.string,
   image: React.PropTypes.string,
   resumeUIType: React.PropTypes.string,
@@ -97,4 +97,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Contacts);
+export default connect(mapStateToProps)(Contact);

@@ -52,7 +52,7 @@ const createDetailType2Items = data => {
     let date =
         `(${DateFormat.format(DateTime.fromDateObject(new Date(work.start_date)), 'Y-m', DateLocale.EN)} \
     ~ ${DateFormat.format(DateTime.fromDateObject(new Date(work.end_date)), 'Y-m', DateLocale.EN)})`;
-    let labels = work.label.split(',').map(label => (<span className='label label-default' style={style}>{label}</span>));
+    let labels = work.label.split(',').map((label, idx) => (<span key={idx} className='label label-default' style={style}>{label}</span>));
     return (
         <div key={i}>
           <h3>{work.title} {date}</h3>
