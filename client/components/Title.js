@@ -17,11 +17,11 @@ class Title extends React.Component {
   }
 
   handleResumeUrl() {
-    window.location.assign(`${data.resumeUrl}`);
+    window.location.assign(`${this.props.resumeUrl}`);
   }
 
   handleMailTo() {
-    window.location.assign(`mailto:${data.email}`);
+    window.location.assign(`mailto:${this.props.email}`);
   }
 
   handleDownload() {
