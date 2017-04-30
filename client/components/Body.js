@@ -4,9 +4,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { ContentType1, ContentType2, Profile, WorkExp, ProjectExp, Education, Certification, Skill, Interest, Interest2, Position, ResumeType, ContentType } from '../components';
+import { ContentType1, ContentType2, ContentType3, Contact, Profile, WorkExp, ProjectExp, Education, Certification, Skill, Interest, Interest2, Position, ResumeType, ContentType } from '../components';
 
-class Content extends React.Component {
+class Body extends React.Component {
   
   render() {
 
@@ -21,6 +21,7 @@ class Content extends React.Component {
           case Position.LEFT:   leftContents.push(contentFactory(this.props.resumeType, this.props.resumeUIType, content)); break;
           case Position.RIGHT:  rightContents.push(contentFactory(this.props.resumeType, this.props.resumeUIType, content)); break;
           case Position.BOTTOM: bottomContents.push(contentFactory(this.props.resumeType, this.props.resumeUIType, content)); break;
+          case Position.TITLE:  console.log('title'); break;
           }
         });
 
@@ -29,11 +30,13 @@ class Content extends React.Component {
       return (<ContentType1 resumeUIType={this.props.resumeUIType} left={leftContents} right={rightContents} bottom={bottomContents}/>);
     case ResumeType.TYPE2:
       return (<ContentType2 resumeUIType={this.props.resumeUIType} left={leftContents} right={rightContents} bottom={bottomContents}/>);
+    case ResumeType.TYPE3:
+      return (<ContentType3 resumeUIType={this.props.resumeUIType} left={leftContents} right={rightContents} bottom={bottomContents}/>);
     }
   }
 }
 
-Content.propTypes = {
+Body.propTypes = {
   resumeType: React.PropTypes.number,
   resumeUIType: React.PropTypes.string,
   contents: React.PropTypes.array
@@ -49,6 +52,7 @@ const contentFactory = (resumeType, resumeUIType, content) => {
   case ContentType.ProjectExp:    return (<ProjectExp key={content.id} resumeUIType={resumeUIType} data={content}/>);
   case ContentType.Skill:         return (<Skill key={content.id} resumeUIType={resumeUIType} data={content}/>);
   // case ContentType.selfIntro:     return (<Profile key={index} resumeUIType={resumeUIType} data={data}/>);
+  case ContentType.Contact:       return (<Contact key={content.id} resumeUIType={resumeUIType} data={content}/>);
   default: return '';
   }
 };
@@ -61,4 +65,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Content);
+export default connect(mapStateToProps)(Body);

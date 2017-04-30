@@ -3,9 +3,8 @@
  */
 import React from 'react';
 import { connect } from 'react-redux';
+import { DateFormat, DateTime, DateLocale } from 'dateutils';
 import { Jumbotron, Grid, Row, Col } from 'react-bootstrap';
-
-import { Contacts } from '../components';
 
 class Title extends React.Component {
 
@@ -13,6 +12,16 @@ class Title extends React.Component {
     super(props);
 
     this.handleDownload = this.handleDownload.bind(this);
+    this.handleResumeUrl = this.handleResumeUrl.bind(this);
+    this.handleMailTo = this.handleMailTo.bind(this);
+  }
+
+  handleResumeUrl() {
+    window.location.assign(`${data.resumeUrl}`);
+  }
+
+  handleMailTo() {
+    window.location.assign(`mailto:${data.email}`);
   }
 
   handleDownload() {
@@ -49,7 +58,23 @@ class Title extends React.Component {
               </p>
             </Col>
             <Col xs={12} sm={4} md={5}>
-              <Contacts/>
+              <address>
+                <h4 className="text-right">
+                  {this.props.birthDate} <span className="glyphicon glyphicon-user" aria-hidden="true"/>
+                </h4>
+                <h4 className="text-right">
+                  <abbr title="phone">{this.props.phone}</abbr> <span className="glyphicon glyphicon-earphone" aria-hidden="true"/>
+                </h4>
+                <h4 className="text-right">
+                  <a href="#" onClick={this.handleMailTo}>{this.props.email}</a> <span className="glyphicon glyphicon-envelope" aria-hidden="true"/>
+                </h4>
+                <h4 className="text-right">
+                  {this.props.address} <span className="glyphicon glyphicon-home" aria-hidden="true"/>
+                </h4>
+                <h4 className="text-right">
+                  <a href="#" onClick={this.handleResumeUrl}>{this.props.resumeUrl}</a> <span className="glyphicon glyphicon-link" aria-hidden="true"/>
+                </h4>
+              </address>
             </Col>
           </Row>
         </Grid>
@@ -67,7 +92,12 @@ Title.propTypes = {
   moto: React.PropTypes.string,
   resumeUrl: React.PropTypes.string,
   apiServerUrl: React.PropTypes.string,
-  image: React.PropTypes.string
+  image: React.PropTypes.string,
+  phone: React.PropTypes.string,
+  email: React.PropTypes.string,
+  address: React.PropTypes.string,
+  birthDate: React.PropTypes.string
+
 };
 
 const mapStateToProps = (state) => {
@@ -76,7 +106,11 @@ const mapStateToProps = (state) => {
     moto: state.User.moto,
     resumeUrl: state.resume_short_url,
     apiServerUrl: state.api_server_url,
-    image: state.User.image
+    image: state.User.image,
+    phone: state.User.phone,
+    email: state.User.email,
+    address: state.User.address,
+    birthDate: DateFormat.format(DateTime.fromDateObject(new Date(state.User.birth_date)), 'Y-m-d', DateLocale.EN),
   };
 };
 

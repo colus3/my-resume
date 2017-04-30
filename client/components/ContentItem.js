@@ -2,6 +2,7 @@
  * Created by colus on 2017. 3. 14..
  */
 import React from 'react';
+import _ from 'lodash';
 
 import { PageHeader as BootstrapHeader } from 'react-bootstrap';
 import { Header as SemanticHeader, Divider as SemanticDivider } from 'semantic-ui-react';
@@ -10,9 +11,10 @@ const ContentItem = (props) => {
 
   switch( props.resumeUIType ) {
   case 'bootstrap':
+    const title = _.isEmpty(props.title) ? '' : (<BootstrapHeader>{props.title}</BootstrapHeader>);
     return (
         <div key={props.title}>
-          <BootstrapHeader>{props.title}</BootstrapHeader>
+          {title}
           {props.contentItems}
         </div>
     );
@@ -24,6 +26,7 @@ const ContentItem = (props) => {
           <SemanticDivider />
         </div>
     );
+  default: return (<div></div>);
   }
 };
 

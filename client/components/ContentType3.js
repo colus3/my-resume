@@ -5,26 +5,28 @@ import React from 'react';
 import { Grid as SemanticGrid } from 'semantic-ui-react';
 import { Grid as BootstrapGrid, Row as BootstrapRow, Col as BootstrapCol } from 'react-bootstrap';
 
-import { Title } from '../components';
+import { TitleContent, SimpleTitle, PageBreak } from '../components';
 
-const ContentType1 = (props) => {
+const ContentType3 = (props) => {
 
   switch( props.resumeUIType ) {
   case 'bootstrap':
     return (
         <div>
-          <Title/>
           <BootstrapGrid>
             <BootstrapRow>
-              <BootstrapCol xs={12} sm={12} md={6} lg={6}>
-                {props.left}
+              {/*<BootstrapCol xs={12} sm={12} md={4} lg={4} style={{backgroundColor: '#E0E0E0'}}>*/}
+              <BootstrapCol xs={12} sm={12} md={4} lg={4}>
+                <SimpleTitle />
+                {props.left.sort((a, b) => a.props.data.ord - b.props.data.ord)}
               </BootstrapCol>
-              <BootstrapCol xs={12} sm={12} md={6} lg={6}>
-                {props.right}
+              <BootstrapCol xs={12} sm={12} md={8} lg={8}>
+                {/*<TitleContent/>*/}
+                {props.right.sort((a, b) => a.props.data.ord - b.props.data.ord)}
               </BootstrapCol>
             </BootstrapRow>
           </BootstrapGrid>
-          <div className="page-break"></div>
+          <PageBreak/>
           <BootstrapGrid>
             <BootstrapRow>
               <BootstrapCol xs={12} sm={12} md={12} lg={12}>
@@ -37,18 +39,17 @@ const ContentType1 = (props) => {
   case 'semantic-ui':
     return (
         <div>
-          <Title/>
           <SemanticGrid container>
             <SemanticGrid.Row columns={2}>
-              <SemanticGrid.Column mobile={16} tablet={8} computer={8}>
+              <SemanticGrid.Column mobile={16} tablet={5} computer={5} color='grey'>
                 {props.left}
               </SemanticGrid.Column>
-              <SemanticGrid.Column mobile={16} tablet={8} computer={8}>
+              <SemanticGrid.Column mobile={16} tablet={11} computer={11}>
                 {props.right}
               </SemanticGrid.Column>
             </SemanticGrid.Row>
           </SemanticGrid>
-          <div className="page-break"></div>
+          <PageBreak/>
           <SemanticGrid container>
             <SemanticGrid.Row>
               <SemanticGrid.Column>
@@ -64,7 +65,7 @@ const ContentType1 = (props) => {
   }
 };
 
-ContentType1.propTypes = { resumeUIType: React.PropTypes.string, left: React.PropTypes.array, right: React.PropTypes.array, bottom: React.PropTypes.array };
-ContentType1.defaultProps = { resumeUIType: '', left: [], right: [], bottom: [] };
+ContentType3.propTypes = { resumeUIType: React.PropTypes.string, left: React.PropTypes.array, right: React.PropTypes.array, bottom: React.PropTypes.array };
+ContentType3.defaultProps = { resumeUIType: '', left: [], right: [], bottom: [] };
 
-export default ContentType1;
+export default ContentType3;

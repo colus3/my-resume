@@ -2,6 +2,7 @@
  * Created by Colus on 2016. 8. 21..
  */
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 const propTypes = {
   datas: React.PropTypes.array,
@@ -41,7 +42,7 @@ class TimeLine extends React.Component {
       
       const timeLineBody = (
         <div className="timeline-body">
-          <p>{data.desc === '' ? '' : data.desc}</p>
+          <p>{data.desc === '' ? '' : (<ReactMarkdown source={data.desc}/>)}</p>
           <p>
             {data.badges === [] ? '' : data.badges.map( (badge, i) => ( <span key={i} className="label label-primary" style={style}>{badge}</span> ) )}
           </p>
@@ -56,7 +57,7 @@ class TimeLine extends React.Component {
       
       return (
         <div key={data.id} className="timeline-item">
-          <div className="timeline-point timeline-point-blank"></div>
+          <div className="timeline-point timeline-point-blank" />
           <div className="timeline-event">
             {timeLineHead}
             {timeLineBody}
