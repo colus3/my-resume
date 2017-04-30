@@ -17,10 +17,12 @@ import Skill from './contents/Skill';
 import Contact from './contents/Contact';
 import Certification from './contents/Certification';
 import TitleContent from './contents/TitleContent';
+import SimpleTitle from './contents/SimpleTitle';
 import TimeLine from './common/Timeline';
 import TimeLine2 from './common/Timeline2';
+import PageBreak from './common/PageBreak';
 import { Position, ResumeType, ContentType, ContentDetailType } from './common/Constants';
 
 export { App, Body, Title, ContentType1, ContentType2, ContentType3, ContentItem,
-  Interest, Profile, Education, ProjectExp, WorkExp, Skill, Contact, Certification, TitleContent,
-  TimeLine, TimeLine2, Position, ResumeType, ContentType, ContentDetailType };
+  Interest, Profile, Education, ProjectExp, WorkExp, Skill, Contact, Certification, TitleContent, SimpleTitle,
+  TimeLine, TimeLine2, PageBreak, Position, ResumeType, ContentType, ContentDetailType };

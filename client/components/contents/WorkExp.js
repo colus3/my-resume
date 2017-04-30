@@ -20,6 +20,7 @@ const WorkExperience = (props) => {
   switch ( props.data.content_detail_type ) {
   case ContentDetailType.TYPE1: contentItems = createDetailType1Items(props.data); break;
   case ContentDetailType.TYPE2: contentItems = createDetailType2Items(props.data); break;
+  case ContentDetailType.TYPE3: contentItems = createDetailType3Items(props.data); break;
   }
 
   return (<ContentItem resumeUIType={props.resumeUIType} title={props.data.display_name} contentItems={contentItems}/>);
@@ -64,6 +65,25 @@ const createDetailType2Items = data => {
 
   const contentItems = [];
   contentItems.push(works);
+
+  return contentItems;
+};
+
+const createDetailType3Items = data => {
+
+  const datas = data.contents.map((work, i) => {
+    return new TimeLineData(
+        i,
+        new Date(work.start_date),
+        new Date(work.end_date),
+        work.title,
+        work.desc,
+        work.label ? work.label.split(',') : []
+    );
+  });
+
+  const contentItems = [];
+  contentItems.push(<TimeLine datas={datas} usePeriod />);
 
   return contentItems;
 };

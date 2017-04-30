@@ -5,7 +5,7 @@ import React from 'react';
 import { Grid as SemanticGrid } from 'semantic-ui-react';
 import { Grid as BootstrapGrid, Row as BootstrapRow, Col as BootstrapCol } from 'react-bootstrap';
 
-import { TitleContent } from '../components';
+import { TitleContent, SimpleTitle, PageBreak } from '../components';
 
 const ContentType3 = (props) => {
 
@@ -15,16 +15,18 @@ const ContentType3 = (props) => {
         <div>
           <BootstrapGrid>
             <BootstrapRow>
-              <BootstrapCol xs={12} sm={12} md={4} lg={4} style={{backgroundColor: '#C8C8C8'}}>
-                {props.left}
+              {/*<BootstrapCol xs={12} sm={12} md={4} lg={4} style={{backgroundColor: '#E0E0E0'}}>*/}
+              <BootstrapCol xs={12} sm={12} md={4} lg={4}>
+                <SimpleTitle />
+                {props.left.sort((a, b) => a.props.data.ord - b.props.data.ord)}
               </BootstrapCol>
               <BootstrapCol xs={12} sm={12} md={8} lg={8}>
-                <TitleContent/>
-                {props.right}
+                {/*<TitleContent/>*/}
+                {props.right.sort((a, b) => a.props.data.ord - b.props.data.ord)}
               </BootstrapCol>
             </BootstrapRow>
           </BootstrapGrid>
-          <div className="page-break"></div>
+          <PageBreak/>
           <BootstrapGrid>
             <BootstrapRow>
               <BootstrapCol xs={12} sm={12} md={12} lg={12}>
@@ -47,7 +49,7 @@ const ContentType3 = (props) => {
               </SemanticGrid.Column>
             </SemanticGrid.Row>
           </SemanticGrid>
-          <div className="page-break"></div>
+          <PageBreak/>
           <SemanticGrid container>
             <SemanticGrid.Row>
               <SemanticGrid.Column>

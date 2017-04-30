@@ -23,7 +23,7 @@ const ContentType = {
 };
 
 const ContentDetailType = {
-  TYPE1: 1, TYPE2: 2
+  TYPE1: 1, TYPE2: 2, TYPE3: 3
 };
 
 export {Position, ResumeType, ContentType, ContentDetailType};
