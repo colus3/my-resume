@@ -20,6 +20,7 @@ const WorkExperience = (props) => {
   switch ( props.data.content_detail_type ) {
   case ContentDetailType.TYPE1: contentItems = createDetailType1Items(props.data); break;
   case ContentDetailType.TYPE2: contentItems = createDetailType2Items(props.data); break;
+  case ContentDetailType.TYPE3: contentItems = createDetailType3Items(props.data); break;
   }
 
   return (<ContentItem resumeUIType={props.resumeUIType} title={props.data.display_name} contentItems={contentItems}/>);
@@ -52,7 +53,7 @@ const createDetailType2Items = data => {
     let date =
         `(${DateFormat.format(DateTime.fromDateObject(new Date(work.start_date)), 'Y-m', DateLocale.EN)} \
     ~ ${DateFormat.format(DateTime.fromDateObject(new Date(work.end_date)), 'Y-m', DateLocale.EN)})`;
-    let labels = work.label.split(',').map(label => (<span className='label label-default' style={style}>{label}</span>));
+    let labels = work.label.split(',').map((label, idx) => (<span key={idx} className='label label-default' style={style}>{label}</span>));
     return (
         <div key={i}>
           <h3>{work.title} {date}</h3>
@@ -64,6 +65,25 @@ const createDetailType2Items = data => {
 
   const contentItems = [];
   contentItems.push(works);
+
+  return contentItems;
+};
+
+const createDetailType3Items = data => {
+
+  const datas = data.contents.map((work, i) => {
+    return new TimeLineData(
+        i,
+        new Date(work.start_date),
+        new Date(work.end_date),
+        work.title,
+        work.desc,
+        work.label ? work.label.split(',') : []
+    );
+  });
+
+  const contentItems = [];
+  contentItems.push(<TimeLine datas={datas} usePeriod />);
 
   return contentItems;
 };

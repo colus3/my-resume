@@ -5,12 +5,15 @@ import React from 'react';
 import { Grid as SemanticGrid } from 'semantic-ui-react';
 import { Grid as BootstrapGrid, Row as BootstrapRow, Col as BootstrapCol } from 'react-bootstrap';
 
+import { Title } from '../components';
+
 const ContentType2 = (props) => {
 
   switch( props.resumeUIType ) {
   case 'bootstrap':
     return (
         <div>
+          <Title/>
           <BootstrapGrid>
             <BootstrapRow>
               <BootstrapCol xs={12} sm={12} md={4} lg={4}>
@@ -34,6 +37,7 @@ const ContentType2 = (props) => {
   case 'semantic-ui':
     return (
         <div>
+          <Title/>
           <SemanticGrid container>
             <SemanticGrid.Row columns={2}>
               <SemanticGrid.Column mobile={16} tablet={5} computer={5} color='grey'>

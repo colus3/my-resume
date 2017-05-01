@@ -16,7 +16,7 @@ const Interest = (props) => {
   let contentItems = [];
   switch ( props.data.content_detail_type ) {
   case ContentDetailType.TYPE1: contentItems = createDetailType1Items(props.data); break;
-  case ContentDetailType.TYPE2: contentItems = createDetailType2Items(props.data); console.log(contentItems); break;
+  case ContentDetailType.TYPE2: contentItems = createDetailType2Items(props.data); break;
   }
 
   return (<ContentItem resumeUIType={props.resumeUIType} title={props.data.display_name} contentItems={contentItems}/>);
