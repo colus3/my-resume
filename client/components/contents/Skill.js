@@ -60,7 +60,7 @@ const createDetailType2Items = data => {
   const slicedSkills = (
       <Row>
         <Col xs={12} sm={12} md={6} lg={6}>
-          {skills.length % 2 === 0 ? skills.slice(0, skills.length / 2 + 1) : skills.slice(0, skills.length / 2)}
+          {skills.length % 2 === 0 ? skills.slice(0, skills.length / 2) : skills.slice(0, skills.length / 2 + 1)}
         </Col>
         <Col xs={12} sm={12} md={6} lg={6}>
           {skills.length % 2 === 0 ? skills.slice(skills.length / 2) : skills.slice(skills.length / 2 + 1)}
@@ -71,7 +71,7 @@ const createDetailType2Items = data => {
   const slicedSkillsPrint = (
       <Row>
         <Col xs={12} sm={12} md={6} lg={6}>
-          {skillsPrint.length % 2 === 0 ? skillsPrint.slice(0, skillsPrint.length / 2 + 1) : skillsPrint.slice(0, skillsPrint.length / 2)}
+          {skillsPrint.length % 2 === 0 ? skillsPrint.slice(0, skillsPrint.length / 2) : skillsPrint.slice(0, skillsPrint.length / 2 + 1)}
         </Col>
         <Col xs={12} sm={12} md={6} lg={6}>
           {skillsPrint.length % 2 === 0 ? skillsPrint.slice(skillsPrint.length / 2) : skillsPrint.slice(skillsPrint.length / 2 + 1)}
