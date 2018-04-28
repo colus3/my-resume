@@ -13,4 +13,4 @@ RUN mkdir -p /usr/my-resume
 COPY . /usr/my-resume
 
 EXPOSE 3500
-CMD cd /usr/my-resume && npm start
+CMD cd /usr/my-resume && npm run-script build && npm start
